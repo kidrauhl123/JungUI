@@ -8,6 +8,12 @@ export const GALLERY = [
   { cat: '图形语言 · Graphic Systems', items: [{ id: 'graphic-language', tech: 'React' }] },
   { cat: '动效模式 · Motion Patterns', items: [{ id: 'motion-patterns', tech: 'React · Framer Motion' }] },
   { cat: '背景 · Atmospheric Backgrounds', items: [{ id: 'programmatic-sky', tech: 'React · Canvas' }] },
-  { cat: '按钮 · Buttons', items: [{ id: 'gsap-buttons', tech: 'React · GSAP' }] },
+  {
+    cat: '按钮 · Buttons',
+    items: [
+      { id: 'gsap-buttons', tech: 'React · GSAP' },
+      { id: 'base-cta-button', tech: 'Vanilla HTML/CSS · 源自 Base' },
+    ],
+  },
   { cat: '切换 · Toggles', items: [{ id: 'theme-toggle', tech: 'React · 源自 EVAA' }] },
 ]

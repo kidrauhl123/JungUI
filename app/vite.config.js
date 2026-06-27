@@ -19,6 +19,7 @@ export default defineConfig({
         'motion-patterns': entry('./specimens/motion-patterns/index.html'),
         'programmatic-sky': entry('./specimens/programmatic-sky/index.html'),
         'gsap-buttons': entry('./specimens/gsap-buttons/index.html'),
+        'base-cta-button': entry('./specimens/base-cta-button/index.html'),
         'theme-toggle': entry('./specimens/theme-toggle/index.html'),
         'patterns-maxima': entry('./patterns/maxima-card-stack/index.html'),
         'patterns-sky': entry('./patterns/programmatic-sky/index.html'),

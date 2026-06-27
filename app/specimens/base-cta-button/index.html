@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base CTA Button · JungUI</title>
+    <!--
+      Collected from Base Chain (base.org) — the "Start building" CTA hover.
+      NOTE: source site/code was not available; values are eyeballed + color-sampled
+      from a screen recording, NOT reverse-engineered from real CSS (see README's
+      collection rule — this is the fallback path, lower fidelity than source code).
+      Hover motion: trailing arrow fades/slides out · a white rounded chip scales in
+      on the left · the label nudges right to make room.
+      Built as plain vanilla HTML/CSS (no framework) to exercise the iframe sandbox.
+    -->
+    <style>
+      :root {
+        --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+        --base-blue: #2b2cf6;          /* sampled from the recording */
+        --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { background: transparent; margin: 0; }
+      body {
+        font-family: var(--font);
+        display: grid;
+        place-items: center;
+        padding: 40px 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+      .item { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+
+      .base-cta {
+        display: inline-flex;
+        align-items: center;
+        border: 0;
+        cursor: pointer;
+        background: var(--base-blue);
+        color: #fff;
+        font-family: var(--font);
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1;
+        padding: 17px 26px;
+        border-radius: 16px;
+        text-decoration: none;
+        box-shadow: 0 1px 2px rgba(20, 24, 60, 0.12), 0 12px 30px -16px rgba(43, 44, 246, 0.5);
+        transition: box-shadow 0.28s var(--ease), filter 0.28s var(--ease);
+      }
+      .base-cta:hover { box-shadow: 0 2px 4px rgba(20, 24, 60, 0.14), 0 18px 38px -16px rgba(43, 44, 246, 0.6); }
+      .base-cta:active { transform: translateY(0.5px); }
+      .base-cta:focus-visible { outline: 3px solid rgba(43, 44, 246, 0.35); outline-offset: 3px; }
+
+      /* leading white chip — collapsed by default, scales in on hover */
+      .base-cta__chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 0;
+        height: 26px;
+        margin-right: 0;
+        border-radius: 8px;
+        background: #fff;
+        opacity: 0;
+        transform: scale(0.4);
+        transform-origin: left center;
+        overflow: hidden;
+        transition:
+          width 0.3s var(--ease),
+          margin-right 0.3s var(--ease),
+          opacity 0.22s var(--ease),
+          transform 0.3s var(--ease);
+      }
+      .base-cta:hover .base-cta__chip {
+        width: 26px;
+        margin-right: 12px;
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .base-cta__label { display: inline-block; white-space: nowrap; }
+
+      /* trailing arrow — slides out + fades on hover */
+      .base-cta__arrow {
+        display: inline-flex;
+        width: 20px;
+        margin-left: 10px;
+        opacity: 1;
+        transform: translateX(0);
+        transition:
+          width 0.3s var(--ease),
+          margin-left 0.3s var(--ease),
+          opacity 0.2s var(--ease),
+          transform 0.3s var(--ease);
+      }
+      .base-cta:hover .base-cta__arrow {
+        width: 0;
+        margin-left: 0;
+        opacity: 0;
+        transform: translateX(10px);
+      }
+      .base-cta__arrow svg { display: block; }
+
+      .caption { text-align: center; }
+      .caption .name { font-size: 13px; font-weight: 600; color: rgba(0, 0, 0, 0.9); }
+      .caption .note { font-size: 11px; color: rgba(0, 0, 0, 0.36); margin-top: 4px; line-height: 1.5; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .base-cta, .base-cta__chip, .base-cta__arrow { transition-duration: 0.01ms; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <a class="base-cta" href="#" onclick="return false">
+        <span class="base-cta__chip" aria-hidden="true"></span>
+        <span class="base-cta__label">Start building</span>
+        <span class="base-cta__arrow" aria-hidden="true">
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
+            <path d="M2 8h15M11 2l6 6-6 6" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+      <div class="caption">
+        <div class="name">Base CTA · 悬浮换位</div>
+        <div class="note">悬浮：尾箭头滑出 · 左侧白块缩入 · 文字让位。源自 Base（视觉还原）。</div>
+      </div>
+    </div>
+
+    <script type="module">
+      import { reportHeight } from '../_autoheight.js'
+      reportHeight()
+    </script>
+  </body>
+</html>
