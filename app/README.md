@@ -45,17 +45,22 @@ npm run build   # 产物在 dist/
 npm run preview
 ```
 
-## 发布到 Cloudflare Pages
+## 发布：Git 自动部署（push 即上线）
 
-Direct Upload 模式（非 Git 自动部署）。Pages 项目名 `jungui`，正式域名 `https://jungui-cle.pages.dev/`，生产分支 `production`。
+已接 Cloudflare Pages 的 Git 自动部署。仓库 `github.com/kidrauhl123/JungUI`（私有），Pages 项目 `jungui`，正式域名 `https://jungui-cle.pages.dev/`。
+
+发布 = 推到生产分支：
 
 ```bash
-npm run build
-npx wrangler pages deploy dist --project-name jungui --branch production
+cd /Users/jung/GitHub/JungUI
+git add -A && git commit -m "..." && git push
 ```
 
-- 项目名是 `jungui`，不是 `jungui-cle`（那是域名）。
-- 必须用 `--branch production`；`main` 只会生成 Preview 部署。
+Cloudflare 自动 `npm run build` 并上线。Pages 端构建配置（一次性已设）：
+
+- Production branch: `main`
+- Root directory: `app`（Vite 项目在子目录）
+- Build command: `npm run build`，Output: `dist`
 
 发布后核对正式域名已切到新构建：
 
