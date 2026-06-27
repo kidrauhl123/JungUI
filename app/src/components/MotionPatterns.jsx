@@ -50,7 +50,7 @@ const BELIEF_LINES = [
 export function MotionPatterns() {
   return (
     <div className="item motion-pattern-item">
-      <a className="motion-pattern-preview" href="/patterns/maxima-card-stack" aria-label="打开 Maxima 风格滚动卡片堆">
+      <a className="motion-pattern-preview" href="/patterns/maxima-card-stack/" target="_top" aria-label="打开 Maxima 风格滚动卡片堆">
         <div className="motion-preview-stage" aria-hidden="true">
           {MAXIMA_CARDS.map((card, index) => (
             <span

@@ -465,7 +465,7 @@ export function ProgrammaticSky({
 export function ProgrammaticSkyPreview() {
   return (
     <div className="item programmatic-sky-item">
-      <a className="sky-preview-card" href="/patterns/programmatic-sky" aria-label="打开程序化天空背景预览">
+      <a className="sky-preview-card" href="/patterns/programmatic-sky/" target="_top" aria-label="打开程序化天空背景预览">
         <ProgrammaticSky className="sky-preview-card__sky" variant="preview" clouds={0.9} drift={0.56} />
         <div className="sky-preview-card__chrome" aria-hidden="true">
           <span />

@@ -1,0 +1,15 @@
+/* Specimen iframe document: transparent + fit-to-content so it blends into the
+   gallery shell. Overrides the gallery's full-viewport body rules from index.css. */
+html, body {
+  background: transparent !important;
+  min-height: 0 !important;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  padding: 28px 12px;
+  display: grid;
+  place-items: center;
+}
+/* the gallery's .cat adds big top padding meant for a full page — trim it here */
+.cat { padding: 0 !important; margin: 0 auto !important; }

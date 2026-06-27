@@ -679,3 +679,16 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);min-height:10
   .tt-icon{transition-duration:.01ms}
   .tt-btn:hover,.tt-btn:active{transform:none}
 }
+
+/* ---- gallery shell: specimen iframe cards ---- */
+.frame-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.frame-card{position:relative;border-radius:18px;overflow:hidden;background:var(--surface);
+  box-shadow:0 1px 2px rgba(20,24,40,.05),0 14px 38px -22px rgba(20,24,40,.28)}
+.frame-card .frame{display:block;width:100%;border:0;background:transparent;overflow:hidden}
+.frame-tech{position:absolute;top:10px;right:10px;z-index:2;pointer-events:none;
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);background:rgba(0,0,0,.05);border:1px solid var(--line);
+  padding:4px 8px;border-radius:999px}
+@media (min-width:760px){
+  .frame-grid{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+}
