@@ -32,11 +32,26 @@ npm run dev
 
 Vite 默认地址 `http://localhost:5173`。
 
-## 源码导航
+## 架构：iframe 沙盒聚合
 
-- `src/App.jsx`：页面结构和展示区。
-- `src/index.css`：全局 token、布局、各展示样式。
-- `src/components/`：各个交互样式（RevealCard、CardStack、RippleField、vizzes 等）。
+画廊是个**薄壳**，每个收藏件活在**自己的 iframe 沙盒**里（独立 HTML 入口 + 独立 build），所以任何技术栈（React/Vue/Svelte/纯 HTML/源站真实产物）都能并排收藏，样式和 JS 互不串扰。
+
+- `src/App.jsx`：画廊壳。读 `src/specimens.js` 清单，逐件渲染 `<iframe>`，监听子页上报的高度自适应撑高，右上角显示技术徽标。
+- `src/specimens.js`：收藏件清单（分类 / id / 技术标签）。
+- `src/index.css`：全局 token + 壳布局 + 各收藏件样式。
+- `src/components/`：现有 React 收藏件组件。
+- `specimens/<id>/`：每个收藏件的 iframe 入口（`index.html` + `entry.jsx`）。
+- `specimens/_autoheight.js`：子页向壳上报内容高度。
+- `specimens/_frame.css`：沙盒文档样式（透明底、贴合内容）。
+- `patterns/<id>/`：从预览点开的全屏体验页（独立整页，`target="_top"` 破框打开）。
+- `vite.config.js`：多页构建，每个入口列在 `rollupOptions.input`。
+
+### 加一个新收藏件
+
+1. 建 `specimens/<id>/index.html` + `entry.jsx`（照现有的抄；React 件 import 组件并 `reportHeight()`，其它技术栈就在这个 HTML 里自带）。
+2. 在 `vite.config.js` 的 `input` 里加该入口。
+3. 在 `src/specimens.js` 的清单里登记（分类 + id + 技术标签）。
+4. 收藏外部样式时，按上面「收藏规则」逆向真代码、原原本本复刻。
 
 ## 构建与预览
 
