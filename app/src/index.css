@@ -595,6 +595,36 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);min-height:10
   transition:transform .2s var(--ease-sig);
   width:15px;
 }
+.sky-page__export{
+  appearance:none;
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(20,31,48,.08);
+  border-radius:999px;
+  box-shadow:0 1px 2px rgba(16,20,39,.05),0 6px 16px rgba(16,20,39,.08);
+  color:rgba(0,0,0,.56);
+  cursor:pointer;
+  flex:0 0 auto;
+  font-size:10px;
+  font-weight:760;
+  height:27px;
+  letter-spacing:.1em;
+  line-height:1;
+  min-width:64px;
+  padding:0 12px;
+  text-transform:uppercase;
+  transition:background .18s var(--ease-sig),color .18s var(--ease-sig),transform .18s var(--ease-sig);
+}
+.sky-page__export:hover{
+  background:rgba(255,255,255,.76);
+  color:rgba(0,0,0,.74);
+}
+.sky-page__export:active{
+  transform:scale(.97);
+}
+.sky-page__export:focus-visible{
+  outline:2px solid rgb(49 138 211 / .28);
+  outline-offset:3px;
+}
 @media (max-width:640px){
   .programmatic-sky-item{width:100%}
   .sky-preview-card{border-radius:18px}
@@ -609,6 +639,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);min-height:10
   .sky-page__control span{font-size:9px;letter-spacing:.1em}
   .sky-page__control input{width:min(16vw,66px)}
   .sky-page__direction{height:26px;width:26px}
+  .sky-page__export{height:26px;min-width:58px;padding:0 10px}
 }
 @media (prefers-reduced-motion: reduce){
   .sky-preview-card{transition-duration:.01ms}

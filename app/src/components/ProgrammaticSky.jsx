@@ -489,12 +489,43 @@ export function ProgrammaticSkyPreview() {
 export function ProgrammaticSkyPage() {
   const [skySettings, setSkySettings] = useState({ warmth: 0.1, clouds: 0.88, drift: 0.58 })
   const [windIndex, setWindIndex] = useState(0)
+  const [copied, setCopied] = useState(false)
   const windDirection = WIND_DIRECTIONS[windIndex]
   const updateSkySetting = (key) => (event) => {
     setSkySettings((current) => ({ ...current, [key]: Number(event.target.value) }))
   }
   const cycleWindDirection = () => {
     setWindIndex((current) => (current + 1) % WIND_DIRECTIONS.length)
+  }
+  const copySkyParams = async () => {
+    const params = {
+      warmth: Number(skySettings.warmth.toFixed(2)),
+      clouds: Number(skySettings.clouds.toFixed(2)),
+      drift: Number(skySettings.drift.toFixed(2)),
+      softness: 0.82,
+      grain: 0.01,
+      wind: {
+        label: windDirection.label,
+        angle: windDirection.angle,
+        vector: windDirection.vector,
+      },
+    }
+    const text = JSON.stringify(params, null, 2)
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text)
+    } else {
+      const textarea = document.createElement('textarea')
+      textarea.value = text
+      textarea.setAttribute('readonly', '')
+      textarea.style.position = 'fixed'
+      textarea.style.left = '-9999px'
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      textarea.remove()
+    }
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1400)
   }
 
   return (
@@ -567,6 +598,14 @@ export function ProgrammaticSkyPage() {
             <svg viewBox="0 0 20 20" aria-hidden="true">
               <path d="M4 10h10.2M10.8 5.8 15 10l-4.2 4.2" />
             </svg>
+          </button>
+          <button
+            className="sky-page__export"
+            type="button"
+            onClick={copySkyParams}
+            aria-live="polite"
+          >
+            {copied ? 'Copied' : 'Copy'}
           </button>
         </div>
       </section>
