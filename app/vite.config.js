@@ -17,6 +17,7 @@ export default defineConfig({
         'card-stack': entry('./specimens/card-stack/index.html'),
         'graphic-language': entry('./specimens/graphic-language/index.html'),
         'motion-patterns': entry('./specimens/motion-patterns/index.html'),
+        'telegraph-text': entry('./specimens/telegraph-text/index.html'),
         'programmatic-sky': entry('./specimens/programmatic-sky/index.html'),
         'gsap-buttons': entry('./specimens/gsap-buttons/index.html'),
         'base-cta-button': entry('./specimens/base-cta-button/index.html'),

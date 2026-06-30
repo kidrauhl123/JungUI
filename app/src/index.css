@@ -141,6 +141,36 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);min-height:10
 .motion-preview-copy strong{font-size:30px;letter-spacing:-.04em;line-height:.98}
 .motion-preview-copy em{color:var(--muted);font-size:12px;font-style:normal;line-height:1.55;max-width:230px}
 
+/* ---- telegraph text specimen ---- */
+.telegraph-text-item{align-items:center;width:min(100%,720px)}
+.telegraph-word{
+  align-items:center;background:#080a08;border:1px solid rgba(217,255,241,.16);border-radius:14px;color:#d9fff1;cursor:pointer;
+  display:inline-grid;font-family:var(--mono);height:112px;isolation:isolate;justify-content:center;min-width:min(100%,430px);overflow:hidden;
+  padding:0 30px;position:relative;box-shadow:0 18px 42px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.07);
+}
+.telegraph-word::before{
+  background:repeating-linear-gradient(to bottom,rgba(255,255,255,.04) 0 1px,transparent 1px 7px);
+  content:"";inset:0;opacity:.36;pointer-events:none;position:absolute;z-index:2;
+}
+.telegraph-word::after{
+  background:linear-gradient(to right,transparent,rgba(43,255,184,.16),transparent);content:"";height:100%;opacity:0;
+  pointer-events:none;position:absolute;top:0;transform:translateX(-130%);width:46%;z-index:1;
+}
+.telegraph-word:hover,.telegraph-word:focus-visible{border-color:rgba(43,255,184,.38)}
+.telegraph-word:hover::after,.telegraph-word:focus-visible::after{animation:telegraph-sweep 1.2s linear infinite;opacity:1}
+.telegraph-word:focus-visible{outline:2px solid #ffce5c;outline-offset:4px}
+.telegraph-word-grid{
+  background-image:
+    linear-gradient(rgba(43,255,184,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(43,255,184,.07) 1px,transparent 1px);
+  background-size:22px 22px;inset:0;opacity:.36;pointer-events:none;position:absolute;z-index:0;
+}
+.telegraph-word-text{
+  display:block;font-size:25px;font-weight:760;letter-spacing:0;line-height:1;min-width:25ch;position:relative;text-align:center;
+  text-shadow:0 0 16px rgba(43,255,184,.34);white-space:pre;z-index:3;
+}
+@keyframes telegraph-sweep{to{transform:translateX(250%)}}
+
 /* ---- Maxima scroll card pattern page ---- */
 .pattern-page{background:#a7eb98;color:#11100e;min-height:100vh}
 .pattern-topbar{
@@ -257,6 +287,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);min-height:10
   .motion-preview-stage{height:188px}
   .motion-preview-card{height:128px;width:104px}
   .motion-preview-copy strong{font-size:26px}
+  .telegraph-word{height:96px;min-width:100%;padding:0 12px}
+  .telegraph-word-text{font-size:16px;min-width:25ch}
   .pattern-topbar{padding:14px 16px}
   .maxima-stack-card{border-radius:22px;height:374px;padding:34px 24px 30px;width:min(78vw,300px)}
   .maxima-cover-card{border-radius:22px;height:374px;padding:32px 24px 28px;width:min(78vw,300px)}
