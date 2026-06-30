@@ -7,7 +7,13 @@ export const GALLERY = [
   { cat: '卡片堆叠 · Card Stack', items: [{ id: 'card-stack', tech: 'React' }] },
   { cat: '图形语言 · Graphic Systems', items: [{ id: 'graphic-language', tech: 'React' }] },
   { cat: '动效模式 · Motion Patterns', items: [{ id: 'motion-patterns', tech: 'React · Framer Motion' }] },
-  { cat: '文字动效 · Text Motion', items: [{ id: 'telegraph-text', tech: 'React' }] },
+  {
+    cat: '文字动效 · Text Motion',
+    items: [
+      { id: 'telegraph-text', tech: 'React' },
+      { id: 'rainbow-telegraph-text', tech: 'React' },
+    ],
+  },
   { cat: '背景 · Atmospheric Backgrounds', items: [{ id: 'programmatic-sky', tech: 'React · Canvas' }] },
   {
     cat: '按钮 · Buttons',

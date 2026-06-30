@@ -8,11 +8,12 @@ import {
 const COMPACT = 'MIA'
 const EXPANDED = 'Multiple Intelligent Agents'
 
-export default function TelegraphText() {
+export default function TelegraphText({ variant = 'dark' }) {
   const readoutRef = useRef(null)
   const currentTextRef = useRef(COMPACT)
   const seedRef = useRef(3)
   const [target, setTarget] = useState(COMPACT)
+  const isRainbow = variant === 'rainbow'
 
   useEffect(() => {
     const node = readoutRef.current
@@ -60,9 +61,10 @@ export default function TelegraphText() {
   return (
     <div className="item telegraph-text-item">
       <button
-        className="telegraph-word"
+        className={`telegraph-word telegraph-word--${variant}`}
         type="button"
         aria-label={target}
+        data-target={target === EXPANDED ? 'expanded' : 'compact'}
         onMouseEnter={() => setTarget(EXPANDED)}
         onMouseLeave={() => setTarget(COMPACT)}
         onFocus={() => setTarget(EXPANDED)}
@@ -72,7 +74,7 @@ export default function TelegraphText() {
         <span className="telegraph-word-text" ref={readoutRef} aria-hidden="true">{COMPACT}</span>
       </button>
       <div className="caption">
-        <div className="name">MIA 电报展开</div>
+        <div className="name">{isRainbow ? 'MIA 七彩扫光' : 'MIA 电报展开'}</div>
       </div>
     </div>
   )
