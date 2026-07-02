@@ -15,6 +15,7 @@ export const GALLERY = [
     ],
   },
   { cat: '背景 · Atmospheric Backgrounds', items: [{ id: 'programmatic-sky', tech: 'React · Canvas' }] },
+  { cat: '反馈 · Feedback', items: [{ id: 'terms-nudge', tech: 'React' }] },
   {
     cat: '按钮 · Buttons',
     items: [

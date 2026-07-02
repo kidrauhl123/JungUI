@@ -20,6 +20,7 @@ export default defineConfig({
         'telegraph-text': entry('./specimens/telegraph-text/index.html'),
         'rainbow-telegraph-text': entry('./specimens/rainbow-telegraph-text/index.html'),
         'programmatic-sky': entry('./specimens/programmatic-sky/index.html'),
+        'terms-nudge': entry('./specimens/terms-nudge/index.html'),
         'gsap-buttons': entry('./specimens/gsap-buttons/index.html'),
         'base-cta-button': entry('./specimens/base-cta-button/index.html'),
         'theme-toggle': entry('./specimens/theme-toggle/index.html'),
