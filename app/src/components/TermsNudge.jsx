@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getTermsAttemptFeedback, getTermsNudgeContent } from '../lib/termsNudge.js'
+import { getTermsAttemptFeedback } from '../lib/termsNudge.js'
 
 export default function TermsNudge() {
   const [mode, setMode] = useState('bad')
@@ -8,7 +8,6 @@ export default function TermsNudge() {
   const [nudgeTick, setNudgeTick] = useState(0)
 
   const isGood = mode === 'good'
-  const content = getTermsNudgeContent()
 
   function attemptNext() {
     const feedback = getTermsAttemptFeedback({ mode, accepted })
@@ -28,11 +27,8 @@ export default function TermsNudge() {
     <div className="item terms-nudge-item">
       <div className={`terms-nudge ${isGood ? 'is-good' : 'is-bad'}`}>
         <div className="terms-nudge__panel">
-          <h3>{content.title}</h3>
-          <p>{content.subtitle}</p>
-
           <button type="button" className="terms-nudge__next" onClick={attemptNext}>
-            {content.primaryAction}
+            下一步
           </button>
 
           <label
