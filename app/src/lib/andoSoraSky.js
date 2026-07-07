@@ -18,6 +18,8 @@ const DEFAULT_PARAMS = {
   vig: 0,
 }
 
+const DEFAULT_WIND = [1, 0]
+
 const CAMERA_PARAMS = {
   type: 0,
   defocus: 0.31,
@@ -65,6 +67,7 @@ uniform float u_scale;
 uniform float u_billow;
 uniform float u_cirrus;
 uniform float u_haze;
+uniform vec2  u_wind;
 
 float fbmN(vec2 p, int oct){
   float a = 0.5, s = 0.0, n = 0.0;
@@ -77,10 +80,13 @@ float fbmN(vec2 p, int oct){
 }
 
 float cloudField(vec2 q, int oct){
-  vec2 p = q + vec2(u_time * 0.045, u_time * 0.006);
+  vec2 flow = vec2(u_wind.x, -u_wind.y);
+  vec2 cross = vec2(-flow.y, flow.x);
+  vec2 p = q - u_time * (flow * 0.045 + cross * 0.006);
   if(u_billow > 0.001){
-    vec2 w = vec2(fbm2(q * 0.55 + u_time * 0.020 + u_seed),
-                  fbm2(q * 0.55 + 9.1 - u_time * 0.016));
+    vec2 drift = flow * u_time;
+    vec2 w = vec2(fbm2(q * 0.55 - drift * 0.020 + u_seed),
+                  fbm2(q * 0.55 + 9.1 + drift * 0.016));
     p += (w - 0.5) * (2.6 * u_billow);
   }
   return fbmN(p, oct);
@@ -92,17 +98,19 @@ void main(){
   vec2 pa = vec2(uv.x * aspect, uv.y);
   vec2 sa = vec2(u_sunPos.x * aspect, u_sunPos.y);
 
-  float w = u_warm;
-  vec3 zen  = mix(vec3(0.150, 0.355, 0.795), vec3(0.34, 0.36, 0.62), w * 0.8);
-  vec3 hor  = mix(vec3(0.60, 0.74, 0.94),    vec3(0.95, 0.74, 0.58), w);
-  vec3 sunC = mix(vec3(1.00, 0.97, 0.90),    vec3(1.00, 0.66, 0.34), w);
+  float skyTone = u_warm;
+  float cloudTone = 0.12;
+  vec3 zen  = mix(vec3(0.150, 0.355, 0.795), vec3(0.34, 0.36, 0.62), skyTone * 0.8);
+  vec3 hor  = mix(vec3(0.60, 0.74, 0.94),    vec3(0.95, 0.74, 0.58), skyTone);
+  vec3 skySunC = mix(vec3(1.00, 0.97, 0.90), vec3(1.00, 0.66, 0.34), skyTone);
+  vec3 cloudSunC = mix(vec3(1.00, 0.97, 0.90), vec3(1.00, 0.66, 0.34), cloudTone);
 
   float hz = pow(1.0 - uv.y, 1.6);
   vec3 sky = mix(zen, hor, clamp(hz + u_haze * (1.0 - uv.y) * 0.7, 0.0, 1.0)) * 1.12;
 
   float sd = distance(pa, sa);
   float halo = exp(-sd * sd * 11.0) * 0.55 + exp(-sd * 2.6) * 0.16;
-  sky += sunC * halo * (u_glow * 1.15);
+  sky += skySunC * halo * (u_glow * 1.15);
 
   vec2 q = pa * (2.1 * u_scale) + vec2(u_seed * 0.37, u_seed * 0.61);
   float d = mix(0.5, cloudField(q, 5), 1.22);
@@ -115,8 +123,8 @@ void main(){
   float rim  = clamp((d - dLit) * 9.0, -1.0, 1.0);
 
   float dense = smoothstep(thr + band * 0.6, thr + band * 1.9, d);
-  vec3 litC    = sunC * (1.18 + 0.55 * u_glow * exp(-sd * 1.4));
-  vec3 shadeC  = mix(vec3(0.66, 0.72, 0.85), vec3(0.72, 0.64, 0.68), w) * 0.96;
+  vec3 litC    = cloudSunC * (1.18 + 0.55 * u_glow * exp(-sd * 1.4));
+  vec3 shadeC  = mix(vec3(0.66, 0.72, 0.85), vec3(0.72, 0.64, 0.68), cloudTone) * 0.96;
   vec3 cloudC  = mix(litC, shadeC, clamp(dense * 0.85 - rim * 0.45, 0.0, 1.0));
   cloudC = mix(cloudC, litC * 1.06, clamp(rim, 0.0, 1.0) * (1.0 - dense * 0.55));
 
@@ -126,13 +134,14 @@ void main(){
   vec3 col = mix(sky, cloudC, c * 0.96);
 
   if(u_cirrus > 0.005){
-    vec2 cq = rot2(-0.18) * (pa * vec2(1.3, 4.2) * u_scale) + vec2(u_time * 0.10, u_seed);
+    vec2 flow = vec2(u_wind.x, -u_wind.y);
+    vec2 cq = rot2(-0.18) * ((pa - flow * u_time * 0.10) * vec2(1.3, 4.2) * u_scale) + vec2(0.0, u_seed);
     float ci = fbmN(cq, 5);
     float wisp = smoothstep(0.56, 0.78, ci) * u_cirrus;
-    col = mix(col, mix(sunC, vec3(1.0), 0.5) * 1.05, wisp * 0.42 * (1.0 - c));
+    col = mix(col, mix(cloudSunC, vec3(1.0), 0.5) * 1.05, wisp * 0.42 * (1.0 - c));
   }
 
-  col *= 1.0 - 0.10 * pow(uv.y, 2.0) * (1.0 - u_warm * 0.5);
+  col *= 1.0 - 0.10 * pow(uv.y, 2.0) * (1.0 - skyTone * 0.5);
 
   fragColor = vec4(col, 1.0);
 }
@@ -310,6 +319,7 @@ export const ANDO_SORA_DEFAULTS = {
 }
 
 function resolveParams(settings = {}) {
+  const wind = resolveWind(settings.wind)
   return {
     ...DEFAULT_PARAMS,
     warm: clamp(Number.isFinite(settings.warmth) ? settings.warmth : DEFAULT_PARAMS.warm, 0, 1),
@@ -317,7 +327,18 @@ function resolveParams(settings = {}) {
     soft: clamp(Number.isFinite(settings.softness) ? settings.softness : DEFAULT_PARAMS.soft, 0, 1),
     drift: clamp(Number.isFinite(settings.drift) ? settings.drift : DEFAULT_PARAMS.drift, 0, 3),
     grain: clamp(Number.isFinite(settings.grain) ? settings.grain : DEFAULT_PARAMS.grain, 0, 0.08),
+    windX: wind[0],
+    windY: wind[1],
   }
+}
+
+function resolveWind(wind) {
+  if (!Array.isArray(wind) || wind.length < 2) return DEFAULT_WIND
+  const x = Number(wind[0])
+  const y = Number(wind[1])
+  const length = Math.hypot(x, y)
+  if (!Number.isFinite(length) || length < 0.001) return DEFAULT_WIND
+  return [x / length, y / length]
 }
 
 export function createAndoSoraSkyRenderer(canvas, initialSettings = {}, onReady) {
@@ -365,7 +386,7 @@ export function createAndoSoraSkyRenderer(canvas, initialSettings = {}, onReady)
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
     gl.bindVertexArray(null)
     programs = {
-      sora: createProgram(gl, SORA_SHADER, ['u_res', 'u_time', 'u_seed', 'u_sunPos', 'u_glow', 'u_warm', 'u_coverage', 'u_soft', 'u_scale', 'u_billow', 'u_cirrus', 'u_haze']),
+      sora: createProgram(gl, SORA_SHADER, ['u_res', 'u_time', 'u_seed', 'u_sunPos', 'u_glow', 'u_warm', 'u_coverage', 'u_soft', 'u_scale', 'u_billow', 'u_cirrus', 'u_haze', 'u_wind']),
       defocus: createProgram(gl, DEFOCUS_SHADER, ['u_tex', 'u_res', 'u_amount', 'u_edge', 'u_hi', 'u_type', 'u_taps']),
       bright: createProgram(gl, BRIGHT_SHADER, ['u_tex', 'u_px']),
       down: createProgram(gl, DOWN_SHADER, ['u_tex', 'u_px']),
@@ -433,6 +454,7 @@ export function createAndoSoraSkyRenderer(canvas, initialSettings = {}, onReady)
     gl.uniform1f(program.u.u_billow, params.billow)
     gl.uniform1f(program.u.u_cirrus, params.cirrus)
     gl.uniform1f(program.u.u_haze, params.haze)
+    gl.uniform2f(program.u.u_wind, params.windX, params.windY)
 
     program = programs.defocus
     gl.useProgram(program.id)
