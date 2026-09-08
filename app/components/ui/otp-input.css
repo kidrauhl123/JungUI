@@ -1,0 +1,127 @@
+/* Rare UI OTP input, MIT (c) 2026 Swami Malode. Full notice in otp-input.tsx. */
+.jui-otp {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+.jui-otp-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.jui-otp-gap-sm {
+  gap: 6px;
+  --jui-otp-side: 40px;
+}
+.jui-otp-gap-md {
+  gap: 8px;
+  --jui-otp-side: 48px;
+}
+.jui-otp-gap-lg {
+  gap: 10px;
+  --jui-otp-side: 56px;
+}
+.jui-otp-cell {
+  position: relative;
+  min-width: 0;
+  flex: 0 1 var(--jui-otp-side);
+  width: var(--jui-otp-side);
+}
+.jui-otp-slot {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  background: light-dark(#f4f4f9, #262626);
+  text-align: center;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.5;
+  color: transparent;
+  caret-color: transparent;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.jui-otp-slot:focus-visible {
+  outline: none;
+}
+.jui-otp-slot::selection {
+  background: transparent;
+  color: transparent;
+}
+.jui-otp-slot:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.jui-otp-idle:focus-visible {
+  box-shadow: 0 0 0 2px #86859380;
+}
+.jui-otp-error {
+  box-shadow: 0 0 0 2px #ff3b30b3;
+  transition-delay: 0.15s;
+}
+.jui-otp-sm {
+  border-radius: 8px;
+}
+.jui-otp-md {
+  border-radius: 12px;
+}
+.jui-otp-lg {
+  border-radius: 16px;
+}
+.jui-otp-text-sm {
+  font-size: 16px;
+}
+.jui-otp-text-md {
+  font-size: 18px;
+}
+.jui-otp-text-lg {
+  font-size: 20px;
+}
+.jui-otp-ring {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.jui-otp-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.jui-otp-char {
+  font-weight: 600;
+  color: light-dark(#000, #fff);
+  line-height: 1.5;
+}
+.jui-otp-caret {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 2px;
+  border-radius: 999px;
+  background: light-dark(#000, #fff);
+}
+.jui-otp-caret-sm {
+  height: 20px;
+}
+.jui-otp-caret-md {
+  height: 24px;
+}
+.jui-otp-caret-lg {
+  height: 28px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .jui-otp-slot {
+    transition: none;
+  }
+}

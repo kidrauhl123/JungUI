@@ -9,6 +9,7 @@ export const demos: Record<string, ComponentType<DemoProps>> = {
   "base-cta-button": dynamic(() => import("./base-cta-button")),
   "notification-bell": dynamic(() => import("./notification-bell")),
   "gsap-buttons": dynamic(() => import("./gsap-buttons")),
+  "otp-input": dynamic(() => import("./otp-input")),
   "programmatic-sky": dynamic(() => import("./programmatic-sky")),
   "reveal-card": dynamic(() => import("./reveal-card")),
   "ripple-field": dynamic(() => import("./ripple-field")),

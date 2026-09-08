@@ -1,0 +1,86 @@
+{
+  "name": "otp-input",
+  "title": "验证码输入",
+  "english": "OTP Input",
+  "description": "字符滚入、光标跟随，并带有成功描边和错误轻晃的验证码输入框。",
+  "category": "inputs",
+  "interaction": "逐格输入或粘贴验证码，焦点会自动前进。方向键切换位置，退格先清空当前格，再次退格回到上一格。演示中输入 123456 显示绿色描边，其他组合显示红框并轻晃。",
+  "usage": "import { useState } from \"react\"\nimport { OtpInput, type OtpStatus } from \"@/components/ui/otp-input\"\n\nexport function Demo() {\n  const [status, setStatus] = useState<OtpStatus>(\"idle\")\n  return (\n    <OtpInput\n      status={status}\n      onChange={() => setStatus(\"idle\")}\n      onComplete={code => setStatus(code === \"123456\" ? \"success\" : \"error\")}\n    />\n  )\n}",
+  "props": [
+    {
+      "name": "length",
+      "type": "number",
+      "description": "输入格数。",
+      "default": "6"
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\"",
+      "description": "格子基准尺寸分别为 40、48、56px；窄容器中按可用宽度收缩。",
+      "default": "\"md\""
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "受控模式的当前验证码。"
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "description": "非受控模式的初始验证码。",
+      "default": "\"\""
+    },
+    {
+      "name": "onChange",
+      "type": "(value: string) => void",
+      "description": "每次编辑后返回当前验证码。"
+    },
+    {
+      "name": "onComplete",
+      "type": "(value: string) => void",
+      "description": "所有格子填满时触发。验证结果由使用者设置 status。"
+    },
+    {
+      "name": "type",
+      "type": "\"numbers\" | \"letters\" | \"both\"",
+      "description": "接受数字、字母或两者；输入与粘贴都会过滤其他字符。",
+      "default": "\"numbers\""
+    },
+    {
+      "name": "status",
+      "type": "\"idle\" | \"success\" | \"error\"",
+      "description": "成功时依次描绘绿色边框，错误时显示红框并轻晃。",
+      "default": "\"idle\""
+    },
+    {
+      "name": "mask",
+      "type": "boolean",
+      "description": "用圆点遮挡输入字符。",
+      "default": "false"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "禁用全部输入格。",
+      "default": "false"
+    },
+    {
+      "name": "autoFocus",
+      "type": "boolean",
+      "description": "挂载后聚焦第一个输入格。",
+      "default": "false"
+    },
+    {
+      "name": "slotClassName",
+      "type": "string",
+      "description": "附加到每个原生输入框的样式类。"
+    }
+  ],
+  "credits": [
+    "https://www.rareui.com/components/otpinput",
+    "https://github.com/swamimalode07/rare-ui/blob/main/components/ui/otp-input.tsx",
+    "https://github.com/swamimalode07/rare-ui/blob/main/LICENSE"
+  ],
+  "entry": "components/ui/otp-input.tsx",
+  "order": 4
+}

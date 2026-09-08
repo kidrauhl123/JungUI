@@ -181,6 +181,35 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "otp-input",
+      "title": "验证码输入",
+      "description": "字符滚入、光标跟随，并带有成功描边和错误轻晃的验证码输入框。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/otp-input.css",
+          "type": "registry:file",
+          "target": "@ui/otp-input.css"
+        },
+        {
+          "path": "components/ui/otp-input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/otp-input.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "programmatic-sky",
       "title": "程序化天空",
       "description": "云层、柔光和颗粒组成的实时天空背景。",
