@@ -1,0 +1,77 @@
+.jui-deck-stage {
+  position: relative;
+  margin: 0 auto;
+  touch-action: pan-y;
+  user-select: none;
+}
+.jui-scard {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  will-change: transform;
+}
+.jui-scard-drag {
+  width: 100%;
+  height: 100%;
+}
+.jui-cluster-stage {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.jui-ccard {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  will-change: transform;
+}
+.jui-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(20, 24, 40, 0.22);
+}
+.jui-face-graphic {
+  position: relative;
+  overflow: hidden;
+}
+.jui-face-title {
+  font-family: Georgia, serif;
+  white-space: pre-line;
+  margin: 0;
+  font-weight: 500;
+}
+.jui-face-body {
+  margin: 0;
+}
+
+.jui-card-stack {
+  width: 100%;
+  overflow: hidden;
+}
+.jui-ccard:focus-visible {
+  outline: 2px solid #2f7bd4;
+  outline-offset: 5px;
+  border-radius: 16px;
+}
+
+.jui-stack-next {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  border: 1px solid light-dark(#d6dce0, #444b53);
+  background: light-dark(white, #24292e);
+  color: light-dark(#333, #f3f5f6);
+  font: inherit;
+  font-size: 12px;
+  border-radius: 20px;
+  padding: 7px 16px;
+}
+.jui-stack-next:focus-visible {
+  outline: 2px solid #2f7bd4;
+  outline-offset: 3px;
+}

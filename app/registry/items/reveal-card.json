@@ -1,0 +1,39 @@
+{
+  "name": "reveal-card",
+  "title": "揭示卡片",
+  "english": "Reveal card",
+  "description": "白色内容层缓缓下移，露出流动线条的卡片。",
+  "category": "display",
+  "interaction": "进入视野后，白色内容层下移，文字逐渐清晰。",
+  "usage": "import { RevealCard } from \"@/components/ui/reveal-card\"\n\nexport function Demo() {\n  return <RevealCard title=\"Take your time.\" brand=\"JungUI\"><p>自己的内容。</p></RevealCard>\n}",
+  "props": [
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "description": "卡片标题。"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "description": "卡片正文。"
+    },
+    {
+      "name": "brand",
+      "type": "ReactNode",
+      "description": "上方标识。"
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "description": "正文后的行动入口。"
+    },
+    {
+      "name": "background",
+      "type": "ReactNode",
+      "description": "替换默认的流动线条。"
+    }
+  ],
+  "credits": [],
+  "entry": "components/ui/reveal-card.tsx",
+  "order": 6
+}

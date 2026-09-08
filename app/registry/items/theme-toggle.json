@@ -1,0 +1,30 @@
+{
+  "name": "theme-toggle",
+  "title": "日夜切换",
+  "english": "Theme toggle",
+  "description": "太阳与月亮通过旋转和缩放交替出现的主题按钮。",
+  "category": "inputs",
+  "interaction": "点按按钮切换状态。示例背景跟随状态变化。",
+  "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { ThemeToggle } from \"@/components/ui/theme-toggle\"\n\nexport function Demo() {\n  const [theme, setTheme] = useState<\"light\" | \"dark\">(\"light\")\n  return <ThemeToggle value={theme} onValueChange={setTheme} />\n}",
+  "props": [
+    {
+      "name": "value",
+      "type": "\"light\" | \"dark\"",
+      "description": "由使用者控制当前主题；组件不会修改整个页面。"
+    },
+    {
+      "name": "defaultValue",
+      "type": "\"light\" | \"dark\"",
+      "description": "未传 value 时的初始状态。",
+      "default": "\"light\""
+    },
+    {
+      "name": "onValueChange",
+      "type": "(theme) => void",
+      "description": "状态切换后调用。"
+    }
+  ],
+  "credits": ["图标与旋转缩放效果采集自 EVAA，https://app.evaa.finance。"],
+  "entry": "components/ui/theme-toggle.tsx",
+  "order": 1
+}

@@ -1,0 +1,64 @@
+.jui-reveal {
+  position: relative;
+  width: 264px;
+  height: 300px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #1ce9b6;
+  color: #171717;
+  isolation: isolate;
+  box-shadow:
+    0 2px 6px rgba(20, 24, 40, 0.1),
+    0 18px 40px rgba(20, 24, 40, 0.16);
+}
+.jui-reveal-waves {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.jui-reveal-brand {
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  color: #063b30;
+  font-weight: 700;
+  font-size: 12px;
+}
+.jui-reveal-sheet {
+  position: absolute;
+  inset: 0;
+  background: light-dark(#fff, #24292e);
+  border-radius: 30px;
+  padding: 24px;
+}
+.jui-reveal-sheet h3 {
+  font-size: 20px;
+  line-height: 1.18;
+  margin: 12px 0;
+}
+.jui-reveal-sheet p {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: light-dark(#686868, #b4bbc3);
+  margin: 9px 0;
+}
+.jui-reveal-action {
+  margin-top: 14px;
+}
+.jui-reveal-action a,
+.jui-reveal-action button {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #063b30;
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.jui-reveal-sheet {
+  color: light-dark(#171717, #f3f5f6);
+}

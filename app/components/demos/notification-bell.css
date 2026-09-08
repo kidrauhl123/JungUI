@@ -1,0 +1,84 @@
+.demo-notification-bell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+  padding-bottom: 60px;
+}
+.demo-bell-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.demo-bell-steps {
+  display: flex;
+  gap: 8px;
+}
+.demo-bell-steps button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: light-dark(#f4f4f9, #262626);
+  color: light-dark(#868593, #9b9aa7);
+  transition: transform 0.15s;
+}
+.demo-bell-steps button:active:not(:disabled) {
+  transform: scale(0.9);
+}
+.demo-bell-steps button:disabled {
+  opacity: 0.4;
+}
+.demo-bell-palette {
+  position: absolute;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px #00000012;
+}
+.demo-bell-grip {
+  display: flex;
+  margin-left: -4px;
+  color: var(--muted);
+  cursor: grab;
+  touch-action: none;
+}
+.demo-bell-grip:active {
+  cursor: grabbing;
+}
+.demo-bell-palette button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px #00000018;
+}
+.demo-bell-palette button[aria-pressed="true"] {
+  outline: 2px solid var(--muted);
+  outline-offset: 3px;
+}
+.gallery-notification-bell .gallery-preview {
+  height: 320px;
+}
+.is-compact .demo-notification-bell {
+  height: 260px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-bell-steps button {
+    transition: none;
+  }
+  .demo-bell-steps button:active:not(:disabled) {
+    transform: none;
+  }
+}

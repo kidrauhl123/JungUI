@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-field",
+  "title": "流动线条",
+  "description": "由多组正弦波叠加形成的柔和线条背景。",
+  "dependencies": [
+    "clsx@^2.1.1",
+    "tailwind-merge@^3.6.0"
+  ],
+  "files": [
+    {
+      "path": "components/ui/ripple-field.tsx",
+      "content": "\"use client\";\nimport { useEffect, useRef, type ComponentProps } from \"react\";\nimport { cn } from \"@/lib/utils\";\nexport type RippleFieldProps = ComponentProps<\"svg\"> & {\n  lines?: number;\n  width?: number;\n  height?: number;\n};\nexport function RippleField({\n  stroke = \"#2f7bd4\",\n  lines = 12,\n  width = 264,\n  height = 300,\n  className,\n  ...props\n}: RippleFieldProps) {\n  const ref = useRef<SVGSVGElement>(null);\n  useEffect(() => {\n    const svg = ref.current;\n    if (!svg) return;\n    const count = Math.max(2, Math.min(100, Math.round(lines)));\n    const paths = Array.from({ length: count }, (_, i) => {\n      const p = document.createElementNS(\"http://www.w3.org/2000/svg\", \"path\");\n      p.setAttribute(\"opacity\", String(Math.max(0.1, 0.85 - i * 0.02)));\n      svg.appendChild(p);\n      return p;\n    });\n    const media = matchMedia(\"(prefers-reduced-motion: reduce)\");\n    let raf = 0;\n    let started = 0;\n    const wave = (x: number, l: number, t: number) =>\n      7 * Math.sin(0.024 * x + t * 0.75 + l * 0.55) +\n      4.5 * Math.sin(0.013 * x - t * 0.5 + l * 0.935) +\n      2.6 * Math.sin(0.045 * x + t * 1.2 + l * 0.22) +\n      1.8 * Math.sin(0.08 * x - t * 0.95);\n    const draw = (now: number) => {\n      started ||= now;\n      const t = media.matches ? 0 : (now - started) / 1000;\n      paths.forEach((p, i) => {\n        let d = \"\";\n        for (let x = -10; x <= width + 10; x += 8)\n          d += `${x === -10 ? \"M\" : \"L\"} ${x} ${((i * height) / (count - 1) + wave(x, i, t)).toFixed(2)} `;\n        p.setAttribute(\"d\", d);\n      });\n      if (!media.matches && !document.hidden) raf = requestAnimationFrame(draw);\n    };\n    const restart = () => {\n      cancelAnimationFrame(raf);\n      draw(performance.now());\n    };\n    restart();\n    media.addEventListener(\"change\", restart);\n    document.addEventListener(\"visibilitychange\", restart);\n    return () => {\n      cancelAnimationFrame(raf);\n      paths.forEach((p) => p.remove());\n      media.removeEventListener(\"change\", restart);\n      document.removeEventListener(\"visibilitychange\", restart);\n    };\n  }, [lines, width, height]);\n  return (\n    <svg\n      aria-hidden=\"true\"\n      {...props}\n      ref={ref}\n      data-slot=\"ripple-field\"\n      className={cn(className)}\n      viewBox={`0 0 ${width} ${height}`}\n      preserveAspectRatio=\"none\"\n      fill=\"none\"\n      stroke={stroke}\n      strokeWidth=\"1.8\"\n      strokeLinecap=\"round\"\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/ripple-field.tsx"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
+      "type": "registry:lib",
+      "target": "@lib/utils.ts"
+    }
+  ],
+  "type": "registry:ui"
+}

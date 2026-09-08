@@ -1,0 +1,51 @@
+{
+  "name": "programmatic-sky",
+  "title": "程序化天空",
+  "english": "Programmatic sky",
+  "description": "云层、柔光和颗粒组成的实时天空背景。",
+  "category": "backgrounds",
+  "interaction": "调整色温、云量、流速和风向，再复制当前参数。减少动态效果时显示静态天空。",
+  "usage": "import { ProgrammaticSky } from \"@/components/ui/programmatic-sky\"\n\nexport function Demo() {\n  return <ProgrammaticSky warmth={0.2} clouds={0.7} drift={0.5} wind={[1, 0]} style={{ height: 400 }} />\n}",
+  "props": [
+    {
+      "name": "warmth",
+      "type": "number",
+      "description": "色温，0 到 1。"
+    },
+    {
+      "name": "clouds",
+      "type": "number",
+      "description": "云层覆盖，0 到 1。"
+    },
+    {
+      "name": "softness",
+      "type": "number",
+      "description": "柔焦程度，0 到 1。"
+    },
+    {
+      "name": "drift",
+      "type": "number",
+      "description": "流速，0 到 3。"
+    },
+    {
+      "name": "grain",
+      "type": "number",
+      "description": "颗粒强度，0 到 0.08。"
+    },
+    {
+      "name": "wind",
+      "type": "[number, number]",
+      "description": "风向向量，内部自动归一化。",
+      "default": "[1, 0]"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "description": "显示在天空前方的内容。"
+    }
+  ],
+  "credits": ["沿用 JungUI 已有的 Ando Sora 渲染实现。"],
+  "entry": "components/ui/programmatic-sky.tsx",
+  "order": 5,
+  "featured": true
+}

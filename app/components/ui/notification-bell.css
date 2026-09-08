@@ -1,0 +1,95 @@
+/* Rare UI notification bell, MIT (c) 2026 Swami Malode. Full notice in notification-bell.tsx. */
+.jui-bell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: light-dark(#f4f4f9, #262626);
+  color: light-dark(#868593, #9b9aa7);
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.jui-bell:active:not(:disabled) {
+  transform: scale(0.9);
+}
+.jui-bell:focus-visible {
+  outline: 2px solid light-dark(#868593, #9b9aa7);
+  outline-offset: 4px;
+}
+.jui-bell:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.jui-bell-custom {
+  position: relative;
+}
+.jui-bell-badge {
+  position: absolute;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+.jui-bell-red {
+  background: light-dark(#ff3b30, #ff453a);
+}
+.jui-bell-orange {
+  background: light-dark(#ff9500, #ff9f0a);
+}
+.jui-bell-green {
+  background: light-dark(#34c759, #30d158);
+}
+.jui-bell-blue {
+  background: light-dark(#007aff, #0a84ff);
+}
+.jui-bell-violet {
+  background: light-dark(#af52de, #bf5af2);
+}
+.jui-bell-number {
+  display: flex;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+.jui-bell-digit {
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+}
+.jui-bell-digit-track {
+  position: absolute;
+  inset: 0;
+}
+.jui-bell-digit-tile {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+.jui-bell-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .jui-bell {
+    transition: none;
+  }
+  .jui-bell:active:not(:disabled) {
+    transform: none;
+  }
+}

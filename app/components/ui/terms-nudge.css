@@ -1,0 +1,171 @@
+.jui-terms {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 340px;
+  width: 100%;
+}
+.jui-terms-next:focus-visible {
+  outline: 2px solid rgb(47 123 212 / 0.28);
+  outline-offset: 3px;
+}
+.jui-terms-row {
+  align-items: center;
+  color: light-dark(rgba(0, 0, 0, 0.58), #aeb5bd);
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  gap: 10px;
+  line-height: 1.2;
+  margin-top: 20px;
+  position: relative;
+}
+.jui-terms-row input {
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+}
+.jui-terms-row b {
+  color: light-dark(#181818, #f3f5f6);
+  font-weight: 520;
+  text-decoration: underline dotted
+    light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.3)) 1px;
+  text-underline-offset: 6px;
+}
+.jui-terms-box {
+  align-items: center;
+  background: light-dark(#fff, #202428);
+  border: 1px solid light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.16));
+  border-radius: 10px;
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.025),
+    0 1px 2px rgba(20, 24, 40, 0.025);
+  color: light-dark(#111, #f3f5f6);
+  display: flex;
+  flex: 0 0 auto;
+  height: 28px;
+  justify-content: center;
+  transition:
+    border-color 0.18s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.18s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 0.18s cubic-bezier(0.2, 0.7, 0.2, 1);
+  width: 28px;
+}
+.jui-terms-box svg {
+  fill: none;
+  height: 14px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 14px;
+}
+.jui-terms-row:hover .jui-terms-box {
+  border-color: light-dark(rgba(0, 0, 0, 0.11), rgba(255, 255, 255, 0.25));
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.025),
+    0 3px 9px rgba(20, 24, 40, 0.06);
+}
+.jui-terms-row:has(input:checked) .jui-terms-box {
+  background: light-dark(#111, #f3f5f6);
+  border-color: light-dark(#111, #f3f5f6);
+  color: light-dark(#fff, #202428);
+}
+.jui-terms-row[data-nudging] .jui-terms-box {
+  border-color: light-dark(rgba(0, 0, 0, 0.16), rgba(255, 255, 255, 0.3));
+  box-shadow:
+    0 0 0 4px rgba(0, 0, 0, 0.025),
+    0 5px 16px rgba(20, 24, 40, 0.09);
+}
+.jui-terms-error {
+  align-items: center;
+  color: light-dark(#e73c4e, #ff7c8c);
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 1.32;
+  min-height: 48px;
+  padding-top: 16px;
+  text-align: center;
+  width: min(100%, 330px);
+}
+.jui-terms-next {
+  appearance: none;
+  background: light-dark(#111, #f3f5f6);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(20, 24, 40, 0.11);
+  color: light-dark(#fff, #202428);
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 560;
+  height: 40px;
+  margin-top: 0;
+  min-width: 112px;
+  padding: 0 22px;
+  transition:
+    background 0.18s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.18s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.jui-terms-next:hover {
+  background: light-dark(#242424, #dce1e6);
+  box-shadow: 0 10px 24px rgba(20, 24, 40, 0.14);
+  transform: translateY(-1px);
+}
+.jui-terms-next:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.jui-terms {
+  color: light-dark(#171717, #f3f5f6);
+}
+.jui-terms,
+.jui-terms * {
+  box-sizing: border-box;
+}
+.jui-terms-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.jui-terms-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.jui-terms-row:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.jui-terms-row:has(input:focus-visible) .jui-terms-box {
+  outline: 2px solid rgb(47 123 212 / 0.5);
+  outline-offset: 3px;
+}
+@media (max-width: 520px) {
+  .jui-terms-row {
+    align-items: center;
+    font-size: 15px;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .jui-terms-error {
+    font-size: 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jui-terms-next:hover,
+  .jui-terms-next:active {
+    transform: none;
+  }
+  .jui-terms-next,
+  .jui-terms-box {
+    transition: none;
+  }
+}

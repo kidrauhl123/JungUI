@@ -1,0 +1,38 @@
+{
+  "name": "ripple-field",
+  "title": "流动线条",
+  "english": "Ripple field",
+  "description": "由多组正弦波叠加形成的柔和线条背景。",
+  "category": "backgrounds",
+  "interaction": "线条缓慢起伏，可作为卡片或页面的背景。",
+  "usage": "import { RippleField } from \"@/components/ui/ripple-field\"\n\nexport function Demo() {\n  return <RippleField width={560} height={280} lines={16} style={{ width: \"100%\", height: 280 }} />\n}",
+  "props": [
+    {
+      "name": "stroke",
+      "type": "string",
+      "description": "线条颜色。",
+      "default": "\"#2f7bd4\""
+    },
+    {
+      "name": "lines",
+      "type": "number",
+      "description": "线条数量，范围 2 到 100。",
+      "default": "12"
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "description": "SVG 坐标系宽度。",
+      "default": "264"
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "description": "SVG 坐标系高度。",
+      "default": "300"
+    }
+  ],
+  "credits": [],
+  "entry": "components/ui/ripple-field.tsx",
+  "order": 7
+}

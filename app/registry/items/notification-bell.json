@@ -1,0 +1,64 @@
+{
+  "name": "notification-bell",
+  "title": "通知铃铛",
+  "english": "Notification bell",
+  "description": "带滚动数字徽标和弹簧摆动的 iOS 风格通知铃铛。",
+  "category": "feedback",
+  "interaction": "点击 + 增加通知，铃铛摆动、数字向上滚动；连续点击会叠加摆动。点击 − 减少通知，归零时徽标缩小消失。下方可切换五种徽标颜色，拖动把手可移动调色板。",
+  "usage": "import { useState } from \"react\"\nimport { NotificationBell } from \"@/components/ui/notification-bell\"\n\nexport function Demo() {\n  const [count, setCount] = useState(8)\n  return (\n    <div style={{ display: \"flex\", alignItems: \"center\", gap: 24 }}>\n      <NotificationBell count={count} onClick={() => setCount(0)} />\n      <button onClick={() => setCount(value => value + 1)}>增加通知</button>\n    </div>\n  )\n}",
+  "props": [
+    {
+      "name": "count",
+      "type": "number",
+      "description": "未读数量，负数归零，小数向下取整；零时隐藏徽标。",
+      "default": "0"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "description": "显示上限，超过时显示上限与加号。",
+      "default": "99"
+    },
+    {
+      "name": "variant",
+      "type": "\"count\" | \"dot\"",
+      "description": "显示数字或圆点徽标。",
+      "default": "\"count\""
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "description": "按钮直径（像素），图标、数字、徽标按比例缩放。",
+      "default": "48"
+    },
+    {
+      "name": "color",
+      "type": "\"red\" | \"orange\" | \"green\" | \"blue\" | \"violet\"",
+      "description": "徽标颜色，自动跟随容器的深浅配色。",
+      "default": "\"red\""
+    },
+    {
+      "name": "asChild",
+      "type": "boolean",
+      "description": "把徽标加在自定义圆形子元素上；该模式不播放铃铛摆动。",
+      "default": "false"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "description": "asChild 模式下的自定义触发元素。"
+    },
+    {
+      "name": "onClick",
+      "type": "MouseEventHandler<HTMLButtonElement>",
+      "description": "打开通知列表等业务操作。"
+    }
+  ],
+  "credits": [
+    "https://www.rareui.com/components/notificationbell",
+    "https://github.com/swamimalode07/rare-ui/blob/main/components/ui/notification-bell.tsx",
+    "https://github.com/swamimalode07/rare-ui/blob/main/LICENSE"
+  ],
+  "entry": "components/ui/notification-bell.tsx",
+  "order": 3
+}

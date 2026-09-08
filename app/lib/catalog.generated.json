@@ -1,0 +1,602 @@
+[
+  {
+    "name": "telegraph-text",
+    "title": "电报文字",
+    "english": "Telegraph text",
+    "description": "在短文字与完整表达之间，以电报般的字符变化过渡。",
+    "category": "text",
+    "interaction": "悬停或聚焦展开文字，移开收起。触屏可以点按切换。",
+    "usage": "import { TelegraphText } from \"@/components/ui/telegraph-text\"\n\nexport function Demo() {\n  return <TelegraphText text=\"MIA\" expandedText=\"Multiple Intelligent Agents\" variant=\"dark\" />\n}",
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "description": "收起时显示的文字。"
+      },
+      {
+        "name": "expandedText",
+        "type": "string",
+        "description": "展开后显示的文字。"
+      },
+      {
+        "name": "variant",
+        "type": "\"dark\" | \"rainbow\"",
+        "description": "电报或七彩扫光外观。",
+        "default": "\"dark\""
+      },
+      {
+        "name": "frameDuration",
+        "type": "number",
+        "description": "字符变化每帧的毫秒数。",
+        "default": "26"
+      }
+    ],
+    "credits": [],
+    "entry": "components/ui/telegraph-text.tsx",
+    "order": 0,
+    "featured": true,
+    "files": [
+      "components/ui/telegraph-text.css",
+      "components/ui/telegraph-text.tsx",
+      "lib/telegraph-engine.ts",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "theme-toggle",
+    "title": "日夜切换",
+    "english": "Theme toggle",
+    "description": "太阳与月亮通过旋转和缩放交替出现的主题按钮。",
+    "category": "inputs",
+    "interaction": "点按按钮切换状态。示例背景跟随状态变化。",
+    "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { ThemeToggle } from \"@/components/ui/theme-toggle\"\n\nexport function Demo() {\n  const [theme, setTheme] = useState<\"light\" | \"dark\">(\"light\")\n  return <ThemeToggle value={theme} onValueChange={setTheme} />\n}",
+    "props": [
+      {
+        "name": "value",
+        "type": "\"light\" | \"dark\"",
+        "description": "由使用者控制当前主题；组件不会修改整个页面。"
+      },
+      {
+        "name": "defaultValue",
+        "type": "\"light\" | \"dark\"",
+        "description": "未传 value 时的初始状态。",
+        "default": "\"light\""
+      },
+      {
+        "name": "onValueChange",
+        "type": "(theme) => void",
+        "description": "状态切换后调用。"
+      }
+    ],
+    "credits": [
+      "图标与旋转缩放效果采集自 EVAA，https://app.evaa.finance。"
+    ],
+    "entry": "components/ui/theme-toggle.tsx",
+    "order": 1,
+    "files": [
+      "components/ui/theme-toggle.css",
+      "components/ui/theme-toggle.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "terms-nudge",
+    "title": "条款错误提示",
+    "english": "Nudge Instead",
+    "description": "对比红字报错与轻晃条款整行的确认交互。",
+    "category": "feedback",
+    "interaction": "默认 Bad：未勾选点下一步，出现红字提示。切到 Good 再试，方框和文字一起轻晃；切换模式保留勾选状态。",
+    "usage": "import { TermsNudge } from \"@/components/ui/terms-nudge\"\n\nexport function Demo() {\n  return <TermsNudge onContinue={() => console.log(\"continue\")} />\n}",
+    "props": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "description": "外部控制勾选状态。"
+      },
+      {
+        "name": "defaultChecked",
+        "type": "boolean",
+        "description": "非受控模式的初始值。",
+        "default": "false"
+      },
+      {
+        "name": "onCheckedChange",
+        "type": "(checked: boolean) => void",
+        "description": "勾选状态变化回调。"
+      },
+      {
+        "name": "onContinue",
+        "type": "() => void",
+        "description": "勾选后点继续时调用。"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "description": "条款文字，可以放入链接。",
+        "default": "\"I accept the Terms & Conditions\""
+      },
+      {
+        "name": "buttonLabel",
+        "type": "string",
+        "description": "继续按钮的文字。",
+        "default": "\"下一步\""
+      },
+      {
+        "name": "errorMessage",
+        "type": "string",
+        "description": "错误说明；轻晃模式下仍向读屏软件提供。",
+        "default": "\"You must accept the Terms & Conditions to continue.\""
+      },
+      {
+        "name": "feedback",
+        "type": "\"nudge\" | \"message\"",
+        "description": "轻晃提示或显示错误文字。",
+        "default": "\"nudge\""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "description": "禁用按钮与勾选框。",
+        "default": "false"
+      }
+    ],
+    "credits": [],
+    "entry": "components/ui/terms-nudge.tsx",
+    "order": 2,
+    "files": [
+      "components/ui/terms-nudge.css",
+      "components/ui/terms-nudge.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "base-cta-button",
+    "title": "悬浮换位",
+    "english": "Base CTA button",
+    "description": "尾部箭头让位，前方白色块展开的行动按钮。",
+    "category": "inputs",
+    "interaction": "悬停或用键盘聚焦，箭头滑出，前方白块展开。",
+    "usage": "import { BaseCtaButton } from \"@/components/ui/base-cta-button\"\n\nexport function Demo() {\n  return <BaseCtaButton onClick={() => console.log(\"start\")}>开始构建</BaseCtaButton>\n}",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "description": "按钮文字。",
+        "default": "\"Start building\""
+      },
+      {
+        "name": "onClick",
+        "type": "MouseEventHandler",
+        "description": "原生按钮点击回调。"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "description": "禁用按钮。",
+        "default": "false"
+      }
+    ],
+    "credits": [
+      "参考 Base 的 CTA 交互，https://base.org。原收藏基于录屏视觉还原，并非源站源码。"
+    ],
+    "entry": "components/ui/base-cta-button.tsx",
+    "order": 3,
+    "files": [
+      "components/ui/base-cta-button.css",
+      "components/ui/base-cta-button.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "notification-bell",
+    "title": "通知铃铛",
+    "english": "Notification bell",
+    "description": "带滚动数字徽标和弹簧摆动的 iOS 风格通知铃铛。",
+    "category": "feedback",
+    "interaction": "点击 + 增加通知，铃铛摆动、数字向上滚动；连续点击会叠加摆动。点击 − 减少通知，归零时徽标缩小消失。下方可切换五种徽标颜色，拖动把手可移动调色板。",
+    "usage": "import { useState } from \"react\"\nimport { NotificationBell } from \"@/components/ui/notification-bell\"\n\nexport function Demo() {\n  const [count, setCount] = useState(8)\n  return (\n    <div style={{ display: \"flex\", alignItems: \"center\", gap: 24 }}>\n      <NotificationBell count={count} onClick={() => setCount(0)} />\n      <button onClick={() => setCount(value => value + 1)}>增加通知</button>\n    </div>\n  )\n}",
+    "props": [
+      {
+        "name": "count",
+        "type": "number",
+        "description": "未读数量，负数归零，小数向下取整；零时隐藏徽标。",
+        "default": "0"
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "description": "显示上限，超过时显示上限与加号。",
+        "default": "99"
+      },
+      {
+        "name": "variant",
+        "type": "\"count\" | \"dot\"",
+        "description": "显示数字或圆点徽标。",
+        "default": "\"count\""
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "description": "按钮直径（像素），图标、数字、徽标按比例缩放。",
+        "default": "48"
+      },
+      {
+        "name": "color",
+        "type": "\"red\" | \"orange\" | \"green\" | \"blue\" | \"violet\"",
+        "description": "徽标颜色，自动跟随容器的深浅配色。",
+        "default": "\"red\""
+      },
+      {
+        "name": "asChild",
+        "type": "boolean",
+        "description": "把徽标加在自定义圆形子元素上；该模式不播放铃铛摆动。",
+        "default": "false"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "description": "asChild 模式下的自定义触发元素。"
+      },
+      {
+        "name": "onClick",
+        "type": "MouseEventHandler<HTMLButtonElement>",
+        "description": "打开通知列表等业务操作。"
+      }
+    ],
+    "credits": [
+      "https://www.rareui.com/components/notificationbell",
+      "https://github.com/swamimalode07/rare-ui/blob/main/components/ui/notification-bell.tsx",
+      "https://github.com/swamimalode07/rare-ui/blob/main/LICENSE"
+    ],
+    "entry": "components/ui/notification-bell.tsx",
+    "order": 3,
+    "files": [
+      "components/ui/notification-bell.css",
+      "components/ui/notification-bell.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "@radix-ui/react-slot",
+      "clsx",
+      "motion",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "gsap-buttons",
+    "title": "弹性按钮",
+    "english": "GSAP buttons",
+    "description": "跟随指针填充的描边按钮，以及弹出图形装饰的文字按钮。",
+    "category": "inputs",
+    "interaction": "描边按钮跟随鼠标位置填充，文字按钮悬停或聚焦时弹出装饰图形。",
+    "usage": "import { StrokeButton, FlairButton } from \"@/components/ui/gsap-buttons\"\n\nexport function Demo() {\n  return <><StrokeButton>继续</StrokeButton><FlairButton words={[\"Start\", \"now\"]} /></>\n}",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "description": "StrokeButton 的内容。",
+        "default": "\"Get GSAP\""
+      },
+      {
+        "name": "words",
+        "type": "[string, string]",
+        "description": "FlairButton 的两段文字。",
+        "default": "[\"Get\", \"GSAP\"]"
+      },
+      {
+        "name": "onClick",
+        "type": "MouseEventHandler",
+        "description": "两个按钮均支持原生按钮属性与点击回调。"
+      }
+    ],
+    "credits": [
+      "参考 GSAP 网站按钮效果，保留原有动画曲线及图形，https://gsap.com。"
+    ],
+    "entry": "components/ui/gsap-buttons.tsx",
+    "order": 4,
+    "files": [
+      "components/ui/gsap-buttons.css",
+      "components/ui/gsap-buttons.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "gsap",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "programmatic-sky",
+    "title": "程序化天空",
+    "english": "Programmatic sky",
+    "description": "云层、柔光和颗粒组成的实时天空背景。",
+    "category": "backgrounds",
+    "interaction": "调整色温、云量、流速和风向，再复制当前参数。减少动态效果时显示静态天空。",
+    "usage": "import { ProgrammaticSky } from \"@/components/ui/programmatic-sky\"\n\nexport function Demo() {\n  return <ProgrammaticSky warmth={0.2} clouds={0.7} drift={0.5} wind={[1, 0]} style={{ height: 400 }} />\n}",
+    "props": [
+      {
+        "name": "warmth",
+        "type": "number",
+        "description": "色温，0 到 1。"
+      },
+      {
+        "name": "clouds",
+        "type": "number",
+        "description": "云层覆盖，0 到 1。"
+      },
+      {
+        "name": "softness",
+        "type": "number",
+        "description": "柔焦程度，0 到 1。"
+      },
+      {
+        "name": "drift",
+        "type": "number",
+        "description": "流速，0 到 3。"
+      },
+      {
+        "name": "grain",
+        "type": "number",
+        "description": "颗粒强度，0 到 0.08。"
+      },
+      {
+        "name": "wind",
+        "type": "[number, number]",
+        "description": "风向向量，内部自动归一化。",
+        "default": "[1, 0]"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "description": "显示在天空前方的内容。"
+      }
+    ],
+    "credits": [
+      "沿用 JungUI 已有的 Ando Sora 渲染实现。"
+    ],
+    "entry": "components/ui/programmatic-sky.tsx",
+    "order": 5,
+    "featured": true,
+    "files": [
+      "components/ui/programmatic-sky.css",
+      "components/ui/programmatic-sky.tsx",
+      "lib/ando-sora-sky.d.ts",
+      "lib/ando-sora-sky.js",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "reveal-card",
+    "title": "揭示卡片",
+    "english": "Reveal card",
+    "description": "白色内容层缓缓下移，露出流动线条的卡片。",
+    "category": "display",
+    "interaction": "进入视野后，白色内容层下移，文字逐渐清晰。",
+    "usage": "import { RevealCard } from \"@/components/ui/reveal-card\"\n\nexport function Demo() {\n  return <RevealCard title=\"Take your time.\" brand=\"JungUI\"><p>自己的内容。</p></RevealCard>\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "description": "卡片标题。"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "description": "卡片正文。"
+      },
+      {
+        "name": "brand",
+        "type": "ReactNode",
+        "description": "上方标识。"
+      },
+      {
+        "name": "action",
+        "type": "ReactNode",
+        "description": "正文后的行动入口。"
+      },
+      {
+        "name": "background",
+        "type": "ReactNode",
+        "description": "替换默认的流动线条。"
+      }
+    ],
+    "credits": [],
+    "entry": "components/ui/reveal-card.tsx",
+    "order": 6,
+    "files": [
+      "components/ui/reveal-card.css",
+      "components/ui/reveal-card.tsx",
+      "components/ui/ripple-field.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "motion",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "ripple-field",
+    "title": "流动线条",
+    "english": "Ripple field",
+    "description": "由多组正弦波叠加形成的柔和线条背景。",
+    "category": "backgrounds",
+    "interaction": "线条缓慢起伏，可作为卡片或页面的背景。",
+    "usage": "import { RippleField } from \"@/components/ui/ripple-field\"\n\nexport function Demo() {\n  return <RippleField width={560} height={280} lines={16} style={{ width: \"100%\", height: 280 }} />\n}",
+    "props": [
+      {
+        "name": "stroke",
+        "type": "string",
+        "description": "线条颜色。",
+        "default": "\"#2f7bd4\""
+      },
+      {
+        "name": "lines",
+        "type": "number",
+        "description": "线条数量，范围 2 到 100。",
+        "default": "12"
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "description": "SVG 坐标系宽度。",
+        "default": "264"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "description": "SVG 坐标系高度。",
+        "default": "300"
+      }
+    ],
+    "credits": [],
+    "entry": "components/ui/ripple-field.tsx",
+    "order": 7,
+    "files": [
+      "components/ui/ripple-field.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "card-stack",
+    "title": "卡片堆叠",
+    "english": "Card stack",
+    "description": "在窄容器中滑动轮换，在宽容器中展开的卡片组。",
+    "category": "display",
+    "interaction": "窄容器拖动顶层卡片或按“下一张”轮换；宽容器点击或键盘选择卡片展开，再次点击收起。",
+    "usage": "import { CardStack } from \"@/components/ui/card-stack\"\n\nexport function Demo() {\n  return <CardStack items={[\n    { id: \"notes\", title: \"Field notes\", desc: \"自己的内容\", bg: \"#3080ff\", ink: \"#fff\" },\n    { id: \"flow\", title: \"Flow\", desc: \"另一个想法\", bg: \"#1f9d57\", ink: \"#fff\" }\n  ]} />\n}",
+    "props": [
+      {
+        "name": "items",
+        "type": "StackItem[]",
+        "description": "带唯一 id、title、bg、ink 的卡片，可传 desc、body 和 graphic。"
+      },
+      {
+        "name": "onSelect",
+        "type": "(id: string | null) => void",
+        "description": "展开、收起或甩出卡片时通知使用者。"
+      }
+    ],
+    "credits": [],
+    "entry": "components/ui/card-stack.tsx",
+    "order": 8,
+    "featured": true,
+    "files": [
+      "components/ui/card-stack.css",
+      "components/ui/card-stack.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "motion",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "graphic-art",
+    "title": "图形语言",
+    "english": "Graphic art",
+    "description": "一组保持原始比例的太阳、云朵、气球与蝴蝶图形。",
+    "category": "display",
+    "interaction": "选择图形名称，通过 className 或 style 调整大小。",
+    "usage": "import { GraphicArt } from \"@/components/ui/graphic-art\"\n\nexport function Demo() {\n  return <GraphicArt name=\"butterfly-teal\" label=\"蝴蝶\" style={{ width: 160 }} />\n}",
+    "props": [
+      {
+        "name": "name",
+        "type": "keyof graphicAssets",
+        "description": "图形名称，详情预览列出所有选项。"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "description": "有语义时提供读屏标签；省略则视为装饰。"
+      }
+    ],
+    "credits": [
+      "SVG 采集自 Maxima Therapy，沿用已有收藏的图形资产。"
+    ],
+    "entry": "components/ui/graphic-art.tsx",
+    "order": 9,
+    "files": [
+      "components/ui/graphic-art.tsx",
+      "lib/graphic-assets.ts",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "scroll-card-stack",
+    "title": "滚动翻牌",
+    "english": "Scroll card stack",
+    "description": "随页面滚动翻转、逐张抽离的叙事卡片堆。",
+    "category": "display",
+    "interaction": "向下滚动，封面居中并翻转，卡片依次向上抽离。向上滚动可以回看。",
+    "usage": "import { ScrollCardStack } from \"@/components/ui/scroll-card-stack\"\n\nexport function Demo() {\n  return <ScrollCardStack cover={<h2>开始探索</h2>} items={[\n    { id: \"one\", background: \"#2668fd\", color: \"white\", content: <h2>第一张</h2> },\n    { id: \"two\", content: <h2>第二张</h2> }\n  ]} />\n}",
+    "props": [
+      {
+        "name": "items",
+        "type": "ScrollStackItem[]",
+        "description": "带唯一 id、content 的卡片，可设置 background、color、rotation。"
+      },
+      {
+        "name": "cover",
+        "type": "ReactNode",
+        "description": "翻转前的封面内容。"
+      },
+      {
+        "name": "background",
+        "type": "string",
+        "description": "整个滚动段落的底色。",
+        "default": "\"#a7eb98\""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "description": "可选的背景装饰。"
+      }
+    ],
+    "credits": [
+      "参考已有 Maxima Therapy 滚动卡片收藏，保留翻转与抽离动画曲线。"
+    ],
+    "entry": "components/ui/scroll-card-stack.tsx",
+    "order": 10,
+    "previewMode": "page",
+    "files": [
+      "components/ui/scroll-card-stack.css",
+      "components/ui/scroll-card-stack.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "gsap",
+      "tailwind-merge"
+    ]
+  }
+]

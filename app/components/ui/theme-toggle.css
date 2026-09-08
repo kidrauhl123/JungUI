@@ -1,0 +1,59 @@
+.jui-theme-toggle {
+  --radius: 26px;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: #f2f2f2;
+  color: hsl(0 0% 5%);
+  backdrop-filter: blur(4px);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.jui-theme-toggle[data-theme="dark"] {
+  background: hsl(201 16% 65% / 0.15);
+  color: hsl(0 0% 98%);
+}
+.jui-theme-toggle:hover {
+  transform: scale(1.02);
+}
+.jui-theme-toggle:active {
+  transform: scale(0.95);
+}
+.jui-theme-toggle:focus-visible {
+  outline: 2px solid #2f7bd4;
+  outline-offset: 3px;
+}
+.jui-theme-toggle .tt-icon {
+  grid-column: 1;
+  grid-row: 1;
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.jui-theme-toggle .tt-sun {
+  transform: rotate(0) scale(1);
+}
+.jui-theme-toggle .tt-moon {
+  transform: rotate(90deg) scale(0);
+}
+.jui-theme-toggle[data-theme="dark"] .tt-sun {
+  transform: rotate(-90deg) scale(0);
+}
+.jui-theme-toggle[data-theme="dark"] .tt-moon {
+  transform: rotate(0) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .jui-theme-toggle,
+  .jui-theme-toggle .tt-icon {
+    transition: none;
+  }
+  .jui-theme-toggle:hover,
+  .jui-theme-toggle:active {
+    transform: none;
+  }
+}

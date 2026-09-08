@@ -1,0 +1,163 @@
+.maxima-scroll-root {
+  height: calc((var(--stack-count) + 1) * 100svh);
+  perspective: 1200px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.maxima-scroll-bg {
+  background: #a7eb98;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.maxima-scroll-track {
+  bottom: 0;
+  height: calc(var(--stack-count) * 100svh - 50svh);
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+.maxima-scroll-sticky {
+  align-items: center;
+  display: flex;
+  height: 100svh;
+  justify-content: center;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  transform-style: preserve-3d;
+  width: 100%;
+}
+.maxima-flip-stage {
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  width: 100%;
+  will-change: transform;
+}
+.maxima-flip-face {
+  align-items: center;
+  backface-visibility: hidden;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transform-style: preserve-3d;
+  width: 100%;
+}
+.maxima-flip-face--back {
+  transform: rotateY(180deg);
+}
+.maxima-cover-card {
+  align-items: center;
+  background: #fd4401;
+  border-radius: 26px;
+  box-shadow: 0 24px 70px rgba(20, 24, 40, 0.22);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 424px;
+  justify-content: space-between;
+  left: 50%;
+  padding: 42px 38px 36px;
+  position: absolute;
+  text-align: center;
+  top: 62svh;
+  transform: translateX(-50%);
+  width: 388px;
+  will-change: transform;
+}
+.maxima-card-scene {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.maxima-service-layer {
+  align-items: center;
+  backface-visibility: hidden;
+  display: flex;
+  height: 100svh;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  will-change: transform;
+}
+.maxima-stack-hit {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  display: block;
+  padding: 0;
+  pointer-events: auto;
+}
+.maxima-stack-nudge {
+  display: block;
+  will-change: transform;
+}
+.maxima-stack-card {
+  align-items: center;
+  background: var(--card-bg, white);
+  border-radius: 26px;
+  box-shadow: 0 24px 70px rgba(20, 24, 40, 0.22);
+  color: var(--card-text, #171717);
+  display: flex;
+  flex-direction: column;
+  height: 424px;
+  justify-content: space-between;
+  padding: 44px 38px 36px;
+  text-align: center;
+  transform-origin: center;
+  width: 388px;
+  will-change: transform;
+}
+
+@media (max-width: 520px) {
+  .maxima-stack-card,
+  .maxima-cover-card {
+    width: min(78vw, 300px);
+    height: 374px;
+    padding: 32px 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .maxima-scroll-root {
+    height: auto !important;
+    padding: 48px 20px;
+  }
+  .maxima-scroll-track,
+  .maxima-flip-face--front {
+    display: none;
+  }
+  .maxima-scroll-sticky,
+  .maxima-flip-stage,
+  .maxima-flip-face--back,
+  .maxima-card-scene,
+  .maxima-service-layer {
+    position: relative;
+    height: auto;
+    transform: none !important;
+    overflow: visible;
+  }
+  .maxima-flip-face--back {
+    backface-visibility: visible;
+  }
+  .maxima-card-scene {
+    display: grid;
+    gap: 24px;
+    justify-items: center;
+  }
+  .maxima-service-layer {
+    width: auto;
+  }
+  .maxima-stack-card {
+    transform: none !important;
+  }
+}

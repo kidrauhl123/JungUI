@@ -1,0 +1,364 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "jungui",
+  "homepage": "https://jungui-cle.pages.dev",
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "telegraph-text",
+      "title": "电报文字",
+      "description": "在短文字与完整表达之间，以电报般的字符变化过渡。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/telegraph-text.css",
+          "type": "registry:file",
+          "target": "@ui/telegraph-text.css"
+        },
+        {
+          "path": "components/ui/telegraph-text.tsx",
+          "type": "registry:ui",
+          "target": "@ui/telegraph-text.tsx"
+        },
+        {
+          "path": "lib/telegraph-engine.ts",
+          "type": "registry:lib",
+          "target": "@lib/telegraph-engine.ts"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "theme-toggle",
+      "title": "日夜切换",
+      "description": "太阳与月亮通过旋转和缩放交替出现的主题按钮。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/theme-toggle.css",
+          "type": "registry:file",
+          "target": "@ui/theme-toggle.css"
+        },
+        {
+          "path": "components/ui/theme-toggle.tsx",
+          "type": "registry:ui",
+          "target": "@ui/theme-toggle.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "terms-nudge",
+      "title": "条款错误提示",
+      "description": "对比红字报错与轻晃条款整行的确认交互。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/terms-nudge.css",
+          "type": "registry:file",
+          "target": "@ui/terms-nudge.css"
+        },
+        {
+          "path": "components/ui/terms-nudge.tsx",
+          "type": "registry:ui",
+          "target": "@ui/terms-nudge.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "base-cta-button",
+      "title": "悬浮换位",
+      "description": "尾部箭头让位，前方白色块展开的行动按钮。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/base-cta-button.css",
+          "type": "registry:file",
+          "target": "@ui/base-cta-button.css"
+        },
+        {
+          "path": "components/ui/base-cta-button.tsx",
+          "type": "registry:ui",
+          "target": "@ui/base-cta-button.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "notification-bell",
+      "title": "通知铃铛",
+      "description": "带滚动数字徽标和弹簧摆动的 iOS 风格通知铃铛。",
+      "dependencies": [
+        "@radix-ui/react-slot@^1.3.3",
+        "clsx@^2.1.1",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/notification-bell.css",
+          "type": "registry:file",
+          "target": "@ui/notification-bell.css"
+        },
+        {
+          "path": "components/ui/notification-bell.tsx",
+          "type": "registry:ui",
+          "target": "@ui/notification-bell.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "gsap-buttons",
+      "title": "弹性按钮",
+      "description": "跟随指针填充的描边按钮，以及弹出图形装饰的文字按钮。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "gsap@^3.15.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/gsap-buttons.css",
+          "type": "registry:file",
+          "target": "@ui/gsap-buttons.css"
+        },
+        {
+          "path": "components/ui/gsap-buttons.tsx",
+          "type": "registry:ui",
+          "target": "@ui/gsap-buttons.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "programmatic-sky",
+      "title": "程序化天空",
+      "description": "云层、柔光和颗粒组成的实时天空背景。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/programmatic-sky.css",
+          "type": "registry:file",
+          "target": "@ui/programmatic-sky.css"
+        },
+        {
+          "path": "components/ui/programmatic-sky.tsx",
+          "type": "registry:ui",
+          "target": "@ui/programmatic-sky.tsx"
+        },
+        {
+          "path": "lib/ando-sora-sky.d.ts",
+          "type": "registry:lib",
+          "target": "@lib/ando-sora-sky.d.ts"
+        },
+        {
+          "path": "lib/ando-sora-sky.js",
+          "type": "registry:lib",
+          "target": "@lib/ando-sora-sky.js"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "reveal-card",
+      "title": "揭示卡片",
+      "description": "白色内容层缓缓下移，露出流动线条的卡片。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/reveal-card.css",
+          "type": "registry:file",
+          "target": "@ui/reveal-card.css"
+        },
+        {
+          "path": "components/ui/reveal-card.tsx",
+          "type": "registry:ui",
+          "target": "@ui/reveal-card.tsx"
+        },
+        {
+          "path": "components/ui/ripple-field.tsx",
+          "type": "registry:ui",
+          "target": "@ui/ripple-field.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "ripple-field",
+      "title": "流动线条",
+      "description": "由多组正弦波叠加形成的柔和线条背景。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/ripple-field.tsx",
+          "type": "registry:ui",
+          "target": "@ui/ripple-field.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "card-stack",
+      "title": "卡片堆叠",
+      "description": "在窄容器中滑动轮换，在宽容器中展开的卡片组。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/card-stack.css",
+          "type": "registry:file",
+          "target": "@ui/card-stack.css"
+        },
+        {
+          "path": "components/ui/card-stack.tsx",
+          "type": "registry:ui",
+          "target": "@ui/card-stack.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "graphic-art",
+      "title": "图形语言",
+      "description": "一组保持原始比例的太阳、云朵、气球与蝴蝶图形。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/graphic-art.tsx",
+          "type": "registry:ui",
+          "target": "@ui/graphic-art.tsx"
+        },
+        {
+          "path": "lib/graphic-assets.ts",
+          "type": "registry:lib",
+          "target": "@lib/graphic-assets.ts"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "scroll-card-stack",
+      "title": "滚动翻牌",
+      "description": "随页面滚动翻转、逐张抽离的叙事卡片堆。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "gsap@^3.15.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/scroll-card-stack.css",
+          "type": "registry:file",
+          "target": "@ui/scroll-card-stack.css"
+        },
+        {
+          "path": "components/ui/scroll-card-stack.tsx",
+          "type": "registry:ui",
+          "target": "@ui/scroll-card-stack.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    }
+  ]
+}

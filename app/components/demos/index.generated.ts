@@ -1,0 +1,18 @@
+"use client";
+import dynamic from "next/dynamic";
+import type { ComponentType } from "react";
+import type { DemoProps } from "@/lib/catalog-types";
+export const demos: Record<string, ComponentType<DemoProps>> = {
+  "telegraph-text": dynamic(() => import("./telegraph-text")),
+  "theme-toggle": dynamic(() => import("./theme-toggle")),
+  "terms-nudge": dynamic(() => import("./terms-nudge")),
+  "base-cta-button": dynamic(() => import("./base-cta-button")),
+  "notification-bell": dynamic(() => import("./notification-bell")),
+  "gsap-buttons": dynamic(() => import("./gsap-buttons")),
+  "programmatic-sky": dynamic(() => import("./programmatic-sky")),
+  "reveal-card": dynamic(() => import("./reveal-card")),
+  "ripple-field": dynamic(() => import("./ripple-field")),
+  "card-stack": dynamic(() => import("./card-stack")),
+  "graphic-art": dynamic(() => import("./graphic-art")),
+  "scroll-card-stack": dynamic(() => import("./scroll-card-stack")),
+};

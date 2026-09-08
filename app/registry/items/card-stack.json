@@ -1,0 +1,25 @@
+{
+  "name": "card-stack",
+  "title": "卡片堆叠",
+  "english": "Card stack",
+  "description": "在窄容器中滑动轮换，在宽容器中展开的卡片组。",
+  "category": "display",
+  "interaction": "窄容器拖动顶层卡片或按“下一张”轮换；宽容器点击或键盘选择卡片展开，再次点击收起。",
+  "usage": "import { CardStack } from \"@/components/ui/card-stack\"\n\nexport function Demo() {\n  return <CardStack items={[\n    { id: \"notes\", title: \"Field notes\", desc: \"自己的内容\", bg: \"#3080ff\", ink: \"#fff\" },\n    { id: \"flow\", title: \"Flow\", desc: \"另一个想法\", bg: \"#1f9d57\", ink: \"#fff\" }\n  ]} />\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "StackItem[]",
+      "description": "带唯一 id、title、bg、ink 的卡片，可传 desc、body 和 graphic。"
+    },
+    {
+      "name": "onSelect",
+      "type": "(id: string | null) => void",
+      "description": "展开、收起或甩出卡片时通知使用者。"
+    }
+  ],
+  "credits": [],
+  "entry": "components/ui/card-stack.tsx",
+  "order": 8,
+  "featured": true
+}

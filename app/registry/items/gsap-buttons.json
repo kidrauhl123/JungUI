@@ -1,0 +1,33 @@
+{
+  "name": "gsap-buttons",
+  "title": "弹性按钮",
+  "english": "GSAP buttons",
+  "description": "跟随指针填充的描边按钮，以及弹出图形装饰的文字按钮。",
+  "category": "inputs",
+  "interaction": "描边按钮跟随鼠标位置填充，文字按钮悬停或聚焦时弹出装饰图形。",
+  "usage": "import { StrokeButton, FlairButton } from \"@/components/ui/gsap-buttons\"\n\nexport function Demo() {\n  return <><StrokeButton>继续</StrokeButton><FlairButton words={[\"Start\", \"now\"]} /></>\n}",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "description": "StrokeButton 的内容。",
+      "default": "\"Get GSAP\""
+    },
+    {
+      "name": "words",
+      "type": "[string, string]",
+      "description": "FlairButton 的两段文字。",
+      "default": "[\"Get\", \"GSAP\"]"
+    },
+    {
+      "name": "onClick",
+      "type": "MouseEventHandler",
+      "description": "两个按钮均支持原生按钮属性与点击回调。"
+    }
+  ],
+  "credits": [
+    "参考 GSAP 网站按钮效果，保留原有动画曲线及图形，https://gsap.com。"
+  ],
+  "entry": "components/ui/gsap-buttons.tsx",
+  "order": 4
+}

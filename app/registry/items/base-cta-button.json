@@ -1,0 +1,33 @@
+{
+  "name": "base-cta-button",
+  "title": "悬浮换位",
+  "english": "Base CTA button",
+  "description": "尾部箭头让位，前方白色块展开的行动按钮。",
+  "category": "inputs",
+  "interaction": "悬停或用键盘聚焦，箭头滑出，前方白块展开。",
+  "usage": "import { BaseCtaButton } from \"@/components/ui/base-cta-button\"\n\nexport function Demo() {\n  return <BaseCtaButton onClick={() => console.log(\"start\")}>开始构建</BaseCtaButton>\n}",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "description": "按钮文字。",
+      "default": "\"Start building\""
+    },
+    {
+      "name": "onClick",
+      "type": "MouseEventHandler",
+      "description": "原生按钮点击回调。"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "禁用按钮。",
+      "default": "false"
+    }
+  ],
+  "credits": [
+    "参考 Base 的 CTA 交互，https://base.org。原收藏基于录屏视觉还原，并非源站源码。"
+  ],
+  "entry": "components/ui/base-cta-button.tsx",
+  "order": 3
+}

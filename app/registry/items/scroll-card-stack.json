@@ -1,0 +1,36 @@
+{
+  "name": "scroll-card-stack",
+  "title": "滚动翻牌",
+  "english": "Scroll card stack",
+  "description": "随页面滚动翻转、逐张抽离的叙事卡片堆。",
+  "category": "display",
+  "interaction": "向下滚动，封面居中并翻转，卡片依次向上抽离。向上滚动可以回看。",
+  "usage": "import { ScrollCardStack } from \"@/components/ui/scroll-card-stack\"\n\nexport function Demo() {\n  return <ScrollCardStack cover={<h2>开始探索</h2>} items={[\n    { id: \"one\", background: \"#2668fd\", color: \"white\", content: <h2>第一张</h2> },\n    { id: \"two\", content: <h2>第二张</h2> }\n  ]} />\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "ScrollStackItem[]",
+      "description": "带唯一 id、content 的卡片，可设置 background、color、rotation。"
+    },
+    {
+      "name": "cover",
+      "type": "ReactNode",
+      "description": "翻转前的封面内容。"
+    },
+    {
+      "name": "background",
+      "type": "string",
+      "description": "整个滚动段落的底色。",
+      "default": "\"#a7eb98\""
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "description": "可选的背景装饰。"
+    }
+  ],
+  "credits": ["参考已有 Maxima Therapy 滚动卡片收藏，保留翻转与抽离动画曲线。"],
+  "entry": "components/ui/scroll-card-stack.tsx",
+  "order": 10,
+  "previewMode": "page"
+}

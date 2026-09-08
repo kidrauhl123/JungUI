@@ -1,0 +1,65 @@
+{
+  "name": "terms-nudge",
+  "title": "条款错误提示",
+  "english": "Nudge Instead",
+  "description": "对比红字报错与轻晃条款整行的确认交互。",
+  "category": "feedback",
+  "interaction": "默认 Bad：未勾选点下一步，出现红字提示。切到 Good 再试，方框和文字一起轻晃；切换模式保留勾选状态。",
+  "usage": "import { TermsNudge } from \"@/components/ui/terms-nudge\"\n\nexport function Demo() {\n  return <TermsNudge onContinue={() => console.log(\"continue\")} />\n}",
+  "props": [
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "外部控制勾选状态。"
+    },
+    {
+      "name": "defaultChecked",
+      "type": "boolean",
+      "description": "非受控模式的初始值。",
+      "default": "false"
+    },
+    {
+      "name": "onCheckedChange",
+      "type": "(checked: boolean) => void",
+      "description": "勾选状态变化回调。"
+    },
+    {
+      "name": "onContinue",
+      "type": "() => void",
+      "description": "勾选后点继续时调用。"
+    },
+    {
+      "name": "label",
+      "type": "ReactNode",
+      "description": "条款文字，可以放入链接。",
+      "default": "\"I accept the Terms & Conditions\""
+    },
+    {
+      "name": "buttonLabel",
+      "type": "string",
+      "description": "继续按钮的文字。",
+      "default": "\"下一步\""
+    },
+    {
+      "name": "errorMessage",
+      "type": "string",
+      "description": "错误说明；轻晃模式下仍向读屏软件提供。",
+      "default": "\"You must accept the Terms & Conditions to continue.\""
+    },
+    {
+      "name": "feedback",
+      "type": "\"nudge\" | \"message\"",
+      "description": "轻晃提示或显示错误文字。",
+      "default": "\"nudge\""
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "禁用按钮与勾选框。",
+      "default": "false"
+    }
+  ],
+  "credits": [],
+  "entry": "components/ui/terms-nudge.tsx",
+  "order": 2
+}

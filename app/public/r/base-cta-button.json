@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "base-cta-button",
+  "title": "悬浮换位",
+  "description": "尾部箭头让位，前方白色块展开的行动按钮。",
+  "dependencies": [
+    "clsx@^2.1.1",
+    "tailwind-merge@^3.6.0"
+  ],
+  "files": [
+    {
+      "path": "components/ui/base-cta-button.css",
+      "content": ".base-cta {\n  display: inline-flex;\n  align-items: center;\n  border: 0;\n  cursor: pointer;\n  background: var(--base-blue, #2b2cf6);\n  color: #fff;\n  font-family: inherit;\n  font-size: 18px;\n  font-weight: 600;\n  letter-spacing: -0.01em;\n  line-height: 1;\n  padding: 17px 26px;\n  border-radius: 16px;\n  text-decoration: none;\n  box-shadow:\n    0 1px 2px rgba(20, 24, 60, 0.12),\n    0 12px 30px -16px rgba(43, 44, 246, 0.5);\n  transition:\n    box-shadow 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),\n    filter 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);\n}\n.base-cta:is(:hover, :focus-visible) {\n  box-shadow:\n    0 2px 4px rgba(20, 24, 60, 0.14),\n    0 18px 38px -16px rgba(43, 44, 246, 0.6);\n}\n.base-cta:active {\n  transform: translateY(0.5px);\n}\n.base-cta:focus-visible {\n  outline: 3px solid rgba(43, 44, 246, 0.35);\n  outline-offset: 3px;\n}\n\n.base-cta__chip {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 0;\n  height: 26px;\n  margin-right: 0;\n  border-radius: 8px;\n  background: #fff;\n  opacity: 0;\n  transform: scale(0.4);\n  transform-origin: left center;\n  overflow: hidden;\n  transition:\n    width 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),\n    margin-right 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),\n    opacity 0.22s cubic-bezier(0.2, 0.7, 0.2, 1),\n    transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);\n}\n.base-cta:is(:hover, :focus-visible) .base-cta__chip {\n  width: 26px;\n  margin-right: 12px;\n  opacity: 1;\n  transform: scale(1);\n}\n\n.base-cta__label {\n  display: inline-block;\n  white-space: nowrap;\n}\n\n.base-cta__arrow {\n  display: inline-flex;\n  width: 20px;\n  margin-left: 10px;\n  opacity: 1;\n  transform: translateX(0);\n  transition:\n    width 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),\n    margin-left 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),\n    opacity 0.2s cubic-bezier(0.2, 0.7, 0.2, 1),\n    transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);\n}\n.base-cta:is(:hover, :focus-visible) .base-cta__arrow {\n  width: 0;\n  margin-left: 0;\n  opacity: 0;\n  transform: translateX(10px);\n}\n.base-cta__arrow svg {\n  display: block;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .base-cta,\n  .base-cta__chip,\n  .base-cta__arrow {\n    transition: none;\n  }\n}\n",
+      "type": "registry:file",
+      "target": "@ui/base-cta-button.css"
+    },
+    {
+      "path": "components/ui/base-cta-button.tsx",
+      "content": "\"use client\";\nimport type { ComponentProps } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport \"./base-cta-button.css\";\nexport type BaseCtaButtonProps = ComponentProps<\"button\">;\nexport function BaseCtaButton({\n  children = \"Start building\",\n  className,\n  ...props\n}: BaseCtaButtonProps) {\n  return (\n    <button\n      type=\"button\"\n      {...props}\n      data-slot=\"base-cta-button\"\n      className={cn(\"base-cta\", className)}\n    >\n      <span className=\"base-cta__chip\" aria-hidden=\"true\" />\n      <span className=\"base-cta__label\">{children}</span>\n      <span className=\"base-cta__arrow\" aria-hidden=\"true\">\n        <svg width=\"20\" height=\"16\" viewBox=\"0 0 20 16\" fill=\"none\">\n          <path\n            d=\"M2 8h15M11 2l6 6-6 6\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n          />\n        </svg>\n      </span>\n    </button>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/base-cta-button.tsx"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
+      "type": "registry:lib",
+      "target": "@lib/utils.ts"
+    }
+  ],
+  "type": "registry:ui"
+}
