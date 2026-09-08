@@ -1,17 +1,17 @@
 "use client";
 import { useId, type ComponentProps } from "react";
 import { cn } from "@/lib/utils";
-import { graphicAssets } from "@/lib/graphic-assets";
-export type GraphicArtProps = ComponentProps<"svg"> & {
+import { graphicAssets } from "./scroll-card-assets";
+export type ScrollCardArtProps = ComponentProps<"svg"> & {
   name: keyof typeof graphicAssets;
   label?: string;
 };
-export function GraphicArt({
+export function ScrollCardArt({
   name,
   label,
   className,
   ...props
-}: GraphicArtProps) {
+}: ScrollCardArtProps) {
   const id = useId().replace(/:/g, "");
   const asset = graphicAssets[name];
   const body = asset.body
@@ -21,7 +21,7 @@ export function GraphicArt({
   return (
     <svg
       {...props}
-      data-slot="graphic-art"
+      data-slot="scroll-card-art"
       className={cn(className)}
       viewBox={asset.viewBox}
       xmlns="http://www.w3.org/2000/svg"

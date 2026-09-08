@@ -2,8 +2,8 @@
 /specimens/reveal-card/ /components/reveal-card/ 301
 /specimens/card-stack /components/card-stack/ 301
 /specimens/card-stack/ /components/card-stack/ 301
-/specimens/graphic-language /components/graphic-art/ 301
-/specimens/graphic-language/ /components/graphic-art/ 301
+/specimens/graphic-language /components/ 301
+/specimens/graphic-language/ /components/ 301
 /specimens/motion-patterns /components/scroll-card-stack/ 301
 /specimens/motion-patterns/ /components/scroll-card-stack/ 301
 /specimens/telegraph-text /components/telegraph-text/ 301
@@ -24,3 +24,7 @@
 /patterns/programmatic-sky /preview/programmatic-sky/ 301
 /patterns/maxima-card-stack/ /preview/scroll-card-stack/ 301
 /patterns/maxima-card-stack /preview/scroll-card-stack/ 301
+/components/graphic-art /components/ 301
+/components/graphic-art/ /components/ 301
+/preview/graphic-art /components/ 301
+/preview/graphic-art/ /components/ 301

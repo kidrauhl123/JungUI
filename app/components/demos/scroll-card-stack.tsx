@@ -1,6 +1,6 @@
 "use client";
 import { ScrollCardStack } from "@/components/ui/scroll-card-stack";
-import { GraphicArt } from "@/components/ui/graphic-art";
+import { ScrollCardArt } from "./scroll-card-art";
 import type { DemoProps } from "@/lib/catalog-types";
 const data = [
   {
@@ -40,7 +40,7 @@ export default function Demo({ compact }: DemoProps) {
   if (compact)
     return (
       <div className="demo-scroll-poster">
-        <GraphicArt name="pattern-balloon-red" />
+        <ScrollCardArt name="pattern-balloon-red" />
         <strong>
           One card.
           <br />
@@ -54,7 +54,7 @@ export default function Demo({ compact }: DemoProps) {
     content: (
       <>
         <h2 className="demo-scroll-title">{card.title}</h2>
-        <GraphicArt name={card.art} style={{ height: 120, width: 180 }} />
+        <ScrollCardArt name={card.art} style={{ height: 120, width: 180 }} />
         <p>{card.desc}</p>
       </>
     ),
@@ -67,7 +67,7 @@ export default function Demo({ compact }: DemoProps) {
           <>
             <h2 className="demo-scroll-title">Adaptive Skills Training</h2>
             <span>Ages 3–18</span>
-            <GraphicArt
+            <ScrollCardArt
               name="pattern-balloon-red"
               style={{ height: 120, width: 160 }}
             />
@@ -76,7 +76,7 @@ export default function Demo({ compact }: DemoProps) {
         }
       />
       <section className="demo-scroll-ending">
-        <GraphicArt name="cloud-arch" />
+        <ScrollCardArt name="cloud-arch" />
         <h2>
           We believe independence grows when children are supported with care,
           respect, and the freedom to learn at their own pace.
