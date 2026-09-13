@@ -1,0 +1,58 @@
+.jui-promotion-code {
+  --promotion-accent: #0074d4;
+  --promotion-surface: #fff;
+  --promotion-text: #303030;
+  --promotion-idle: #f3f3f3;
+  --promotion-border: #dedede;
+  --promotion-placeholder: #787878;
+  --promotion-error: #c53030;
+  color-scheme: light;
+  --promotion-ring: rgba(50, 151, 211, .72);
+  width: 100%; color: var(--promotion-text);
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
+}
+.jui-promotion-code-field { position: relative; display: inline-grid; min-width: 35%; max-width: 100%; vertical-align: top; transition: min-width 200ms ease-out; }
+.jui-promotion-code[data-expanded="true"] .jui-promotion-code-field { min-width: 100%; }
+.jui-promotion-code-measure { grid-area: 1/1; visibility: hidden; height: 36px; padding-inline: 12px; white-space: nowrap; font-weight: 500; overflow: hidden; }
+.jui-promotion-code input { grid-area: 1/1; box-sizing: border-box; width: 100%; min-width: 0; height: 36px; margin: 0; padding: 8px 12px; border: 0; border-radius: 12px; outline: none; background: var(--promotion-idle); color: inherit; font: inherit; cursor: pointer; transition: padding 200ms ease-out, background 200ms ease-out, box-shadow 200ms ease-out; }
+.jui-promotion-code input::placeholder { color: var(--promotion-text); opacity: 1; font-weight: 500; transition: color 200ms ease-out; }
+.jui-promotion-code[data-expanded="false"] input:hover { background: color-mix(in srgb, var(--promotion-idle), var(--promotion-text) 4%); }
+.jui-promotion-code[data-expanded="true"] input { background: var(--promotion-surface); box-shadow: 0 0 0 1px var(--promotion-border), 0 1px 1px #00000012; cursor: text; }
+.jui-promotion-code[data-expanded="true"] input::placeholder { color: var(--promotion-placeholder); font-weight: 400; }
+.jui-promotion-code[data-has-value="true"] input { padding-inline-end: 100px; }
+.jui-promotion-code .jui-promotion-code-field:focus-within input { box-shadow: 0 1px 1px #00000012, 0 0 0 3px var(--promotion-ring); }
+.jui-promotion-code-apply { position: absolute; inset-inline-end: 12px; top: 0; bottom: 0; padding: 0; border: 0; background: transparent; color: var(--promotion-accent); font: inherit; font-weight: 500; opacity: 0; transform: scale(.8); pointer-events: none; transition: opacity 300ms ease, transform 300ms ease; }
+.jui-promotion-code[data-has-value="true"] .jui-promotion-code-apply { opacity: 1; transform: scale(1); pointer-events: auto; cursor: pointer; }
+.jui-promotion-code-apply:focus-visible { outline: 2px solid var(--promotion-accent); outline-offset: 2px; border-radius: 3px; }
+.jui-promotion-code-apply:disabled { cursor: default; }
+.jui-promotion-code[data-disabled] { opacity: .5; }
+.jui-promotion-code[data-disabled] input { cursor: default; }
+.jui-promotion-code-error { display: block; margin-top: 8px; color: var(--promotion-error); font-size: 13px; }
+.jui-promotion-code input[aria-invalid="true"] { box-shadow: 0 0 0 1px var(--promotion-error); }
+@media (prefers-reduced-motion: reduce) { .jui-promotion-code-field, .jui-promotion-code input, .jui-promotion-code input::placeholder, .jui-promotion-code-apply { transition: none; } }
+.jui-promotion-code[data-has-value="false"] .jui-promotion-code-apply { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.jui-promotion-code[data-theme="dark"] {
+  color-scheme: dark;
+  --promotion-accent: #80bdff;
+  --promotion-surface: #252629;
+  --promotion-text: #eeeeef;
+  --promotion-idle: #303135;
+  --promotion-border: #48494e;
+  --promotion-placeholder: #a2a3aa;
+  --promotion-error: #ff9494;
+  --promotion-ring: rgba(100, 170, 240, .65);
+}
+.jui-promotion-code { --promotion-success: #278354; }
+.jui-promotion-code[data-theme="dark"] { --promotion-success: #75d5a1; }
+.jui-promotion-code-spinner { display: inline-block; width: 14px; height: 14px; vertical-align: middle; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: jui-promotion-code-spin 650ms linear infinite; }
+.jui-promotion-code-confirmation { display: inline-flex; align-items: center; gap: 4px; }
+.jui-promotion-code[data-status="success"] .jui-promotion-code-apply { color: var(--promotion-success); opacity: 1; }
+.jui-promotion-code[data-status="loading"] .jui-promotion-code-apply { opacity: 1; visibility: visible; }
+.jui-promotion-code[data-status="success"] input { box-shadow: 0 0 0 1px var(--promotion-success); }
+.jui-promotion-code[data-status="error"] .jui-promotion-code-field { animation: jui-promotion-code-shake 240ms ease-out; }
+.jui-promotion-code[data-status="error"] .jui-promotion-code-field input { box-shadow: 0 0 0 2px var(--promotion-error); }
+.jui-promotion-code-announcement { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@keyframes jui-promotion-code-spin { to { transform: rotate(360deg); } }
+@keyframes jui-promotion-code-shake { 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
+@media (prefers-reduced-motion: reduce) { .jui-promotion-code-spinner, .jui-promotion-code[data-status="error"] .jui-promotion-code-field { animation: none; } }

@@ -1,0 +1,9 @@
+.demo-promotion-code { width: min(100%, 320px); min-height: 112px; display: grid; align-items: center; }
+.demo-promotion-code[data-compact="true"] { min-height: 76px; }
+.component-stage:has(.demo-promotion-code) { min-height: 200px; }
+.demo-promotion-code > .jui-promotion-code { display: grid; justify-items: center; }
+.demo-promotion-code { align-content: center; gap: 20px; }
+.demo-promotion-code-examples { display: flex; justify-content: center; align-items: center; gap: 10px; color: var(--muted); font: 11px/1.5 inherit; }
+.demo-promotion-code-examples button { padding: 3px 0; border: 0; background: transparent; color: inherit; font-size: 11px; cursor: pointer; }
+.demo-promotion-code-examples button:hover { color: var(--text); }
+.demo-promotion-code-examples button:disabled { cursor: wait; }

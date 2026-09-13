@@ -1,0 +1,89 @@
+{
+  "name": "promotion-code",
+  "title": "Promotion Code",
+  "english": "Promotion Code",
+  "category": "inputs",
+  "entry": "components/ui/promotion-code.tsx",
+  "description": "从胶囊提示平滑展开为完整输入框的优惠码组件。",
+  "interaction": "点击展开并输入优惠码，Apply 后转圈 1.2 秒。JUNGUI 显示绿色勾和 Applied，其他代码显示红框、轻晃和错误提示；修改后可重试。也可点击下方演示成功／失败，重置后收起。深浅配色跟随右上角主题。",
+  "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { PromotionCode } from \"@/components/ui/promotion-code\"\n\nexport function Demo() {\n  const [code, setCode] = useState(\"\")\n  return <PromotionCode value={code} onValueChange={setCode} onApply={(value) => console.log(value)} />\n}",
+  "props": [
+    {
+      "name": "theme",
+      "type": "\"light\" | \"dark\"",
+      "default": "\"light\"",
+      "description": "显式指定深浅配色，独立使用时不依赖站点主题。"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "受控输入值。"
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "description": "非受控初始输入值。",
+      "default": "\"\""
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "description": "输入变化回调。"
+    },
+    {
+      "name": "onApply",
+      "type": "(code: string) => void",
+      "description": "点击 Apply 或按 Enter 时传入去除首尾空格的代码。"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "胶囊文案、占位符及默认无障碍名称。",
+      "default": "\"Add promotion code\""
+    },
+    {
+      "name": "applyLabel",
+      "type": "string",
+      "description": "应用按钮文案。",
+      "default": "\"Apply\""
+    },
+    {
+      "name": "loadingLabel",
+      "type": "string",
+      "description": "加载按钮文案。",
+      "default": "\"Applying…\""
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "description": "外部控制加载状态，期间禁止编辑和重复提交。",
+      "default": "false"
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "description": "外部控制错误文案。"
+    },
+    {
+      "name": "...inputProps",
+      "type": "ComponentProps<\"input\">",
+      "description": "透传 name、disabled、readOnly、aria 属性与输入事件。"
+    },
+    {
+      "name": "success",
+      "type": "boolean",
+      "default": "false",
+      "description": "外部控制成功状态，显示绿色勾并阻止重复提交；修改值后由使用者重置。"
+    },
+    {
+      "name": "successLabel",
+      "type": "string",
+      "default": "\"Applied\"",
+      "description": "成功按钮文案和无障碍状态播报。"
+    }
+  ],
+  "credits": [
+    "https://stripe.com/payments/checkout"
+  ],
+  "order": 100
+}

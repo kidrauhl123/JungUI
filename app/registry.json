@@ -360,6 +360,34 @@
         }
       ],
       "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "promotion-code",
+      "title": "Promotion Code",
+      "description": "从胶囊提示平滑展开为完整输入框的优惠码组件。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/promotion-code.css",
+          "type": "registry:file",
+          "target": "@ui/promotion-code.css"
+        },
+        {
+          "path": "components/ui/promotion-code.tsx",
+          "type": "registry:ui",
+          "target": "@ui/promotion-code.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
     }
   ]
 }
