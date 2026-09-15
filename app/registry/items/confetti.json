@@ -1,0 +1,58 @@
+{
+  "name": "confetti",
+  "title": "彩纸庆祝",
+  "english": "Confetti",
+  "category": "feedback",
+  "entry": "components/ui/confetti.tsx",
+  "description": "包含七种发射方式的 Canvas 彩纸庆祝效果。",
+  "interaction": "彩纸覆盖整个视口，可飞出预览框。选择版本后点击 Celebrate 触发或重播。支持基础、随机方向、烟花、双侧礼炮、星星、自定义形状和 Emoji；Emoji 可换图案，停止会清除当前粒子。",
+  "usage": "\"use client\"\nimport { useRef } from \"react\"\nimport { Confetti, type ConfettiRef } from \"@/components/ui/confetti\"\n\nexport function Demo() {\n  const effect = useRef<ConfettiRef>(null)\n  return <div style={{ position: \"relative\", height: 320 }}>\n    <button onClick={() => effect.current?.fire()}>Celebrate</button>\n    <Confetti ref={effect} variant=\"stars\" fullscreen />\n  </div>\n}",
+  "props": [
+    {
+      "name": "ref",
+      "type": "Ref<ConfettiRef>",
+      "description": "fire(options?) 手动触发；stop() 停止并清空。再次 fire 会替换当前动画。"
+    },
+    {
+      "name": "variant",
+      "type": "\"basic\" | \"random\" | \"fireworks\" | \"side-cannons\" | \"stars\" | \"shapes\" | \"emoji\"",
+      "description": "预设发射方式。",
+      "default": "\"basic\""
+    },
+    {
+      "name": "fullscreen",
+      "type": "boolean",
+      "default": "false",
+      "description": "将画布挂载到 body，覆盖整个视口并穿透鼠标事件，不受父容器裁切。"
+    },
+    {
+      "name": "options",
+      "type": "ConfettiOptions",
+      "description": "覆盖粒子数量、颜色、形状、角度、速度等 canvas-confetti 参数；origin 相对于当前画布，全屏时相对于视口。"
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "description": "烟花和双侧礼炮的发射时长（毫秒），不含粒子消散时间。",
+      "default": "烟花 5000 / 双侧礼炮 3000"
+    },
+    {
+      "name": "emoji",
+      "type": "string",
+      "description": "Emoji 版本使用的文字或表情。",
+      "default": "\"🦄\""
+    },
+    {
+      "name": "respectReducedMotion",
+      "type": "boolean",
+      "description": "尊重系统减少动态效果设置，开启时跳过动画。",
+      "default": "true"
+    }
+  ],
+  "credits": [
+    "https://magicui.design/docs/components/confetti",
+    "https://github.com/magicuidesign/magicui/blob/main/LICENSE.md",
+    "https://github.com/catdad/canvas-confetti"
+  ],
+  "order": 100
+}

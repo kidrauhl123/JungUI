@@ -122,3 +122,14 @@ test("scaffold rejects invalid paths", () => {
   assert.throws(() => scaffold("../oops", "Oops"), /kebab-case/);
   assert.throws(() => scaffold("Bad Name", "Oops"), /kebab-case/);
 });
+
+test("published items include declared types for imported JS packages only", async () =>
+  fixture(async (dir) => {
+    for (const [file, content] of scaffold("typed-effect", "Effect", "feedback"))
+      await writeFile(path.join(dir, file), content);
+    await writeFile(path.join(dir, "components/ui/typed-effect.tsx"), 'import confetti from "canvas-confetti"; export const TypedEffect = () => confetti();');
+    await writeFile(path.join(dir, "package.json"), JSON.stringify({ dependencies: { "canvas-confetti": "1.9.4", "@types/canvas-confetti": "1.9.0", "@types/unused": "1.0.0" } }));
+    const artifacts = await makeArtifacts(dir);
+    const payload = JSON.parse(artifacts.get("public/r/typed-effect.json")!);
+    assert.deepEqual(payload.dependencies, ["@types/canvas-confetti@1.9.0", "canvas-confetti@1.9.4"]);
+  }));

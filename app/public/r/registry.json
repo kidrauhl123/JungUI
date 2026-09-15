@@ -363,6 +363,36 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "confetti",
+      "title": "彩纸庆祝",
+      "description": "包含七种发射方式的 Canvas 彩纸庆祝效果。",
+      "dependencies": [
+        "@types/canvas-confetti@^1.9.0",
+        "canvas-confetti@^1.9.4",
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/confetti.css",
+          "type": "registry:file",
+          "target": "@ui/confetti.css"
+        },
+        {
+          "path": "components/ui/confetti.tsx",
+          "type": "registry:ui",
+          "target": "@ui/confetti.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "promotion-code",
       "title": "Promotion Code",
       "description": "从胶囊提示平滑展开为完整输入框的优惠码组件。",

@@ -15,5 +15,6 @@ export const demos: Record<string, ComponentType<DemoProps>> = {
   "ripple-field": dynamic(() => import("./ripple-field")),
   "card-stack": dynamic(() => import("./card-stack")),
   "scroll-card-stack": dynamic(() => import("./scroll-card-stack")),
+  "confetti": dynamic(() => import("./confetti")),
   "promotion-code": dynamic(() => import("./promotion-code")),
 };

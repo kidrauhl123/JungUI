@@ -168,6 +168,13 @@ export async function makeArtifacts(base = root) {
         throw new Error(
           `${definition.name}: ${pkg} must be a runtime dependency`,
         );
+    // Published TypeScript needs declaration packages for untyped JS dependencies.
+    for (const pkg of [...closure.dependencies]) {
+      const types = `@types/${pkg.replace(/^@/, "").replace("/", "__")}`;
+      if (manifest.dependencies?.[types] && !closure.dependencies.includes(types))
+        closure.dependencies.push(types);
+    }
+    closure.dependencies.sort();
     const baseNames = closure.files
       .filter((file) => /\.(tsx?|jsx?)$/.test(file) && !file.endsWith(".d.ts"))
       .map((file) => path.basename(file).replace(/\.[^.]+$/, ""));
