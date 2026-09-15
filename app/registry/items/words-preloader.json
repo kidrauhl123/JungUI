@@ -1,0 +1,92 @@
+{
+  "name": "words-preloader",
+  "title": "问候预加载",
+  "english": "Words Preloader",
+  "category": "feedback",
+  "entry": "components/ui/words-preloader.tsx",
+  "description": "多语言问候依次切换，再以弧形幕布向上退场的预加载组件。",
+  "interaction": "自动播放问候序列后露出内容；可重播或全屏体验。支持深浅配色、加载就绪控制和减少动态效果偏好。视觉参考 Skiper UI 与 Dennis Snellenberg，代码独立实现。",
+  "usage": "import { WordsPreloader } from \"@/components/ui/words-preloader\"\n\nexport function Demo() {\n  return <WordsPreloader words={[\"Hello\", \"Bonjour\", \"你好\"]} theme=\"dark\">\n    <div style={{ padding: 80 }}>Welcome to your page.</div>\n  </WordsPreloader>\n}",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "description": "幕布退场后展示的内容，播放期间不可交互。"
+    },
+    {
+      "name": "words",
+      "type": "string[]",
+      "description": "依次显示的文字；空数组直接结束序列。",
+      "default": "八种语言问候"
+    },
+    {
+      "name": "ready",
+      "type": "boolean",
+      "description": "序列完成后是否允许退场；false 停留在最后一个词，变为 true 后自动退场。",
+      "default": "true"
+    },
+    {
+      "name": "replayKey",
+      "type": "string | number",
+      "description": "改变此值重新挂载并播放，也会重置 children 内部状态。"
+    },
+    {
+      "name": "fullscreen",
+      "type": "boolean",
+      "description": "通过 portal 覆盖整个视口，锁定滚动并管理键盘焦点。",
+      "default": "false"
+    },
+    {
+      "name": "theme",
+      "type": "\"light\" | \"dark\"",
+      "description": "幕布深浅配色，不依赖全局主题。",
+      "default": "\"dark\""
+    },
+    {
+      "name": "firstDuration",
+      "type": "number",
+      "description": "首词停留时间（ms）；单词数组也使用此值。",
+      "default": "800"
+    },
+    {
+      "name": "wordDuration",
+      "type": "number",
+      "description": "中间词停留时间（ms）。",
+      "default": "150"
+    },
+    {
+      "name": "lastDuration",
+      "type": "number",
+      "description": "末词停留时间（ms，多词时）。",
+      "default": "300"
+    },
+    {
+      "name": "exitDuration",
+      "type": "number",
+      "description": "弧形退场时长（ms），减少动态效果时改为 120ms 淡出。",
+      "default": "800"
+    },
+    {
+      "name": "curveHeight",
+      "type": "number",
+      "description": "曲线控制点向下偏移（px）。",
+      "default": "300"
+    },
+    {
+      "name": "loadingLabel",
+      "type": "string",
+      "description": "固定的读屏加载提示，避免逐词播报。",
+      "default": "\"Loading\""
+    },
+    {
+      "name": "onComplete",
+      "type": "() => void",
+      "description": "自动退场完成后调用。"
+    }
+  ],
+  "credits": [
+    "https://skiper-ui.com/v1/skiper8",
+    "https://dennissnellenberg.com/"
+  ],
+  "order": 100
+}

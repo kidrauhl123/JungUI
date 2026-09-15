@@ -1,0 +1,100 @@
+{
+  "name": "preview-sidebar",
+  "title": "预览侧边栏",
+  "english": "Preview Sidebar",
+  "category": "display",
+  "entry": "components/ui/preview-sidebar.tsx",
+  "description": "带弹性刻度线、跟随预览和渐进模糊的组件侧边栏。",
+  "interaction": "悬停或键盘聚焦条目，短线伸长并显示浮层预览；点击选择，顶部切换编号/分类排列，左上角展开收起，Escape 收起。触屏点击直接选择。演示预览为原创动态图形；可传入视频。视觉参考 Skiper UI，独立实现。",
+  "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { PreviewSidebar } from \"@/components/ui/preview-sidebar\"\n\nexport function Demo() {\n  const [active, setActive] = useState(\"intro\")\n  return <PreviewSidebar activeId={active} onSelect={setActive} items={[\n    { id: \"intro\", label: \"Introduction\", group: \"Getting started\", preview: <div style={{padding: 24}}>Hello, JungUI</div> },\n    { id: \"guide\", label: \"Guide\", group: \"Getting started\", href: \"#guide\" },\n  ]} />\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "PreviewSidebarItem[]",
+      "description": "数据：唯一 id、label；可选 group、href、preview（ReactNode）、videoSrc、badge。按输入顺序编号，preview 优先于视频。"
+    },
+    {
+      "name": "activeId",
+      "type": "string",
+      "description": "受控选择项 ID。"
+    },
+    {
+      "name": "defaultActiveId",
+      "type": "string",
+      "description": "非受控初始选择。"
+    },
+    {
+      "name": "onSelect",
+      "type": "(id: string) => void",
+      "description": "点击条目时调用；带 href 的条目同时执行原生导航。"
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "受控展开状态。"
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "description": "非受控初始展开状态。",
+      "default": "true"
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "description": "请求展开/收起时调用。"
+    },
+    {
+      "name": "theme",
+      "type": "\"light\" | \"dark\"",
+      "description": "独立深浅配色。",
+      "default": "\"light\""
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "description": "侧栏宽度（px），至少 220，受父容器宽度约束。",
+      "default": "320"
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "description": "侧栏高度（px），至少 240。",
+      "default": "520"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "导航无障碍名称。",
+      "default": "\"Component navigation\""
+    },
+    {
+      "name": "allLabel",
+      "type": "string",
+      "description": "全部组件及未分类组名称。",
+      "default": "\"All components\""
+    },
+    {
+      "name": "orderLabel",
+      "type": "string",
+      "description": "按输入顺序排列时的切换按钮文字。",
+      "default": "\"Sorted by Id\""
+    },
+    {
+      "name": "groupLabel",
+      "type": "string",
+      "description": "分类排列时的切换按钮文字。",
+      "default": "\"Sorted by Collection\""
+    },
+    {
+      "name": "toggleLabel",
+      "type": "string",
+      "description": "展开收起按钮无障碍名称。",
+      "default": "\"Toggle sidebar\""
+    }
+  ],
+  "credits": [
+    "https://skiper-ui.com/v1/skiper8"
+  ],
+  "order": 100
+}

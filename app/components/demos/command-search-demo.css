@@ -1,0 +1,6 @@
+.demo-command-search{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;width:100%;min-height:300px}
+.demo-command-search-label{position:absolute;bottom:calc(50% + 70px);font-size:10px;line-height:1.2;color:var(--muted);text-align:center;opacity:.65}
+.demo-command-search-label>span{display:block;width:1px;height:36px;margin:18px auto 0;background:linear-gradient(transparent,var(--muted));opacity:.6}
+.demo-command-search-status{position:absolute;top:calc(50% + 48px);font-size:11px;color:var(--muted)}
+.demo-command-search[data-compact=true]{min-height:200px}.demo-command-search[data-compact=true] .demo-command-search-label{bottom:calc(50% + 45px)}
+.component-stage:has(.demo-command-search){min-height:330px}

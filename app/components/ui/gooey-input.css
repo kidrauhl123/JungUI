@@ -12,6 +12,6 @@
 .jui-gooey-submit[aria-hidden="true"] { pointer-events: none; }
 .jui-gooey-field input { box-sizing: border-box; width: 100%; height: 40px; padding: 0 16px; margin: 0; border: 0; border-radius: 999px; outline: none; background: transparent; color: var(--gooey-text); font: inherit; appearance: none; }
 .jui-gooey-field input::placeholder { color: var(--gooey-text); opacity: .65; }
-.jui-gooey-trigger:focus-visible, .jui-gooey-submit:focus-visible, .jui-gooey-field input:focus-visible { outline: 2px solid #6c9dfa; outline-offset: 4px; }
+.jui-gooey-trigger:focus-visible, .jui-gooey-submit:focus-visible { outline: 2px solid var(--gooey-surface); outline-offset: 4px; }
 .jui-gooey-input[data-disabled] { opacity: .45; }
 .jui-gooey-input[data-disabled] button { cursor: default; }

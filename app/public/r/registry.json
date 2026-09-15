@@ -363,6 +363,68 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "gooey-input",
+      "title": "黏液搜索框",
+      "description": "搜索胶囊展开时，图标像液滴一样分离的输入框。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "lucide-react@^1.20.0",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/gooey-input.css",
+          "type": "registry:file",
+          "target": "@ui/gooey-input.css"
+        },
+        {
+          "path": "components/ui/gooey-input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/gooey-input.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "command-search",
+      "title": "命令搜索",
+      "description": "由小搜索条展开为分组命令面板的搜索组件。",
+      "dependencies": [
+        "@radix-ui/react-dialog@^1.1.23",
+        "clsx@^2.1.1",
+        "cmdk@^1.1.1",
+        "lucide-react@^1.20.0",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/command-search.css",
+          "type": "registry:file",
+          "target": "@ui/command-search.css"
+        },
+        {
+          "path": "components/ui/command-search.tsx",
+          "type": "registry:ui",
+          "target": "@ui/command-search.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "confetti",
       "title": "彩纸庆祝",
       "description": "包含七种发射方式的 Canvas 彩纸庆祝效果。",
@@ -424,25 +486,24 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "gooey-input",
-      "title": "黏液搜索框",
-      "description": "搜索胶囊展开时，图标像液滴一样分离的输入框。",
+      "name": "preview-sidebar",
+      "title": "预览侧边栏",
+      "description": "带弹性刻度线、跟随预览和渐进模糊的组件侧边栏。",
       "dependencies": [
         "clsx@^2.1.1",
-        "lucide-react@^1.20.0",
         "motion@^12.40.0",
         "tailwind-merge@^3.6.0"
       ],
       "files": [
         {
-          "path": "components/ui/gooey-input.css",
+          "path": "components/ui/preview-sidebar.css",
           "type": "registry:file",
-          "target": "@ui/gooey-input.css"
+          "target": "@ui/preview-sidebar.css"
         },
         {
-          "path": "components/ui/gooey-input.tsx",
+          "path": "components/ui/preview-sidebar.tsx",
           "type": "registry:ui",
-          "target": "@ui/gooey-input.tsx"
+          "target": "@ui/preview-sidebar.tsx"
         },
         {
           "path": "lib/utils.ts",
@@ -471,6 +532,36 @@
           "path": "components/ui/promotion-code.tsx",
           "type": "registry:ui",
           "target": "@ui/promotion-code.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "words-preloader",
+      "title": "问候预加载",
+      "description": "多语言问候依次切换，再以弧形幕布向上退场的预加载组件。",
+      "dependencies": [
+        "@radix-ui/react-dialog@^1.1.23",
+        "clsx@^2.1.1",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/words-preloader.css",
+          "type": "registry:file",
+          "target": "@ui/words-preloader.css"
+        },
+        {
+          "path": "components/ui/words-preloader.tsx",
+          "type": "registry:ui",
+          "target": "@ui/words-preloader.tsx"
         },
         {
           "path": "lib/utils.ts",

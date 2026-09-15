@@ -1,0 +1,79 @@
+{
+  "name": "command-search",
+  "title": "命令搜索",
+  "english": "Command Search",
+  "category": "inputs",
+  "entry": "components/ui/command-search.tsx",
+  "description": "由小搜索条展开为分组命令面板的搜索组件。",
+  "interaction": "点击搜索条或按 F 展开，输入过滤命令，上下方向键选择、Enter 执行，Esc 或点击外部收起。浮层不受演示框裁切。演示执行后显示选中项；视觉参考 Skiper UI Vercel Command Search，独立实现。",
+  "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { CommandSearch } from \"@/components/ui/command-search\"\n\nexport function Demo() {\n  const [selected, setSelected] = useState(\"\")\n  return <>\n    <CommandSearch items={[\n      { id: \"calendar\", label: \"Calendar\", group: \"Suggestions\" },\n      { id: \"settings\", label: \"Settings\", group: \"Settings\", keywords: [\"preferences\"] },\n    ]} onSelect={(item) => setSelected(item.label)} />\n    <p role=\"status\">{selected}</p>\n  </>\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "CommandSearchItem[]",
+      "description": "唯一 id、label；可选 group、keywords、icon、hint、disabled。hint 仅显示提示文字，不注册快捷键。"
+    },
+    {
+      "name": "onSelect",
+      "type": "(item: CommandSearchItem) => void",
+      "description": "鼠标或 Enter 执行命令后调用；默认保持面板打开，与原演示一致。可通过受控 open 在执行后收起。"
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "受控展开状态。"
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "description": "非受控初始状态。",
+      "default": "false"
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "description": "请求展开或收起时调用。"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "搜索条和输入框的占位符。",
+      "default": "\"Find...\""
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "搜索框的无障碍名称。",
+      "default": "\"Command search\""
+    },
+    {
+      "name": "emptyLabel",
+      "type": "string",
+      "description": "没有匹配结果时的文字。",
+      "default": "\"No results found.\""
+    },
+    {
+      "name": "shortcut",
+      "type": "string | false",
+      "description": "打开快捷键；false 禁用。输入其他表单时不拦截，入口需在视口内。",
+      "default": "\"f\""
+    },
+    {
+      "name": "theme",
+      "type": "\"light\" | \"dark\"",
+      "description": "独立深浅配色。",
+      "default": "\"light\""
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "description": "展开面板宽度（px），至少 240，自动适应窄屏。",
+      "default": "384"
+    }
+  ],
+  "credits": [
+    "https://skiper-ui.com/v1/skiper92",
+    "https://github.com/dip/cmdk"
+  ],
+  "order": 99.01
+}
