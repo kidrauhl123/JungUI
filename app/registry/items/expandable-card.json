@@ -1,0 +1,68 @@
+{
+  "name": "expandable-card",
+  "title": "展开卡片",
+  "english": "Expandable Card",
+  "category": "display",
+  "entry": "components/ui/expandable-card.tsx",
+  "description": "封面与标题连续变形成详情浮层的卡片，支持列表和网格布局。",
+  "interaction": "点击卡片展开详情，封面和标题共享布局过渡；点遮罩、关闭按钮或按 Escape 缩回原位。浮层覆盖整个页面，支持深浅主题。演示可切换列表/网格并收藏条目。",
+  "usage": "import { ExpandableCard } from \"@/components/ui/expandable-card\"\n\nexport function Demo() {\n  return <ExpandableCard variant=\"list\" items={[\n    {\n      id: \"coast\",\n      title: \"Quiet Tides\",\n      subtitle: \"Coastal notes\",\n      image: \"https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&auto=format&fit=crop\",\n      imageAlt: \"Coastline at sunset\",\n      content: <p>A quiet moment by the sea.</p>,\n      action: <a href=\"https://example.com\">Read more</a>,\n    },\n  ]} />\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "ExpandableCardItem[]",
+      "description": "卡片数据：唯一 id、title、image、content；可选 subtitle、imageAlt、action（ReactNode）。"
+    },
+    {
+      "name": "variant",
+      "type": "\"list\" | \"grid\"",
+      "description": "列表或双列网格布局。",
+      "default": "\"list\""
+    },
+    {
+      "name": "theme",
+      "type": "\"light\" | \"dark\"",
+      "description": "组件及 body 浮层的独立配色。",
+      "default": "\"light\""
+    },
+    {
+      "name": "activeId",
+      "type": "string | null",
+      "description": "受控的展开条目 ID，null 关闭；未匹配的 ID 不展示浮层。"
+    },
+    {
+      "name": "defaultActiveId",
+      "type": "string | null",
+      "description": "非受控初始展开条目。",
+      "default": "null"
+    },
+    {
+      "name": "onActiveIdChange",
+      "type": "(id: string | null) => void",
+      "description": "请求展开或关闭时调用。"
+    },
+    {
+      "name": "expandLabel",
+      "type": "string",
+      "description": "列表右侧的展开提示。",
+      "default": "\"Explore\""
+    },
+    {
+      "name": "closeLabel",
+      "type": "string",
+      "description": "关闭按钮无障碍名称。",
+      "default": "\"Close\""
+    },
+    {
+      "name": "dialogClassName",
+      "type": "string",
+      "description": "独立传送到 body 的详情容器样式。"
+    }
+  ],
+  "credits": [
+    "https://ui.aceternity.com/components/expandable-card",
+    "https://www.radix-ui.com/primitives/docs/components/dialog",
+    "https://motion.dev/docs/react-layout-animations"
+  ],
+  "order": 100
+}

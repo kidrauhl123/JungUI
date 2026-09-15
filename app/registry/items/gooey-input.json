@@ -1,0 +1,108 @@
+{
+  "name": "gooey-input",
+  "title": "黏液搜索框",
+  "english": "Gooey Input",
+  "category": "inputs",
+  "entry": "components/ui/gooey-input.tsx",
+  "description": "搜索胶囊展开时，图标像液滴一样分离的输入框。",
+  "interaction": "点击 Search 展开并自动聚焦。输入后按 Enter 或点击分离的搜索图标提交；失焦或 Escape 收起，保留输入值。支持深浅主题。",
+  "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { GooeyInput } from \"@/components/ui/gooey-input\"\n\nexport function Demo() {\n  const [query, setQuery] = useState(\"\")\n  return <GooeyInput value={query} onValueChange={setQuery} onSearch={(value) => console.log(value)} />\n}",
+  "props": [
+    {
+      "name": "value",
+      "type": "string",
+      "description": "受控输入值。"
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "description": "非受控初始值。",
+      "default": "\"\""
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "description": "输入变化回调。"
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "受控展开状态。"
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "description": "非受控初始展开状态。",
+      "default": "false"
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "description": "请求展开或收起时调用。"
+    },
+    {
+      "name": "onSearch",
+      "type": "(value: string) => void",
+      "description": "点击图标或按 Enter 时提交非空、去除首尾空格的值。"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "收起时的文字及输入框默认无障碍名称。",
+      "default": "\"Search\""
+    },
+    {
+      "name": "searchLabel",
+      "type": "string",
+      "description": "分离的搜索按钮无障碍名称。",
+      "default": "\"Submit search\""
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "展开输入框占位符。",
+      "default": "\"Type to search...\""
+    },
+    {
+      "name": "theme",
+      "type": "\"light\" | \"dark\"",
+      "description": "配色，不依赖站点环境。",
+      "default": "\"light\""
+    },
+    {
+      "name": "collapsedWidth",
+      "type": "number",
+      "description": "收起胶囊宽度（px），限制在 60 至完整宽度之间。",
+      "default": "115"
+    },
+    {
+      "name": "expandedWidth",
+      "type": "number",
+      "description": "展开输入框宽度（px），至少 80。",
+      "default": "200"
+    },
+    {
+      "name": "expandedOffset",
+      "type": "number",
+      "description": "输入框展开后的左偏移（px），至少 44。",
+      "default": "50"
+    },
+    {
+      "name": "gooeyBlur",
+      "type": "number",
+      "description": "SVG 黏液滤镜模糊量，至少 0。",
+      "default": "5"
+    },
+    {
+      "name": "...inputProps",
+      "type": "ComponentProps<\"input\">",
+      "description": "支持 disabled、readOnly、name、aria 属性和输入事件。"
+    }
+  ],
+  "credits": [
+    "https://ui.aceternity.com/components/gooey-input",
+    "https://github.com/oguzhantufenk/gooey-search",
+    "https://css-tricks.com/gooey-effect/"
+  ],
+  "order": 100
+}

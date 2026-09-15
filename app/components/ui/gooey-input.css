@@ -1,0 +1,17 @@
+.jui-gooey-input { --gooey-surface: #09090b; --gooey-text: #f4f4f5; position: relative; height: 40px; flex: none; font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.jui-gooey-input[data-theme="dark"] { --gooey-surface: #f4f4f5; --gooey-text: #18181b; }
+.jui-gooey-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.jui-gooey-surfaces { position: absolute; inset: 0; pointer-events: none; }
+.jui-gooey-surface { position: absolute; top: 0; height: 40px; border-radius: 999px; background: var(--gooey-surface); }
+.jui-gooey-drop { width: 40px; }
+.jui-gooey-field { position: absolute; top: 0; height: 40px; }
+.jui-gooey-trigger, .jui-gooey-submit { border: none; padding: 0; background: transparent; color: var(--gooey-text); cursor: pointer; font: inherit; }
+.jui-gooey-trigger { width: 100%; height: 40px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; }
+.jui-gooey-trigger span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.jui-gooey-submit { position: absolute; top: 0; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; }
+.jui-gooey-submit[aria-hidden="true"] { pointer-events: none; }
+.jui-gooey-field input { box-sizing: border-box; width: 100%; height: 40px; padding: 0 16px; margin: 0; border: 0; border-radius: 999px; outline: none; background: transparent; color: var(--gooey-text); font: inherit; appearance: none; }
+.jui-gooey-field input::placeholder { color: var(--gooey-text); opacity: .65; }
+.jui-gooey-trigger:focus-visible, .jui-gooey-submit:focus-visible, .jui-gooey-field input:focus-visible { outline: 2px solid #6c9dfa; outline-offset: 4px; }
+.jui-gooey-input[data-disabled] { opacity: .45; }
+.jui-gooey-input[data-disabled] button { cursor: default; }

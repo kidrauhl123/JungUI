@@ -1,0 +1,8 @@
+.demo-expandable-card{width:100%;max-width:520px;display:grid;gap:18px;padding:4px 0}
+.demo-expandable-card-variants{display:flex;justify-self:center;gap:4px;padding:4px;border:1px solid var(--line);border-radius:10px;background:var(--soft)}
+.demo-expandable-card-variants button{border:0;background:transparent;color:var(--muted);border-radius:7px;padding:6px 15px;font:inherit;font-size:12px;cursor:pointer}
+.demo-expandable-card-variants button[aria-pressed=true]{background:var(--surface);color:var(--ink);box-shadow:0 1px 4px #0001}
+.demo-expandable-card-save{border:0;border-radius:999px;padding:10px 17px;background:#22c55e;color:#082b15;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.demo-expandable-card-save[aria-pressed=true]{background:#dcfce7;color:#166534}
+.demo-expandable-card-save:focus-visible{outline:2px solid #22c55e;outline-offset:4px}
+.demo-expandable-card[data-compact=true]{gap:12px}

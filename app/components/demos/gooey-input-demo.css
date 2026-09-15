@@ -1,0 +1,4 @@
+.demo-gooey-input { display: grid; justify-items: center; align-content: center; gap: 20px; width: 100%; min-height: 150px; }
+.demo-gooey-input-status { color: var(--muted); font-size: 12px; min-height: 18px; max-width: 250px; overflow-wrap: anywhere; }
+.demo-gooey-input[data-compact="true"] { min-height: 100px; }
+.component-stage:has(.demo-gooey-input) { min-height: 220px; }
