@@ -3,6 +3,7 @@
 :root {
   --page: #f6f7f9;
   --surface: #fff;
+  --stage: #fff;
   --ink: #151719;
   --muted: #6b7078;
   --line: #e2e5e9;
@@ -14,6 +15,7 @@
 :root[data-theme="dark"] {
   --page: #101214;
   --surface: #191c1f;
+  --stage: #000000;
   --ink: #f3f5f6;
   --muted: #9da4ac;
   --line: #30353b;
@@ -297,7 +299,7 @@ nav a.active {
 .gallery-preview {
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: var(--surface);
+  background: var(--stage);
   overflow: hidden;
   height: 320px;
   display: grid;
@@ -384,7 +386,7 @@ nav a.active {
   max-width: 650px;
 }
 .component-stage {
-  background: var(--surface);
+  background: var(--stage);
   border: 1px solid var(--line);
   border-radius: 22px;
   min-height: 410px;
