@@ -37,7 +37,7 @@ import "./bloub-bot.css";
 export type BloubBotProps = {
   /** Display size in CSS pixels. */
   size?: number;
-  /** Customiser shape id (`cercle`, `chat`, …). Default `chat` in JungUI. */
+  /** Customiser shape id (`cercle`, `chat`, …). Default circle, matching upstream bloub. */
   shape?: string;
   /** Body colour id. */
   color?: string;
@@ -106,7 +106,7 @@ function syncEngine(
 
 export function BloubBot({
   size = 280,
-  shape = "chat",
+  shape = DEFAULT_SHAPE,
   color = DEFAULT_COLOR,
   expression = DEFAULT_EXPRESSION,
   paper = "#f9f9f9",
