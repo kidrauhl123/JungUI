@@ -81,13 +81,14 @@ const capsule = profileFromPolygon(hullOfCircles(-0.42, 0, 0.62, 0.42, 0, 0.62),
  * Chat : tete ronde + deux oreilles fondues dans la meme silhouette.
  * Union de disques (comme le nuage) : les yeux restent le moteur bloub d'origine.
  */
+/** Chat : grosse tete ronde, petites oreilles collees au crane (pas de grandes oreilles Mickey). */
 const chat = normalize(
   unionOfCirclesProfile([
-    { x: 0, y: 0.16, r: 0.78 },
-    { x: -0.46, y: -0.48, r: 0.34 },
-    { x: 0.46, y: -0.48, r: 0.34 },
-    { x: -0.55, y: -0.78, r: 0.2 },
-    { x: 0.55, y: -0.78, r: 0.2 }
+    { x: 0, y: 0.1, r: 0.86 },
+    { x: -0.33, y: -0.7, r: 0.16 },
+    { x: 0.33, y: -0.7, r: 0.16 },
+    { x: -0.36, y: -0.82, r: 0.09 },
+    { x: 0.36, y: -0.82, r: 0.09 }
   ]),
   1.02
 )
