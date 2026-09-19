@@ -1587,3 +1587,41 @@ td small {
     right: 20px;
   }
 }
+
+/* Bloub demo uses pure black / white stages, not the gray surface. */
+.component-stage.stage-bloub-bot {
+  background: #000;
+  padding: 0;
+  border-color: #000;
+}
+.component-stage.stage-bloub-bot:has(.demo-bloub[data-stage="white"]) {
+  background: #fff;
+  border-color: #e5e5e5;
+}
+.component-stage.stage-bloub-bot .demo-preview {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 410px;
+}
+.demo-bloub-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;
+}
+.demo-bloub-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.gallery-card .gallery-preview:has(.demo-bloub) {
+  background: #000;
+  padding: 0;
+}
+.gallery-card:has(.demo-bloub[data-stage="white"]) .gallery-preview {
+  background: #fff;
+}

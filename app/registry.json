@@ -336,7 +336,7 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "bloub-bot",
       "title": "Bloub 头像",
-      "description": "可变形的 SVG 头像：纯 TypeScript 引擎 + React 壳。默认猫咪外形，眼睛沿用 bloub 原版胶囊洞与斜向。",
+      "description": "收藏自 bloub 的可变形 SVG 头像：纯 TypeScript 引擎 + React 壳。演示支持纯黑/纯白背景。",
       "dependencies": [
         "clsx@^2.1.1",
         "tailwind-merge@^3.6.0"

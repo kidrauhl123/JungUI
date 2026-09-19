@@ -4,8 +4,8 @@
   "english": "Bloub Bot",
   "category": "display",
   "entry": "components/ui/bloub-bot.tsx",
-  "description": "收藏自 bloub 的可变形 SVG 头像：纯 TypeScript 引擎 + React 壳。外形与动画贴近原版（圆、卵石、轨道、爆散等）。",
-  "interaction": "默认圆形 idle。可切换颜色、原版形状与状态；眼睛为身体镂空，沿用 bloub 原版引擎。",
+  "description": "收藏自 bloub 的可变形 SVG 头像：纯 TypeScript 引擎 + React 壳。演示支持纯黑/纯白背景。",
+  "interaction": "默认纯黑背景 + 银色球体。可切换纯白背景（黑球）、原版形状与动画状态。眼睛为身体镂空，沿用 bloub 原版引擎。",
   "usage": "import { BloubBot } from \"@/components/ui/bloub-bot\"\n\nexport function Demo() {\n  return <BloubBot state=\"idle\" size={240} />\n}",
   "props": [
     {

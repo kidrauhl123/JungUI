@@ -37,7 +37,7 @@ import "./bloub-bot.css";
 export type BloubBotProps = {
   /** Display size in CSS pixels. */
   size?: number;
-  /** Customiser shape id (`cercle`, `chat`, …). Default circle, matching upstream bloub. */
+  /** Customiser shape id (`cercle`, `galet`, …). Default circle, matching upstream bloub. */
   shape?: string;
   /** Body colour id. */
   color?: string;

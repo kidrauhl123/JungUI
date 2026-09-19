@@ -618,9 +618,9 @@
     "english": "Bloub Bot",
     "category": "display",
     "entry": "components/ui/bloub-bot.tsx",
-    "description": "可变形的 SVG 头像：纯 TypeScript 引擎 + React 壳。默认猫咪外形，眼睛沿用 bloub 原版胶囊洞与斜向。",
-    "interaction": "默认播放 idle 动画。下方可切换形状（含 chat 猫咪）与状态（眨眼、轨道、爆散等）。眼睛始终是身体上的镂空，不是叠上去的白块。",
-    "usage": "import { BloubBot } from \"@/components/ui/bloub-bot\"\n\nexport function Demo() {\n  return <BloubBot shape=\"chat\" state=\"idle\" size={240} />\n}",
+    "description": "收藏自 bloub 的可变形 SVG 头像：纯 TypeScript 引擎 + React 壳。演示支持纯黑/纯白背景。",
+    "interaction": "默认纯黑背景 + 银色球体。可切换纯白背景（黑球）、原版形状与动画状态。眼睛为身体镂空，沿用 bloub 原版引擎。",
+    "usage": "import { BloubBot } from \"@/components/ui/bloub-bot\"\n\nexport function Demo() {\n  return <BloubBot state=\"idle\" size={240} />\n}",
     "props": [
       {
         "name": "size",
@@ -631,8 +631,8 @@
       {
         "name": "shape",
         "type": "string",
-        "description": "外形 id：cercle、galet、squircle、capsule、triangle、hexagone、nuage、goutte、chat。",
-        "default": "\"chat\""
+        "description": "外形 id：cercle、galet、squircle、capsule、triangle、hexagone、nuage、goutte。",
+        "default": "\"cercle\""
       },
       {
         "name": "color",
