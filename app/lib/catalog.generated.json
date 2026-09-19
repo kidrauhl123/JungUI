@@ -613,6 +613,91 @@
     ]
   },
   {
+    "name": "bloub-bot",
+    "title": "Bloub 头像",
+    "english": "Bloub Bot",
+    "category": "display",
+    "entry": "components/ui/bloub-bot.tsx",
+    "description": "可变形的 SVG 头像：纯 TypeScript 引擎 + React 壳。默认猫咪外形，眼睛沿用 bloub 原版胶囊洞与斜向。",
+    "interaction": "默认播放 idle 动画。下方可切换形状（含 chat 猫咪）与状态（眨眼、轨道、爆散等）。眼睛始终是身体上的镂空，不是叠上去的白块。",
+    "usage": "import { BloubBot } from \"@/components/ui/bloub-bot\"\n\nexport function Demo() {\n  return <BloubBot shape=\"chat\" state=\"idle\" size={240} />\n}",
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "description": "显示边长（像素）。",
+        "default": "280"
+      },
+      {
+        "name": "shape",
+        "type": "string",
+        "description": "外形 id：cercle、galet、squircle、capsule、triangle、hexagone、nuage、goutte、chat。",
+        "default": "\"chat\""
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "description": "身体颜色 id（encre、bleu 等）。",
+        "default": "\"encre\""
+      },
+      {
+        "name": "expression",
+        "type": "string",
+        "description": "静息表情 id。",
+        "default": "\"neutre\""
+      },
+      {
+        "name": "paper",
+        "type": "string",
+        "description": "眼睛洞后面露出的纸色/背景色。",
+        "default": "\"#f9f9f9\""
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "description": "动画状态 id：idle、wink、orbit、burst 等。",
+        "default": "\"idle\""
+      },
+      {
+        "name": "playing",
+        "type": "boolean",
+        "description": "是否推进时间；false 时停在当前帧。",
+        "default": "true"
+      },
+      {
+        "name": "frozenAt",
+        "type": "number",
+        "description": "固定到状态内某一秒，关闭动画循环（适合缩略图）。"
+      }
+    ],
+    "credits": [
+      "https://github.com/jeremy-prt/bloub",
+      "https://bloub.vercel.app",
+      "https://github.com/jeremy-prt/bloub/blob/main/LICENSE"
+    ],
+    "order": 10,
+    "files": [
+      "components/ui/bloub-bot.css",
+      "components/ui/bloub-bot.tsx",
+      "lib/bloub/decor.ts",
+      "lib/bloub/engine.ts",
+      "lib/bloub/expressions.ts",
+      "lib/bloub/eyefit.ts",
+      "lib/bloub/face.ts",
+      "lib/bloub/math.ts",
+      "lib/bloub/profiles.ts",
+      "lib/bloub/repere.ts",
+      "lib/bloub/shape.ts",
+      "lib/bloub/skins.ts",
+      "lib/bloub/states.ts",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  {
     "name": "scroll-card-stack",
     "title": "滚动翻牌",
     "english": "Scroll card stack",

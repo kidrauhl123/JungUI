@@ -334,6 +334,89 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "bloub-bot",
+      "title": "Bloub 头像",
+      "description": "可变形的 SVG 头像：纯 TypeScript 引擎 + React 壳。默认猫咪外形，眼睛沿用 bloub 原版胶囊洞与斜向。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/bloub-bot.css",
+          "type": "registry:file",
+          "target": "@ui/bloub-bot.css"
+        },
+        {
+          "path": "components/ui/bloub-bot.tsx",
+          "type": "registry:ui",
+          "target": "@ui/bloub-bot.tsx"
+        },
+        {
+          "path": "lib/bloub/decor.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/decor.ts"
+        },
+        {
+          "path": "lib/bloub/engine.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/engine.ts"
+        },
+        {
+          "path": "lib/bloub/expressions.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/expressions.ts"
+        },
+        {
+          "path": "lib/bloub/eyefit.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/eyefit.ts"
+        },
+        {
+          "path": "lib/bloub/face.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/face.ts"
+        },
+        {
+          "path": "lib/bloub/math.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/math.ts"
+        },
+        {
+          "path": "lib/bloub/profiles.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/profiles.ts"
+        },
+        {
+          "path": "lib/bloub/repere.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/repere.ts"
+        },
+        {
+          "path": "lib/bloub/shape.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/shape.ts"
+        },
+        {
+          "path": "lib/bloub/skins.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/skins.ts"
+        },
+        {
+          "path": "lib/bloub/states.ts",
+          "type": "registry:lib",
+          "target": "@lib/bloub/states.ts"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "scroll-card-stack",
       "title": "滚动翻牌",
       "description": "随页面滚动翻转、逐张抽离的叙事卡片堆。",
