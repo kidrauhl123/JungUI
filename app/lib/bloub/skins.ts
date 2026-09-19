@@ -33,7 +33,6 @@ export type ShapeId =
   | 'hexagone'
   | 'nuage'
   | 'goutte'
-  | 'chat'
 
 export interface BotShape {
   id: ShapeId
@@ -81,17 +80,6 @@ const capsule = profileFromPolygon(hullOfCircles(-0.42, 0, 0.62, 0.42, 0, 0.62),
  * Chat : tete ronde + deux oreilles fondues dans la meme silhouette.
  * Union de disques (comme le nuage) : les yeux restent le moteur bloub d'origine.
  */
-/** Chat : grosse tete ronde, petites oreilles collees au crane (pas de grandes oreilles Mickey). */
-const chat = normalize(
-  unionOfCirclesProfile([
-    { x: 0, y: 0.1, r: 0.86 },
-    { x: -0.33, y: -0.7, r: 0.16 },
-    { x: 0.33, y: -0.7, r: 0.16 },
-    { x: -0.36, y: -0.82, r: 0.09 },
-    { x: 0.36, y: -0.82, r: 0.09 }
-  ]),
-  1.02
-)
 
 export const SHAPES: BotShape[] = [
   { id: 'cercle', radii: new Array(PROFILE_SAMPLES).fill(1) },
@@ -105,8 +93,7 @@ export const SHAPES: BotShape[] = [
   // 0deg : sommets a gauche et a droite, donc aretes du haut et du bas plates
   { id: 'hexagone', radii: regularPolygonProfile(6, 1.04, 0.26, 0) },
   { id: 'nuage', radii: cloud },
-  { id: 'goutte', radii: droplet },
-  { id: 'chat', radii: chat }
+  { id: 'goutte', radii: droplet }
 ]
 
 // Map indexee par `string` et non par `ShapeId` : les appelants interrogent avec
