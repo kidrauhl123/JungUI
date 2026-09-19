@@ -9,7 +9,7 @@ import { STATES } from "@/lib/bloub/states";
 const PLAYABLE = STATES.filter((s) => s.id !== "swirl").map((s) => s.id);
 
 export default function Demo({ compact }: DemoProps) {
-  const [shape, setShape] = useState("chat");
+  const [shape, setShape] = useState(DEFAULT_SHAPE);
   const [color, setColor] = useState(DEFAULT_COLOR);
   const [state, setState] = useState("idle");
 
