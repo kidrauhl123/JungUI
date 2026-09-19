@@ -5,8 +5,8 @@
   "category": "display",
   "entry": "components/ui/bloub-bot.tsx",
   "description": "可变形的 SVG 头像：纯 TypeScript 引擎 + React 壳。默认猫咪外形，眼睛沿用 bloub 原版胶囊洞与斜向。",
-  "interaction": "默认播放 idle 动画。下方可切换形状（含 chat 猫咪）与状态（眨眼、轨道、爆散等）。眼睛始终是身体上的镂空，不是叠上去的白块。",
-  "usage": "import { BloubBot } from \"@/components/ui/bloub-bot\"\n\nexport function Demo() {\n  return <BloubBot shape=\"chat\" state=\"idle\" size={240} />\n}",
+  "interaction": "默认播放 idle。上方色点切换身体颜色，中间切换形状（含 chat 猫咪），下方切换状态（眨眼、轨道、爆散等）。眼睛始终是身体上的镂空。",
+  "usage": "import { BloubBot } from \"@/components/ui/bloub-bot\"\n\nexport function Demo() {\n  return <BloubBot shape=\"chat\" color=\"bleu\" state=\"idle\" size={240} />\n}",
   "props": [
     {
       "name": "size",
