@@ -1,0 +1,56 @@
+{
+  "name": "liquid-cursor-gradient",
+  "title": "液态光标渐变",
+  "english": "Liquid Cursor Gradient",
+  "description": "大幅模糊的色块背景，其中一块用弹簧跟随光标。",
+  "category": "backgrounds",
+  "interaction": "在区域内移动指针，浅色光斑平滑跟上。另外两块色斑缓慢漂动。",
+  "usage": "import { LiquidCursorGradient } from \"@/components/ui/liquid-cursor-gradient\"\n\nexport function Demo() {\n  return (\n    <LiquidCursorGradient style={{ height: 460 }}>\n      <p>Liquid cursor gradients</p>\n    </LiquidCursorGradient>\n  )\n}\n",
+  "props": [
+    {
+      "name": "colors",
+      "type": "[string, string, string]",
+      "description": "两块漂动色斑和跟随光标色斑的颜色。",
+      "default": "[\"#9C8EB8\", \"#D4CBE5\", \"#E4DDF0\"]"
+    },
+    {
+      "name": "orbs",
+      "type": "[{ color: string; size?: string }, { color: string; size?: string }]",
+      "description": "覆盖前两块色斑的颜色和尺寸。"
+    },
+    {
+      "name": "cursorSize",
+      "type": "number",
+      "description": "跟随光标的色斑直径（px）。",
+      "default": "400"
+    },
+    {
+      "name": "blur",
+      "type": "number",
+      "description": "覆盖层模糊半径（px）。",
+      "default": "80"
+    },
+    {
+      "name": "tint",
+      "type": "string",
+      "description": "模糊层底色。",
+      "default": "\"rgba(0,0,0,.1)\""
+    },
+    {
+      "name": "noise",
+      "type": "number",
+      "description": "颗粒层不透明度，0 到 1。",
+      "default": "0.2"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "description": "显示在效果前方的内容。"
+    }
+  ],
+  "credits": [
+    "https://github.com/palakonweb/Rewamp-UI — src/components/ui/LiquidCursorGradientShowcase.jsx（仓库未声明许可证，按原实现保留）"
+  ],
+  "entry": "components/ui/liquid-cursor-gradient.tsx",
+  "order": 8
+}
