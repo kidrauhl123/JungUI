@@ -28,10 +28,6 @@ export type LiquidCursorGradientProps = Omit<ComponentProps<"div">, "color"> & {
 };
 
 const COLORS: [string, string, string] = ["#9C8EB8", "#D4CBE5", "#E4DDF0"];
-const ORBS: [LiquidOrb, LiquidOrb] = [
-  { color: "#9C8EB8", size: "60%" },
-  { color: "#D4CBE5", size: "55%" },
-];
 
 export function LiquidCursorGradient({
   colors = COLORS,

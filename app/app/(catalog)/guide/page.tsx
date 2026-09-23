@@ -1,11 +1,7 @@
-import { SiteTheme } from "@/components/catalog/site-theme";
 export const metadata = { title: "使用指南" };
 export default function Guide() {
   return (
     <article className="guide-page">
-      <div className="page-theme">
-        <SiteTheme />
-      </div>
       <h1>把喜欢的细节带走。</h1>
       <p className="guide-lead">
         每个组件都以源码交付，放进项目后，你可以自由调整它。

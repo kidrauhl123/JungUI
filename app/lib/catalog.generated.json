@@ -5,13 +5,13 @@
     "english": "Theme toggle",
     "description": "太阳与月亮通过旋转和缩放交替出现的主题按钮。",
     "category": "inputs",
-    "interaction": "点按按钮切换状态。示例背景跟随状态变化。",
+    "interaction": "点按按钮切换全站主题，示例背景跟随状态变化。",
     "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { ThemeToggle } from \"@/components/ui/theme-toggle\"\n\nexport function Demo() {\n  const [theme, setTheme] = useState<\"light\" | \"dark\">(\"light\")\n  return <ThemeToggle value={theme} onValueChange={setTheme} />\n}",
     "props": [
       {
         "name": "value",
         "type": "\"light\" | \"dark\"",
-        "description": "由使用者控制当前主题；组件不会修改整个页面。"
+        "description": "受控主题。示例里接入全站主题。"
       },
       {
         "name": "defaultValue",
@@ -1430,6 +1430,162 @@
     ],
     "dependencies": [
       "@radix-ui/react-dialog",
+      "clsx",
+      "motion",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "day-night-sky-toggle",
+    "title": "天空日夜切换",
+    "english": "Day Night Sky Toggle",
+    "description": "玻璃胶囊里的微型天空，在白天与夜晚之间平滑过渡。",
+    "category": "inputs",
+    "interaction": "点击后光球从一侧滑到另一侧，天空、星星、飞鸟、太阳和月亮一起过渡。示例接入全站主题。",
+    "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { DayNightSkyToggle } from \"@/components/ui/day-night-sky-toggle\"\n\nexport function Demo() {\n  const [theme, setTheme] = useState<\"light\" | \"dark\">(\"light\")\n  return <DayNightSkyToggle value={theme} onValueChange={setTheme} />\n}\n",
+    "props": [
+      {
+        "name": "value",
+        "type": "\"light\" | \"dark\"",
+        "description": "受控主题。不传时组件自己记住状态。"
+      },
+      {
+        "name": "defaultValue",
+        "type": "\"light\" | \"dark\"",
+        "description": "未传 value 时的初始状态。",
+        "default": "\"light\""
+      },
+      {
+        "name": "onValueChange",
+        "type": "(theme: \"light\" | \"dark\") => void",
+        "description": "切换后调用，可用于同步全站主题。"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "description": "附加到按钮的类名。"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "description": "禁用点击。"
+      }
+    ],
+    "credits": [
+      "https://github.com/palakonweb/Rewamp-UI — src/components/ui/DayNightSkyToggleShowcase.jsx（仓库未声明许可证，按原实现保留）"
+    ],
+    "entry": "components/ui/day-night-sky-toggle.tsx",
+    "order": 101,
+    "files": [
+      "components/ui/day-night-sky-toggle.css",
+      "components/ui/day-night-sky-toggle.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "motion",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "landscape-orb-toggle",
+    "title": "景观球切换",
+    "english": "Landscape Orb Toggle",
+    "description": "圆形玻璃球里的天空与沙丘，在白天和夜晚之间交叉淡化。",
+    "category": "inputs",
+    "interaction": "点击球体，天空、两层波浪和日月一起过渡。示例接入全站主题。",
+    "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { LandscapeOrbToggle } from \"@/components/ui/landscape-orb-toggle\"\n\nexport function Demo() {\n  const [theme, setTheme] = useState<\"light\" | \"dark\">(\"light\")\n  return <LandscapeOrbToggle value={theme} onValueChange={setTheme} />\n}\n",
+    "props": [
+      {
+        "name": "value",
+        "type": "\"light\" | \"dark\"",
+        "description": "受控主题。不传时组件自己记住状态。"
+      },
+      {
+        "name": "defaultValue",
+        "type": "\"light\" | \"dark\"",
+        "description": "未传 value 时的初始状态。",
+        "default": "\"light\""
+      },
+      {
+        "name": "onValueChange",
+        "type": "(theme: \"light\" | \"dark\") => void",
+        "description": "切换后调用，可用于同步全站主题。"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "description": "附加到按钮的类名。"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "description": "禁用点击。"
+      }
+    ],
+    "credits": [
+      "https://github.com/palakonweb/Rewamp-UI — src/components/ui/LandscapeOrbToggleShowcase.jsx（仓库未声明许可证，按原实现保留）"
+    ],
+    "entry": "components/ui/landscape-orb-toggle.tsx",
+    "order": 102,
+    "files": [
+      "components/ui/landscape-orb-toggle.css",
+      "components/ui/landscape-orb-toggle.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "motion",
+      "tailwind-merge"
+    ]
+  },
+  {
+    "name": "glass-orb-toggle",
+    "title": "玻璃球切换",
+    "english": "Glass Orb Toggle",
+    "description": "玻璃球体在轨道上滑动，露出 Dark 或 Light。",
+    "category": "inputs",
+    "interaction": "点击轨道，玻璃球弹簧滑到另一侧，内部的月亮与太阳交叉淡化。示例接入全站主题。",
+    "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { GlassOrbToggle } from \"@/components/ui/glass-orb-toggle\"\n\nexport function Demo() {\n  const [theme, setTheme] = useState<\"light\" | \"dark\">(\"light\")\n  return <GlassOrbToggle value={theme} onValueChange={setTheme} />\n}\n",
+    "props": [
+      {
+        "name": "value",
+        "type": "\"light\" | \"dark\"",
+        "description": "受控主题。不传时组件自己记住状态。"
+      },
+      {
+        "name": "defaultValue",
+        "type": "\"light\" | \"dark\"",
+        "description": "未传 value 时的初始状态。",
+        "default": "\"light\""
+      },
+      {
+        "name": "onValueChange",
+        "type": "(theme: \"light\" | \"dark\") => void",
+        "description": "切换后调用，可用于同步全站主题。"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "description": "附加到外层的类名。"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "description": "禁用点击。"
+      }
+    ],
+    "credits": [
+      "https://github.com/palakonweb/Rewamp-UI — src/components/ui/GlassOrbToggle.tsx（仓库未声明许可证，按原实现保留）"
+    ],
+    "entry": "components/ui/glass-orb-toggle.tsx",
+    "order": 103,
+    "files": [
+      "components/ui/glass-orb-toggle.css",
+      "components/ui/glass-orb-toggle.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
       "clsx",
       "motion",
       "tailwind-merge"

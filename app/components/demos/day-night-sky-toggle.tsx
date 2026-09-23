@@ -1,7 +1,8 @@
 "use client";
 import { useSyncExternalStore } from "react";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { DayNightSkyToggle } from "@/components/ui/day-night-sky-toggle";
 import { THEME_EVENT, THEME_KEY } from "@/lib/site-theme";
+import "./day-night-sky-toggle-demo.css";
 
 const subscribe = (callback: () => void) => {
   window.addEventListener(THEME_EVENT, callback);
@@ -24,9 +25,9 @@ function setSiteTheme(theme: "light" | "dark") {
 export default function Demo() {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   return (
-    <div className="demo-theme" data-theme={theme}>
-      <span>{theme === "light" ? "Day" : "Night"}</span>
-      <ThemeToggle value={theme} onValueChange={setSiteTheme} />
+    <div className="demo-day-night-sky">
+      <span>{theme === "light" ? "Day Mode" : "Night Mode"}</span>
+      <DayNightSkyToggle value={theme} onValueChange={setSiteTheme} />
     </div>
   );
 }

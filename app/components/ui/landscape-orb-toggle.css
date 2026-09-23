@@ -1,0 +1,72 @@
+.jui-landscape-orb {
+  background: transparent;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow:
+    0 8px 24px -4px rgba(0, 0, 0, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.6),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: block;
+  height: 92px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 92px;
+}
+.jui-landscape-orb__sky {
+  inset: 0;
+  position: absolute;
+}
+.jui-landscape-orb__body {
+  height: 20px;
+  pointer-events: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 20px;
+  z-index: 2;
+}
+.jui-landscape-orb__body-icon {
+  align-items: center;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+}
+.jui-landscape-orb__sun {
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  height: 16px;
+  width: 16px;
+}
+.jui-landscape-orb__wave {
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+.jui-landscape-orb__wave--mid {
+  height: 48%;
+  z-index: 1;
+}
+.jui-landscape-orb__wave--front {
+  height: 34%;
+  z-index: 2;
+}
+.jui-landscape-orb__glass {
+  background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 70%);
+  border-radius: 50%;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+}
+@media (prefers-reduced-motion: reduce) {
+  .jui-landscape-orb * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

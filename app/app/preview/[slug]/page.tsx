@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { components, getComponent, componentHref } from "@/lib/components";
 import { DemoPreview } from "@/components/catalog/demo-preview";
-import { SiteTheme } from "@/components/catalog/site-theme";
 export function generateStaticParams() {
   return components.map((item) => ({ slug: item.name }));
 }
@@ -30,9 +29,6 @@ export default async function Preview({
         <ArrowLeft size={15} />
         {item.title}
       </Link>
-      <div className="preview-theme">
-        <SiteTheme />
-      </div>
       <DemoPreview name={item.name} />
     </main>
   );

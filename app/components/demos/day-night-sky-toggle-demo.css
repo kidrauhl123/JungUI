@@ -1,0 +1,3 @@
+.demo-day-night-sky { align-items: center; display: flex; flex-direction: column; gap: 24px; }
+.demo-day-night-sky > span { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .25em; text-transform: uppercase; transition: color .6s ease; }
+.component-stage:has(.demo-day-night-sky) { min-height: 320px; }

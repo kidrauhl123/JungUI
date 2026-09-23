@@ -649,6 +649,93 @@
         }
       ],
       "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "day-night-sky-toggle",
+      "title": "天空日夜切换",
+      "description": "玻璃胶囊里的微型天空，在白天与夜晚之间平滑过渡。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/day-night-sky-toggle.css",
+          "type": "registry:file",
+          "target": "@ui/day-night-sky-toggle.css"
+        },
+        {
+          "path": "components/ui/day-night-sky-toggle.tsx",
+          "type": "registry:ui",
+          "target": "@ui/day-night-sky-toggle.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "landscape-orb-toggle",
+      "title": "景观球切换",
+      "description": "圆形玻璃球里的天空与沙丘，在白天和夜晚之间交叉淡化。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/landscape-orb-toggle.css",
+          "type": "registry:file",
+          "target": "@ui/landscape-orb-toggle.css"
+        },
+        {
+          "path": "components/ui/landscape-orb-toggle.tsx",
+          "type": "registry:ui",
+          "target": "@ui/landscape-orb-toggle.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "glass-orb-toggle",
+      "title": "玻璃球切换",
+      "description": "玻璃球体在轨道上滑动，露出 Dark 或 Light。",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/glass-orb-toggle.css",
+          "type": "registry:file",
+          "target": "@ui/glass-orb-toggle.css"
+        },
+        {
+          "path": "components/ui/glass-orb-toggle.tsx",
+          "type": "registry:ui",
+          "target": "@ui/glass-orb-toggle.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
     }
   ]
 }

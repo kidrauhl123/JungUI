@@ -40,6 +40,24 @@ body {
   font-family: var(--font-sans);
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.6s ease,
+    color 0.6s ease;
+}
+.sidebar,
+.site-main,
+.component-stage,
+.gallery-card,
+.mobile-nav,
+.icon-button,
+.install-trigger,
+.install-command,
+.nav-group,
+.guide-page pre {
+  transition:
+    background-color 0.6s ease,
+    color 0.6s ease,
+    border-color 0.6s ease;
 }
 button,
 input,
@@ -1101,6 +1119,7 @@ td small {
   }
   .mobile-nav .wordmark {
     font-size: 18px;
+    flex: 1;
   }
   .mobile-nav summary {
     list-style: none;
@@ -1345,12 +1364,13 @@ td small {
 .sidebar-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 8px;
   margin-bottom: 24px;
   min-height: 35px;
 }
 .sidebar-header .wordmark {
+  flex: 1;
+  min-width: 0;
   font-size: 18px;
   white-space: nowrap;
   overflow: visible;
@@ -1390,6 +1410,9 @@ td small {
 }
 .sidebar[data-collapsed="true"] .sidebar-header {
   gap: 0;
+}
+.sidebar[data-collapsed="true"] .site-theme {
+  display: none;
 }
 .sidebar[data-collapsed="true"] .wordmark {
   width: 0;
@@ -1488,6 +1511,18 @@ td small {
   .nav-group-panel,
   .mobile-navigation-panel,
   .install-command {
+    transition: none;
+  }
+  body,
+  .sidebar,
+  .site-main,
+  .component-stage,
+  .gallery-card,
+  .mobile-nav,
+  .icon-button,
+  .install-trigger,
+  .nav-group,
+  .guide-page pre {
     transition: none;
   }
 }

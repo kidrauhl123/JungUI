@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Maximize, X, Terminal } from "lucide-react";
 import { CopyButton } from "./copy-button";
 import { SourceDialog } from "./source-dialog";
-import { SiteTheme } from "./site-theme";
 import { SITE_URL } from "@/lib/site";
 import type { CatalogItem } from "@/lib/catalog-types";
 const runners = { npm: "npx", pnpm: "pnpm dlx", yarn: "yarn dlx", bun: "bunx" };
@@ -61,7 +60,6 @@ export function InstallToolbar({ item }: { item: CatalogItem }) {
         <Maximize size={19} />
       </a>
       <SourceDialog item={item} />
-      <SiteTheme />
     </div>
   );
 }
