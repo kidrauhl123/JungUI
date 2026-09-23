@@ -225,28 +225,8 @@ nav a.active {
 }
 .gallery-tools {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
+  justify-content: flex-end;
   margin-bottom: 26px;
-}
-.category-filters {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-}
-.category-filters button {
-  background: transparent;
-  border: 0;
-  color: var(--muted);
-  font-size: 12px;
-  padding: 8px 10px;
-  border-radius: 7px;
-}
-.category-filters button[aria-pressed="true"] {
-  background: var(--ink);
-  color: var(--page);
 }
 .search {
   display: flex;
@@ -432,6 +412,18 @@ nav a.active {
   align-items: center;
   min-width: 0;
   gap: 8px;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition:
+    max-width 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.28s ease;
+}
+.install-toolbar.is-open .install-command {
+  max-width: 620px;
+  opacity: 1;
+  pointer-events: auto;
 }
 .install-command select {
   border: 0;
@@ -1156,14 +1148,7 @@ td small {
     padding: 24px 20px 20px;
   }
   .gallery-tools {
-    gap: 18px;
-  }
-  .category-filters {
-    gap: 1px;
-  }
-  .category-filters button {
-    font-size: 11px;
-    padding: 7px 8px;
+    justify-content: stretch;
   }
   .search {
     max-width: 100%;
@@ -1182,15 +1167,6 @@ td small {
   .is-compact .demo-theme {
     width: 220px;
     max-width: 100%;
-  }
-  .is-compact .telegraph-word {
-    padding: 0 10px;
-    min-width: 0;
-    width: 100%;
-    height: 96px;
-  }
-  .is-compact .telegraph-word-text {
-    font-size: 17px;
   }
   .is-compact .demo-card-fan {
     transform: scale(0.8);
@@ -1261,8 +1237,7 @@ td small {
     width: 100%;
     flex-wrap: wrap;
   }
-  .install-command {
-    flex: 1;
+  .install-toolbar.is-open .install-command {
     max-width: calc(100% - 44px);
   }
   .install-command code {
@@ -1531,7 +1506,8 @@ td small {
   .site-main,
   .nav-group-trigger svg,
   .nav-group-panel,
-  .mobile-navigation-panel {
+  .mobile-navigation-panel,
+  .install-command {
     transition: none;
   }
 }

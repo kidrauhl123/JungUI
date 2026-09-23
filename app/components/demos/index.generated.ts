@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import type { ComponentType } from "react";
 import type { DemoProps } from "@/lib/catalog-types";
 export const demos: Record<string, ComponentType<DemoProps>> = {
-  "telegraph-text": dynamic(() => import("./telegraph-text")),
   "theme-toggle": dynamic(() => import("./theme-toggle")),
   "terms-nudge": dynamic(() => import("./terms-nudge")),
   "base-cta-button": dynamic(() => import("./base-cta-button")),

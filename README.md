@@ -26,7 +26,7 @@ npm run test:install  # 在临时 Vite 项目中用真实 shadcn CLI 安装全�
 详情页的 Install 提供如下形式的命令：
 
 ```sh
-npx shadcn@latest add https://jungui-cle.pages.dev/r/telegraph-text.json
+npx shadcn@latest add https://jungui-cle.pages.dev/r/theme-toggle.json
 ```
 
 该命令适用于**包含新版 registry 的部署**。本地预览会自动提供本地站点地址。

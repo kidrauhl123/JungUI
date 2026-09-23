@@ -32,24 +32,23 @@ export function InstallToolbar({ item }: { item: CatalogItem }) {
           </>
         )}
       </button>
-      {open && (
-        <div className="install-command">
-          <label className="visually-hidden" htmlFor="package-manager">
-            包管理器
-          </label>
-          <select
-            id="package-manager"
-            value={manager}
-            onChange={(e) => setManager(e.target.value as keyof typeof runners)}
-          >
-            {Object.keys(runners).map((name) => (
-              <option key={name}>{name}</option>
-            ))}
-          </select>
-          <code title={command}>{command}</code>
-          <CopyButton value={command} label="复制安装命令" />
-        </div>
-      )}
+      <div className="install-command" data-open={open} inert={!open}>
+        <label className="visually-hidden" htmlFor="package-manager">
+          包管理器
+        </label>
+        <select
+          id="package-manager"
+          value={manager}
+          onChange={(e) => setManager(e.target.value as keyof typeof runners)}
+          tabIndex={open ? undefined : -1}
+        >
+          {Object.keys(runners).map((name) => (
+            <option key={name}>{name}</option>
+          ))}
+        </select>
+        <code title={command}>{command}</code>
+        <CopyButton value={command} label="复制安装命令" />
+      </div>
       <span className="toolbar-divider" />
       <a
         className="icon-button"
