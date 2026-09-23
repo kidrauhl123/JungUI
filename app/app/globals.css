@@ -138,13 +138,13 @@ pre {
 .wordmark {
   display: flex;
   align-items: baseline;
-  font-size: 27px;
-  letter-spacing: -1.5px;
-  font-weight: 760;
+  font-size: 18px;
+  letter-spacing: -0.4px;
+  font-weight: 650;
   line-height: 1;
 }
 .wordmark > span:first-child {
-  font-weight: 400;
+  font-weight: 650;
 }
 .wordmark-dot {
   width: 6px;
@@ -163,12 +163,13 @@ pre {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 9px 12px;
+  padding: 8px 12px;
   border-radius: 8px;
-  font-weight: 550;
+  font-size: 13px;
+  font-weight: 560;
 }
 .nav-all span {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--muted);
 }
@@ -176,7 +177,7 @@ pre {
   margin-top: 25px;
 }
 .nav-group p {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   padding: 0 12px;
   margin-bottom: 9px;
@@ -203,7 +204,7 @@ nav a.active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 13px;
 }
 .sidebar-footer > span {
   display: block;
@@ -225,23 +226,8 @@ nav a.active {
 }
 .gallery-tools {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-bottom: 26px;
-}
-.search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--muted);
-  max-width: 180px;
-}
-.search input {
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-  font-size: 12px;
-  width: 140px;
-  padding: 7px 0;
 }
 .gallery-grid {
   display: grid;
@@ -1114,7 +1100,7 @@ td small {
     border-bottom: 1px solid var(--line);
   }
   .mobile-nav .wordmark {
-    font-size: 23px;
+    font-size: 18px;
   }
   .mobile-nav summary {
     list-style: none;
@@ -1148,14 +1134,7 @@ td small {
     padding: 24px 20px 20px;
   }
   .gallery-tools {
-    justify-content: stretch;
-  }
-  .search {
-    max-width: 100%;
-    width: 100%;
-  }
-  .search input {
-    width: 100%;
+    justify-content: flex-start;
   }
   .gallery-grid {
     gap: 23px 15px;
@@ -1372,7 +1351,7 @@ td small {
   min-height: 35px;
 }
 .sidebar-header .wordmark {
-  font-size: 24px;
+  font-size: 18px;
   white-space: nowrap;
   overflow: visible;
   transition:
@@ -1440,7 +1419,8 @@ td small {
   border: 0;
   padding: 0 12px 9px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 560;
   text-align: left;
 }
 .nav-group-trigger:hover {
@@ -1520,6 +1500,7 @@ td small {
   position: absolute;
   top: 22px;
   right: 48px;
+  z-index: 5;
 }
 @media (max-width: 760px) {
   .gallery-page {

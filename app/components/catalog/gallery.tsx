@@ -1,10 +1,19 @@
 "use client";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { Search, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { components, componentHref } from "@/lib/components";
+import { GooeyInput } from "@/components/ui/gooey-input";
+import { THEME_EVENT } from "@/lib/site-theme";
 import { DemoPreview } from "./demo-preview";
+const subscribe = (callback: () => void) => {
+  window.addEventListener(THEME_EVENT, callback);
+  return () => window.removeEventListener(THEME_EVENT, callback);
+};
+const getSnapshot = () => document.documentElement.dataset.theme === "dark";
+const getServerSnapshot = () => true;
 export function Gallery() {
+  const dark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const [query, setQuery] = useState("");
   const filtered = components.filter((item) =>
     `${item.title} ${item.english} ${item.description}`
@@ -14,15 +23,17 @@ export function Gallery() {
   return (
     <>
       <div className="gallery-tools">
-        <label className="search">
-          <Search size={16} />
-          <input
-            aria-label="搜索组件"
-            placeholder="搜索组件…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </label>
+        <GooeyInput
+          theme={dark ? "dark" : "light"}
+          label="搜索"
+          placeholder="搜索组件"
+          aria-label="搜索组件"
+          value={query}
+          onValueChange={setQuery}
+          collapsedWidth={88}
+          expandedWidth={220}
+          expandedOffset={48}
+        />
       </div>
       <div className="gallery-grid">
         {filtered.map((item) => (
@@ -46,7 +57,6 @@ export function Gallery() {
       {filtered.length === 0 && (
         <div className="gallery-empty">
           <h2>还没有匹配的组件</h2>
-          <p>试试其他关键词，或者查看全部组件。</p>
           <button onClick={() => setQuery("")}>查看全部</button>
         </div>
       )}
