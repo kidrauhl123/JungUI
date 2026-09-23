@@ -1,0 +1,42 @@
+{
+  "name": "landscape-orb-toggle",
+  "title": "景观球切换",
+  "english": "Landscape Orb Toggle",
+  "description": "圆形玻璃球里的天空与沙丘，在白天和夜晚之间交叉淡化。",
+  "category": "inputs",
+  "interaction": "点击球体，天空、两层波浪和日月一起过渡。示例接入全站主题。",
+  "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { LandscapeOrbToggle } from \"@/components/ui/landscape-orb-toggle\"\n\nexport function Demo() {\n  const [theme, setTheme] = useState<\"light\" | \"dark\">(\"light\")\n  return <LandscapeOrbToggle value={theme} onValueChange={setTheme} />\n}\n",
+  "props": [
+    {
+      "name": "value",
+      "type": "\"light\" | \"dark\"",
+      "description": "受控主题。不传时组件自己记住状态。"
+    },
+    {
+      "name": "defaultValue",
+      "type": "\"light\" | \"dark\"",
+      "description": "未传 value 时的初始状态。",
+      "default": "\"light\""
+    },
+    {
+      "name": "onValueChange",
+      "type": "(theme: \"light\" | \"dark\") => void",
+      "description": "切换后调用，可用于同步全站主题。"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "附加到按钮的类名。"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "禁用点击。"
+    }
+  ],
+  "credits": [
+    "https://github.com/palakonweb/Rewamp-UI — src/components/ui/LandscapeOrbToggleShowcase.jsx（仓库未声明许可证，按原实现保留）"
+  ],
+  "entry": "components/ui/landscape-orb-toggle.tsx",
+  "order": 102
+}

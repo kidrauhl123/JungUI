@@ -4,13 +4,13 @@
   "english": "Theme toggle",
   "description": "太阳与月亮通过旋转和缩放交替出现的主题按钮。",
   "category": "inputs",
-  "interaction": "点按按钮切换状态。示例背景跟随状态变化。",
+  "interaction": "点按按钮切换全站主题，示例背景跟随状态变化。",
   "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { ThemeToggle } from \"@/components/ui/theme-toggle\"\n\nexport function Demo() {\n  const [theme, setTheme] = useState<\"light\" | \"dark\">(\"light\")\n  return <ThemeToggle value={theme} onValueChange={setTheme} />\n}",
   "props": [
     {
       "name": "value",
       "type": "\"light\" | \"dark\"",
-      "description": "由使用者控制当前主题；组件不会修改整个页面。"
+      "description": "受控主题。示例里接入全站主题。"
     },
     {
       "name": "defaultValue",

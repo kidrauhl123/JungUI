@@ -23,4 +23,7 @@ export const demos: Record<string, ComponentType<DemoProps>> = {
   "preview-sidebar": dynamic(() => import("./preview-sidebar")),
   "promotion-code": dynamic(() => import("./promotion-code")),
   "words-preloader": dynamic(() => import("./words-preloader")),
+  "day-night-sky-toggle": dynamic(() => import("./day-night-sky-toggle")),
+  "landscape-orb-toggle": dynamic(() => import("./landscape-orb-toggle")),
+  "glass-orb-toggle": dynamic(() => import("./glass-orb-toggle")),
 };

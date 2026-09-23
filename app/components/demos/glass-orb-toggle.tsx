@@ -1,7 +1,8 @@
 "use client";
 import { useSyncExternalStore } from "react";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { GlassOrbToggle } from "@/components/ui/glass-orb-toggle";
 import { THEME_EVENT, THEME_KEY } from "@/lib/site-theme";
+import "./glass-orb-toggle-demo.css";
 
 const subscribe = (callback: () => void) => {
   window.addEventListener(THEME_EVENT, callback);
@@ -24,9 +25,9 @@ function setSiteTheme(theme: "light" | "dark") {
 export default function Demo() {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   return (
-    <div className="demo-theme" data-theme={theme}>
-      <span>{theme === "light" ? "Day" : "Night"}</span>
-      <ThemeToggle value={theme} onValueChange={setSiteTheme} />
+    <div className="demo-glass-orb">
+      <span data-theme={theme}>Mode: {theme === "light" ? "Light" : "Dark"}</span>
+      <GlassOrbToggle value={theme} onValueChange={setSiteTheme} />
     </div>
   );
 }

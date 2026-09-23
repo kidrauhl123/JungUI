@@ -11,6 +11,7 @@ import {
   X,
 } from "lucide-react";
 import { categories, components, componentHref } from "@/lib/components";
+import { SiteTheme } from "./site-theme";
 
 function ComponentNavigation() {
   const pathname = usePathname();
@@ -96,6 +97,7 @@ export function Sidebar() {
             Jung<span>UI</span>
             <span className="wordmark-dot" />
           </Link>
+          <SiteTheme />
           <button
             type="button"
             className="sidebar-toggle"
@@ -135,6 +137,7 @@ export function Sidebar() {
         <Link className="wordmark" href="/">
           Jung<span>UI</span>
         </Link>
+        <SiteTheme />
         <button
           ref={mobileButton}
           type="button"

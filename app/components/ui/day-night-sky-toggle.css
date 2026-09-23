@@ -1,0 +1,102 @@
+.jui-sky-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.15),
+    inset 0 -6px 16px rgba(0, 0, 0, 0.35),
+    0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  display: block;
+  height: 92px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 280px;
+}
+.jui-sky-toggle__night,
+.jui-sky-toggle__day,
+.jui-sky-toggle__stars,
+.jui-sky-toggle__birds {
+  inset: 0;
+  position: absolute;
+}
+.jui-sky-toggle__night {
+  background: linear-gradient(to bottom, #0a1330, #131c42);
+}
+.jui-sky-toggle__day {
+  background: linear-gradient(to bottom, #6fa3d8, #a9c9e8);
+}
+.jui-sky-toggle__star {
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 4px #fff;
+  height: 3px;
+  position: absolute;
+  width: 3px;
+}
+.jui-sky-toggle__birds span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  font-weight: 700;
+  position: absolute;
+}
+.jui-sky-toggle__sun,
+.jui-sky-toggle__moon {
+  align-items: center;
+  display: flex;
+  height: 28px;
+  justify-content: center;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  width: 28px;
+}
+.jui-sky-toggle__sun {
+  background: #ffd35c;
+  border-radius: 50%;
+  box-shadow: 0 0 14px 4px rgba(255, 211, 92, 0.7);
+  height: 20px;
+  left: 28px;
+  width: 20px;
+}
+.jui-sky-toggle__moon {
+  color: #f4f1e6;
+  filter: drop-shadow(0 0 8px rgba(244, 241, 230, 0.6));
+  right: 24px;
+}
+.jui-sky-toggle__clouds {
+  align-items: flex-end;
+  bottom: 12px;
+  display: flex;
+  gap: 8px;
+  height: 24px;
+  justify-content: center;
+  left: 0;
+  padding: 0 32px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+.jui-sky-toggle__clouds span {
+  border-radius: 999px;
+  display: block;
+}
+.jui-sky-toggle__orb {
+  background: radial-gradient(circle at 35% 30%, #fff, #eef3fb 60%, #d8e4f4);
+  border-radius: 50%;
+  height: 62px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  width: 62px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .jui-sky-toggle * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

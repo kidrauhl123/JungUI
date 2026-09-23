@@ -1,0 +1,42 @@
+{
+  "name": "glass-orb-toggle",
+  "title": "玻璃球切换",
+  "english": "Glass Orb Toggle",
+  "description": "玻璃球体在轨道上滑动，露出 Dark 或 Light。",
+  "category": "inputs",
+  "interaction": "点击轨道，玻璃球弹簧滑到另一侧，内部的月亮与太阳交叉淡化。示例接入全站主题。",
+  "usage": "\"use client\"\nimport { useState } from \"react\"\nimport { GlassOrbToggle } from \"@/components/ui/glass-orb-toggle\"\n\nexport function Demo() {\n  const [theme, setTheme] = useState<\"light\" | \"dark\">(\"light\")\n  return <GlassOrbToggle value={theme} onValueChange={setTheme} />\n}\n",
+  "props": [
+    {
+      "name": "value",
+      "type": "\"light\" | \"dark\"",
+      "description": "受控主题。不传时组件自己记住状态。"
+    },
+    {
+      "name": "defaultValue",
+      "type": "\"light\" | \"dark\"",
+      "description": "未传 value 时的初始状态。",
+      "default": "\"light\""
+    },
+    {
+      "name": "onValueChange",
+      "type": "(theme: \"light\" | \"dark\") => void",
+      "description": "切换后调用，可用于同步全站主题。"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "附加到外层的类名。"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "禁用点击。"
+    }
+  ],
+  "credits": [
+    "https://github.com/palakonweb/Rewamp-UI — src/components/ui/GlassOrbToggle.tsx（仓库未声明许可证，按原实现保留）"
+  ],
+  "entry": "components/ui/glass-orb-toggle.tsx",
+  "order": 103
+}
