@@ -2,38 +2,18 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Search, ArrowUpRight } from "lucide-react";
-import { categories, components, componentHref } from "@/lib/components";
+import { components, componentHref } from "@/lib/components";
 import { DemoPreview } from "./demo-preview";
 export function Gallery() {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("all");
-  const filtered = components.filter(
-    (item) =>
-      (category === "all" || item.category === category) &&
-      `${item.title} ${item.english} ${item.description}`
-        .toLowerCase()
-        .includes(query.toLowerCase()),
+  const filtered = components.filter((item) =>
+    `${item.title} ${item.english} ${item.description}`
+      .toLowerCase()
+      .includes(query.toLowerCase()),
   );
   return (
     <>
       <div className="gallery-tools">
-        <div className="category-filters" aria-label="组件分类">
-          <button
-            aria-pressed={category === "all"}
-            onClick={() => setCategory("all")}
-          >
-            全部
-          </button>
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              aria-pressed={category === cat.id}
-              onClick={() => setCategory(cat.id)}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
         <label className="search">
           <Search size={16} />
           <input
@@ -67,14 +47,7 @@ export function Gallery() {
         <div className="gallery-empty">
           <h2>还没有匹配的组件</h2>
           <p>试试其他关键词，或者查看全部组件。</p>
-          <button
-            onClick={() => {
-              setQuery("");
-              setCategory("all");
-            }}
-          >
-            查看全部
-          </button>
+          <button onClick={() => setQuery("")}>查看全部</button>
         </div>
       )}
     </>

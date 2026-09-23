@@ -8,7 +8,6 @@ const subscribe = (callback: () => void) => { window.addEventListener(THEME_EVEN
 const getSnapshot = () => document.documentElement.dataset.theme === "dark";
 const getServerSnapshot = () => true;
 const entries = [
-  ["telegraph", "Telegraph Text", "文字动效", "Aa"],
   ["theme", "Theme Toggle", "按钮与输入", "◐"],
   ["nudge", "Nudge Instead", "交互反馈", "↔"],
   ["button", "Elastic Button", "按钮与输入", "↗"],
