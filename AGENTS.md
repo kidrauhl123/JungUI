@@ -1,6 +1,6 @@
 # JungUI
 
-Read `CONVENTIONS.md` and `CONTRIBUTING.md` before changing components or their docs. See `docs/architecture.md` for boundaries.
+Read `CONVENTIONS.md` and `CONTRIBUTING.md` before changing components or their docs. See `docs/architecture.md` for boundaries. When building UI, follow `skills/jungui/SKILL.md`.
 
 The user's intended product is a Rare UI-style component library: reusable React components, separate demos, explicit props, and working source-code installation. Do not revert it to an iframe collection or accept visual reproduction alone as completion.
 
