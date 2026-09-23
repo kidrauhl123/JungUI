@@ -1,0 +1,10 @@
+.demo-liquid-cursor { width: 100%; height: 460px; border-radius: 24px; }
+.demo-liquid-cursor[data-compact="true"] { height: 278px; }
+.demo-liquid-cursor__copy { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; height: 100%; color: #fff; text-align: center; }
+.demo-liquid-cursor__copy span { font-size: 12px; letter-spacing: .04em; opacity: .8; }
+.demo-liquid-cursor__copy strong { max-width: 420px; font-size: clamp(20px, 3vw, 30px); font-weight: 600; letter-spacing: -.015em; line-height: 1.25; }
+.demo-liquid-cursor__copy div { display: flex; gap: 10px; }
+.demo-liquid-cursor__copy button { border: 0; border-radius: 12px; cursor: pointer; font: 600 13px/1 inherit; padding: 8px 20px; }
+.demo-liquid-cursor__copy button:first-child { background: #fff; color: #000; }
+.demo-liquid-cursor__copy button:last-child { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.1); color: #fff; }
+.component-stage:has(.demo-liquid-cursor) { padding: 28px; }
