@@ -33,7 +33,8 @@
     }
   ],
   "credits": [
-    "视觉参考：Spotify Premium 购买完成页，2026-10 主人描述。未见源码，独立实现，按钮文案待确认。"
+    "画面来自 2026-10 主人对 Spotify Premium 购买完成页的口述，未见源码，独立实现。",
+    "字体顺序和按钮文案对照 https://developer.spotify.com/documentation/design ：平台默认无衬线，其次 Helvetica Neue、Helvetica、Arial；已安装客户端的链接文案用 OPEN SPOTIFY。没有搬官方 logo。"
   ],
   "order": 101
 }

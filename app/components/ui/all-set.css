@@ -14,7 +14,7 @@
   overflow: hidden;
   background: var(--all-set-paper);
   color: var(--all-set-ink);
-  font-family: "Circular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .jui-all-set-burst {
@@ -29,12 +29,12 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  max-width: 16ch;
+  max-width: 12ch;
   color: var(--all-set-ink);
-  font-size: clamp(40px, 7vw, 84px);
+  font-size: clamp(44px, 8vw, 92px);
   font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.95;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   text-align: center;
   text-wrap: balance;
 }
@@ -48,16 +48,15 @@
 .jui-all-set-action {
   position: relative;
   z-index: 1;
-  min-width: 180px;
   border: 0;
   border-radius: 999px;
-  padding: 14px 32px;
+  padding: 16px 32px;
   background: var(--all-set-ink);
   color: var(--all-set-paper);
   font: inherit;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   line-height: 1;
   text-transform: uppercase;
   cursor: pointer;
