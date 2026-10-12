@@ -1436,6 +1436,57 @@
     ]
   },
   {
+    "name": "all-set",
+    "title": "都准备好了",
+    "english": "All set",
+    "category": "feedback",
+    "entry": "components/ui/all-set.tsx",
+    "previewMode": "page",
+    "description": "白底完成页：标题逐字从左进入，同时撒彩纸，底下是黑底白字按钮。",
+    "interaction": "进入时标题从左到右逐字出现，彩纸从中间和两侧喷出。按钮随后淡入。点击按钮会清掉彩纸并触发 onAction。Replay 只在演示里。尊重减少动态效果。",
+    "usage": "import { AllSet } from \"@/components/ui/all-set\"\n\nexport function Demo() {\n  return <AllSet title=\"You're all set\" actionLabel=\"Open Spotify\" onAction={() => console.log(\"open\")} />\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "description": "逐字出现的标题。",
+        "default": "\"You're all set\""
+      },
+      {
+        "name": "actionLabel",
+        "type": "string",
+        "description": "按钮文字。",
+        "default": "\"Open Spotify\""
+      },
+      {
+        "name": "onAction",
+        "type": "() => void",
+        "description": "点击按钮。"
+      },
+      {
+        "name": "replayKey",
+        "type": "string | number",
+        "description": "改变后重播标题和彩纸。"
+      }
+    ],
+    "credits": [
+      "视觉参考：Spotify Premium 购买完成页，2026-10 主人描述。未见源码，独立实现，按钮文案待确认。"
+    ],
+    "order": 101,
+    "files": [
+      "components/ui/all-set.css",
+      "components/ui/all-set.tsx",
+      "lib/utils.ts"
+    ],
+    "dependencies": [
+      "@types/canvas-confetti",
+      "canvas-confetti",
+      "clsx",
+      "motion",
+      "tailwind-merge"
+    ]
+  },
+  {
     "name": "day-night-sky-toggle",
     "title": "天空日夜切换",
     "english": "Day Night Sky Toggle",

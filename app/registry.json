@@ -652,6 +652,37 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "all-set",
+      "title": "都准备好了",
+      "description": "白底完成页：标题逐字从左进入，同时撒彩纸，底下是黑底白字按钮。",
+      "dependencies": [
+        "@types/canvas-confetti@^1.9.0",
+        "canvas-confetti@^1.9.4",
+        "clsx@^2.1.1",
+        "motion@^12.40.0",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "components/ui/all-set.css",
+          "type": "registry:file",
+          "target": "@ui/all-set.css"
+        },
+        {
+          "path": "components/ui/all-set.tsx",
+          "type": "registry:ui",
+          "target": "@ui/all-set.tsx"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "day-night-sky-toggle",
       "title": "天空日夜切换",
       "description": "玻璃胶囊里的微型天空，在白天与夜晚之间平滑过渡。",
