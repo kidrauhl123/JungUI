@@ -2,6 +2,7 @@
   --all-set-ink: #191414;
   --all-set-paper: #ffffff;
   --all-set-reveal: 1500ms;
+  --all-set-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
   isolation: isolate;
   display: grid;
@@ -29,18 +30,44 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  max-width: 14ch;
-  color: transparent;
-  background: linear-gradient(var(--all-set-ink), var(--all-set-ink)) 0 0 / 0 100% no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
+  max-width: 16ch;
+  font-family: var(--all-set-font);
   font-size: clamp(36px, 6.4vw, 76px);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
   text-align: center;
   text-wrap: balance;
+}
+
+.jui-all-set[data-motion="wipe"] .jui-all-set-title {
+  color: transparent;
+  background: linear-gradient(var(--all-set-ink), var(--all-set-ink)) 0 0 / 0 100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
   animation: jui-all-set-reveal var(--all-set-reveal) linear both;
+}
+
+.jui-all-set-write {
+  display: block;
+  width: min(92vw, 760px);
+  height: auto;
+  overflow: visible;
+  font-family: var(--all-set-font);
+  font-size: 104px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.jui-all-set-stroke {
+  fill: transparent;
+  stroke: var(--all-set-ink);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: jui-all-set-write 1.05s ease forwards;
 }
 
 .jui-all-set-action {
@@ -76,9 +103,30 @@
   outline-offset: 4px;
 }
 
+.jui-all-set-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @keyframes jui-all-set-reveal {
   to {
     background-size: 100% 100%;
+  }
+}
+
+@keyframes jui-all-set-write {
+  70% {
+    fill: transparent;
+  }
+  to {
+    stroke-dashoffset: 0;
+    fill: var(--all-set-ink);
   }
 }
 
@@ -89,10 +137,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .jui-all-set-title {
+  .jui-all-set[data-motion="wipe"] .jui-all-set-title {
     animation: none;
     color: var(--all-set-ink);
     background: none;
+  }
+
+  .jui-all-set-stroke {
+    animation: none;
+    stroke-dashoffset: 0;
+    fill: var(--all-set-ink);
   }
 
   .jui-all-set-action {
