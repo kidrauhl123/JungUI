@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --page: #f6f7f9;
-  --surface: #fff;
-  --stage: #fff;
+  --page: #ffffff;
+  --surface: #ffffff;
+  --stage: #ffffff;
   --ink: #151719;
   --muted: #6b7078;
   --line: #e2e5e9;
@@ -13,8 +13,8 @@
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --page: #101214;
-  --surface: #191c1f;
+  --page: #000000;
+  --surface: #000000;
   --stage: #000000;
   --ink: #f3f5f6;
   --muted: #9da4ac;
@@ -737,8 +737,8 @@ td small {
   height: 200px;
   border-radius: 24px;
   border: 1px solid #0000000d;
-  background: white;
-  color: #777;
+  background: var(--page);
+  color: var(--ink);
   box-shadow:
     0 2px 6px #14182814,
     0 18px 40px #14182814;
@@ -747,8 +747,8 @@ td small {
   transition: background 0.35s;
 }
 .demo-theme[data-theme="dark"] {
-  background: black;
-  color: #aaa;
+  background: var(--page);
+  color: var(--ink);
 }
 .demo-theme > span {
   font-size: 13px;
