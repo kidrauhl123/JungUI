@@ -7,10 +7,10 @@ import "./all-set-demo.css";
 
 export default function Demo({ compact }: DemoProps) {
   const [play, setPlay] = useState(0);
-  if (compact) return <AllSet title="You're all set" actionLabel="Open Spotify" />;
+  if (compact) return <AllSet title="You're all set" actionLabel="Open JungUI" />;
   return (
     <div className="demo-all-set">
-      <AllSet key={play} actionLabel="Open Spotify" />
+      <AllSet key={play} actionLabel="Open JungUI" />
       <button type="button" className="demo-all-set-replay" onClick={() => setPlay((value) => value + 1)}>
         Replay
       </button>

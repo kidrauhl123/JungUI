@@ -1,7 +1,7 @@
 .jui-all-set {
   --all-set-ink: #191414;
   --all-set-paper: #ffffff;
-  --all-set-step: 42ms;
+  --all-set-reveal: 1500ms;
   position: relative;
   isolation: isolate;
   display: grid;
@@ -29,20 +29,18 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  max-width: 12ch;
-  color: var(--all-set-ink);
-  font-size: clamp(44px, 8vw, 92px);
+  max-width: 14ch;
+  color: transparent;
+  background: linear-gradient(var(--all-set-ink), var(--all-set-ink)) 0 0 / 0 100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: clamp(36px, 6.4vw, 76px);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
   text-align: center;
   text-wrap: balance;
-}
-
-.jui-all-set-letter {
-  display: inline-block;
-  animation: jui-all-set-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(var(--i) * var(--all-set-step));
+  animation: jui-all-set-reveal var(--all-set-reveal) linear both;
 }
 
 .jui-all-set-action {
@@ -61,9 +59,8 @@
   text-transform: uppercase;
   cursor: pointer;
   opacity: 0;
-  transform: translateY(10px);
-  animation: jui-all-set-action 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc((var(--all-set-count) - 1) * var(--all-set-step) + 180ms);
+  animation: jui-all-set-action 480ms ease both;
+  animation-delay: calc(var(--all-set-reveal) + 120ms);
 }
 
 .jui-all-set-action:hover {
@@ -79,29 +76,27 @@
   outline-offset: 4px;
 }
 
-@keyframes jui-all-set-in {
-  from {
-    opacity: 0;
-    transform: translateX(-0.35em);
-  }
+@keyframes jui-all-set-reveal {
   to {
-    opacity: 1;
-    transform: none;
+    background-size: 100% 100%;
   }
 }
 
 @keyframes jui-all-set-action {
   to {
     opacity: 1;
-    transform: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .jui-all-set-letter,
+  .jui-all-set-title {
+    animation: none;
+    color: var(--all-set-ink);
+    background: none;
+  }
+
   .jui-all-set-action {
     animation: none;
     opacity: 1;
-    transform: none;
   }
 }

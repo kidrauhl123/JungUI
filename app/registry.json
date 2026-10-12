@@ -654,7 +654,7 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "all-set",
       "title": "都准备好了",
-      "description": "白底完成页：标题逐字从左进入，同时撒彩纸，底下是黑底白字按钮。",
+      "description": "白底完成页：标题从左向右平滑揭开，同时撒彩纸，底下是黑底白字按钮。",
       "dependencies": [
         "@types/canvas-confetti@^1.9.0",
         "canvas-confetti@^1.9.4",

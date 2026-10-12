@@ -1442,21 +1442,21 @@
     "category": "feedback",
     "entry": "components/ui/all-set.tsx",
     "previewMode": "page",
-    "description": "白底完成页：标题逐字从左进入，同时撒彩纸，底下是黑底白字按钮。",
-    "interaction": "进入时标题从左到右逐字出现，彩纸从中间和两侧喷出。按钮随后淡入。点击按钮会清掉彩纸并触发 onAction。Replay 只在演示里。尊重减少动态效果。",
-    "usage": "import { AllSet } from \"@/components/ui/all-set\"\n\nexport function Demo() {\n  return <AllSet title=\"You're all set\" actionLabel=\"Open Spotify\" onAction={() => console.log(\"open\")} />\n}",
+    "description": "白底完成页：标题从左向右平滑揭开，同时撒彩纸，底下是黑底白字按钮。",
+    "interaction": "进入时整句标题固定在原位，约 1.5 秒从左向右揭开，没有逐字位移。彩纸同时喷出。按钮随后淡入。点击按钮会清掉彩纸并触发 onAction。Replay 只在演示里。尊重减少动态效果。",
+    "usage": "import { AllSet } from \"@/components/ui/all-set\"\n\nexport function Demo() {\n  return <AllSet title=\"You're all set\" actionLabel=\"Open JungUI\" onAction={() => console.log(\"open\")} />\n}",
     "props": [
       {
         "name": "title",
         "type": "string",
-        "description": "逐字出现的标题。",
+        "description": "从左向右揭开的标题。",
         "default": "\"You're all set\""
       },
       {
         "name": "actionLabel",
         "type": "string",
         "description": "按钮文字。",
-        "default": "\"Open Spotify\""
+        "default": "\"Open JungUI\""
       },
       {
         "name": "onAction",

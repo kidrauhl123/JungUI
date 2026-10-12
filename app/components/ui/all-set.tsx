@@ -5,7 +5,6 @@ import {
   useRef,
   useState,
   type ComponentProps,
-  type CSSProperties,
 } from "react";
 import confetti from "canvas-confetti";
 import { useReducedMotion } from "motion/react";
@@ -24,7 +23,7 @@ const palette = ["#1ed760", "#1db954", "#191414", "#b3b3b3", "#ffffff", "#535353
 
 export function AllSet({
   title = "You're all set",
-  actionLabel = "Open Spotify",
+  actionLabel = "Open JungUI",
   replayKey,
   onAction,
   className,
@@ -44,14 +43,13 @@ export function AllSet({
 
 function AllSetRun({
   title = "You're all set",
-  actionLabel = "Open Spotify",
+  actionLabel = "Open JungUI",
   onAction,
   className,
   style,
   ...props
 }: AllSetProps) {
   const reduced = useReducedMotion();
-  const letters = [...title];
   const stage = useRef<HTMLElement>(null);
   const burst = useRef<ReturnType<typeof confetti.create> | null>(null);
   const timers = useRef<number[]>([]);
@@ -124,10 +122,10 @@ function AllSetRun({
   }, [reduced]);
 
   useEffect(() => {
-    const delay = reduced ? 0 : Math.max(0, letters.length - 1) * 42 + 420;
+    const delay = reduced ? 0 : 1680;
     const id = window.setTimeout(() => setReady(true), delay);
     return () => window.clearTimeout(id);
-  }, [letters.length, reduced]);
+  }, [reduced]);
 
   return (
     <section
@@ -136,20 +134,10 @@ function AllSetRun({
       data-slot="all-set"
       data-ready={ready || undefined}
       className={cn("jui-all-set", className)}
-      style={{ "--all-set-count": letters.length, ...style } as CSSProperties}
+      style={style}
     >
       <canvas className="jui-all-set-burst" aria-hidden="true" />
-      <h1 className="jui-all-set-title">
-        {letters.map((letter, index) => (
-          <span
-            key={`${letter}-${index}`}
-            className="jui-all-set-letter"
-            style={{ "--i": index } as CSSProperties}
-          >
-            {letter === " " ? "\u00a0" : letter}
-          </span>
-        ))}
-      </h1>
+      <h1 className="jui-all-set-title">{title}</h1>
       <button
         type="button"
         className="jui-all-set-action"
