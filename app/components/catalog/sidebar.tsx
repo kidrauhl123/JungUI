@@ -98,6 +98,24 @@ export function Sidebar() {
             <span className="wordmark-dot" />
           </Link>
           <SiteTheme />
+          <a
+            className="icon-button"
+            href="https://github.com/kidrauhl123/JungUI"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="GitHub 仓库"
+            title="GitHub 仓库"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 19 19"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <use href="/icons.svg#github-icon" />
+            </svg>
+          </a>
           <button
             type="button"
             className="sidebar-toggle"
@@ -138,6 +156,24 @@ export function Sidebar() {
           Jung<span>UI</span>
         </Link>
         <SiteTheme />
+        <a
+          className="icon-button"
+          href="https://github.com/kidrauhl123/JungUI"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="GitHub 仓库"
+          title="GitHub 仓库"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 19 19"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <use href="/icons.svg#github-icon" />
+          </svg>
+        </a>
         <button
           ref={mobileButton}
           type="button"

@@ -1411,7 +1411,8 @@ td small {
 .sidebar[data-collapsed="true"] .sidebar-header {
   gap: 0;
 }
-.sidebar[data-collapsed="true"] .site-theme {
+.sidebar[data-collapsed="true"] .site-theme,
+.sidebar[data-collapsed="true"] .sidebar-header a.icon-button {
   display: none;
 }
 .sidebar[data-collapsed="true"] .wordmark {
